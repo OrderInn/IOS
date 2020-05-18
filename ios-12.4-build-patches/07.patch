@@ -1,0 +1,24 @@
+--- Pods/FirebaseUI/EmailAuth/FirebaseEmailAuthUI/FUIPasswordSignInViewController.m	2020-05-18 21:09:29.000000000 +0300
++++ -	2020-05-18 21:45:49.000000000 +0300
+@@ -113,7 +113,9 @@
+   [self enableDynamicCellHeightForTableView:_tableView];
+   
+   if (@available(iOS 13.0, *)) {
++#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+     _tableView.backgroundColor = [UIColor systemBackgroundColor];
++#endif
+   }
+ }
+ 
+@@ -135,9 +137,11 @@
+                                     action:nil];
+ 
+     if (@available(iOS 13, *)) {
++#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+       if (!self.authUI.isInteractiveDismissEnabled) {
+         self.modalInPresentation = YES;
+       }
++#endif
+     }
+   }
+ }

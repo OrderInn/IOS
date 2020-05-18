@@ -1,0 +1,12 @@
+--- Pods/AppAuth/Source/iOS/OIDExternalUserAgentIOSCustomBrowser.h	2020-05-18 20:42:08.000000000 +0300
++++ -	2020-05-18 20:43:43.000000000 +0300
+@@ -35,7 +35,9 @@
+         for browsers that require other modifications to the URL.  If the browser is not installed
+         the user will be prompted to install it.
+  */
++#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+ API_UNAVAILABLE(macCatalyst)
++#endif
+ @interface OIDExternalUserAgentIOSCustomBrowser : NSObject<OIDExternalUserAgent>
+ 
+ /*! @brief URL transformation block for the browser.

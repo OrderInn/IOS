@@ -60,7 +60,7 @@ class LoginOpcijasViewController: UIViewController {
             }
             else{
                 
-                let cameraView = self.storyboard?.instantiateViewController(identifier: Constance.Storyboards.cameraViewController) as? CameraViewController
+                let cameraView = self.storyboard?.instantiateViewController(withIdentifier: Constance.Storyboards.cameraViewController) as? CameraViewController
                 self.view.window?.rootViewController = cameraView
                 self.view.window?.makeKeyAndVisible()
                 

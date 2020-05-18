@@ -1,0 +1,13 @@
+--- Pods/FirebaseUI/EmailAuth/FirebaseEmailAuthUI/FUIPasswordRecoveryViewController.m	2020-05-18 21:09:29.000000000 +0300
++++ -	2020-05-18 21:47:23.000000000 +0300
+@@ -96,8 +96,10 @@
+   [self enableDynamicCellHeightForTableView:_tableView];
+   
+   if (@available(iOS 13.0, *)) {
++#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+     _tableView.backgroundColor = [UIColor systemBackgroundColor];
+     self.footerTextView.textColor = [UIColor secondaryLabelColor];
++#endif
+   }
+ }
+ 

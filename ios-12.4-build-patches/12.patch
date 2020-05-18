@@ -1,0 +1,14 @@
+--- Pods/FirebaseUI/Auth/FirebaseAuthUI/FUIAuthPickerViewController.m	2020-05-18 21:09:29.000000000 +0300
++++ -	2020-05-18 21:51:43.000000000 +0300
+@@ -106,9 +106,11 @@
+     self.navigationItem.leftBarButtonItem = cancelBarButton;
+   }
+   if (@available(iOS 13, *)) {
++#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+     if (!self.authUI.interactiveDismissEnabled) {
+       self.modalInPresentation = YES;
+     }
++#endif
+   }
+ 
+   self.navigationItem.backBarButtonItem =

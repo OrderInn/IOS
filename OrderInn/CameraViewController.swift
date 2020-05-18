@@ -230,7 +230,7 @@ extension CameraViewController{
            
         })
         
-        let newVC = storyboard?.instantiateViewController(identifier: "MenuStoryboard")
+        let newVC = storyboard?.instantiateViewController(withIdentifier: "MenuStoryboard")
         view.window?.rootViewController = newVC
         view.window?.makeKeyAndVisible()
         

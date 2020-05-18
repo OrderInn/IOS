@@ -1,0 +1,13 @@
+--- Pods/FirebaseUI/Auth/FirebaseAuthUI/FUIPrivacyAndTermsOfServiceView.m	2020-05-18 21:09:29.000000000 +0300
++++ -	2020-05-18 21:44:23.000000000 +0300
+@@ -63,8 +63,10 @@
+   NSMutableAttributedString *attributedLinkText = nil;
+     
+   if (@available(iOS 13.0, *)) {
++#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+     attributedLinkText = [[NSMutableAttributedString alloc] initWithString:privacyPolicyAndTOSString
+                                                                 attributes:@{NSForegroundColorAttributeName: [UIColor labelColor]}];
++#endif
+   } else {
+     attributedLinkText = [[NSMutableAttributedString alloc] initWithString:privacyPolicyAndTOSString];
+   }

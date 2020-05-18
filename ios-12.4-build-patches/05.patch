@@ -1,0 +1,14 @@
+--- Pods/FirebaseUI/EmailAuth/FirebaseEmailAuthUI/FUIPasswordSignUpViewController.m	2020-05-18 21:09:29.000000000 +0300
++++ -	2020-05-18 21:34:29.000000000 +0300
+@@ -128,9 +128,11 @@
+ 
+   [self enableDynamicCellHeightForTableView:_tableView];
+   
++#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+   if (@available(iOS 13.0, *)) {
+     _tableView.backgroundColor = [UIColor systemBackgroundColor];
+   }
++#endif
+ }
+ 
+ - (void)viewDidLayoutSubviews {

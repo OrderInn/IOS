@@ -1,0 +1,15 @@
+--- Pods/AppAuth/Source/iOS/OIDAuthState+IOS.h	2020-05-18 20:33:58.000000000 +0300
++++ -	2020-05-18 20:52:52.000000000 +0300
+@@ -48,7 +48,11 @@
+ 
+ + (id<OIDExternalUserAgentSession>)
+     authStateByPresentingAuthorizationRequest:(OIDAuthorizationRequest *)authorizationRequest
+-                     callback:(OIDAuthStateAuthorizationCallback)callback API_AVAILABLE(ios(11)) API_UNAVAILABLE(macCatalyst)
++                     callback:(OIDAuthStateAuthorizationCallback)callback
++                     API_AVAILABLE(ios(11))
++#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
++                     API_UNAVAILABLE(macCatalyst)
++#endif
+     __deprecated_msg("This method will not work on iOS 13. Use "
+         "authStateByPresentingAuthorizationRequest:presentingViewController:callback:");
+ 

@@ -146,7 +146,7 @@ class SignUpViewController: UIViewController {
     
     func moveToCamera() {
         
-        let cameraViewController = storyboard?.instantiateViewController(identifier: Constance.Storyboards.cameraViewController) as? CameraViewController
+        let cameraViewController = storyboard?.instantiateViewController(withIdentifier: Constance.Storyboards.cameraViewController) as? CameraViewController
         
         view.window?.rootViewController = cameraViewController
         view.window?.makeKeyAndVisible()
@@ -156,7 +156,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func cancelPogaNospiesta(_ sender: Any) {
         
-        let startWindow = storyboard?.instantiateViewController(identifier: "LoginStoryboard") as? ViewController
+        let startWindow = storyboard?.instantiateViewController(withIdentifier: "LoginStoryboard") as? ViewController
         view.window?.rootViewController = startWindow
         view.window?.makeKeyAndVisible()
         
