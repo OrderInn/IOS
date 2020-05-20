@@ -9,22 +9,22 @@
 import UIKit
 import AVFoundation
 import FirebaseDatabase
+import SwiftUI
 
-
-public class CameraViewController: UIViewController {
+open class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var resturountText: UILabel!
     @IBOutlet weak var QRView: UIView!
     @IBOutlet var popUpView: UIView!
-    @IBOutlet var blureView: UIVisualEffectView!
+    @IBOutlet weak var QRlabel: UILabel!
     
     //MARK: Variables
-    
     let session: AVCaptureSession = AVCaptureSession()
     let metadataOutput:AVCaptureMetadataOutput = AVCaptureMetadataOutput()
     var succes: Bool = true
     var lable: UILabel!
     var image: UIImageView!
+    public var outputString: String?
     
     //MARK: VC lifecycle methods
     
@@ -34,9 +34,10 @@ public class CameraViewController: UIViewController {
         popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.9, height: self.view.bounds.height * 0.6)
     }
     
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        image.layer.removeAllAnimations()
+        viewDidAppearSetup()
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
@@ -52,13 +53,15 @@ public class CameraViewController: UIViewController {
     }
     
     fileprivate func viewDidAppearSetup(){
+        outputCheck()
         runSession()
         animateCorners()
         self.navigationController?.navigationBar.isHidden = true
+        
     }
     
     //MARK: Camera setup session
-    func sessionSetup(){
+    public func sessionSetup(){
         guard let device = AVCaptureDevice.default(for: .video) else { errorAlert("No Camera detected"); return }
         
         session.sessionPreset = AVCaptureSession.Preset.high
@@ -71,8 +74,9 @@ public class CameraViewController: UIViewController {
         view.layer.addSublayer(previewLayer)
         
         session.startRunning()
-        
+    }
         //MARK: Check if camera video can be displayd
+        func outputCheck(){
         if session.canAddOutput(metadataOutput){
             session.addOutput(metadataOutput)
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
@@ -90,12 +94,8 @@ public class CameraViewController: UIViewController {
     
     //MARK: - POP window start
     @IBAction func Continue(_ sender: Any) {
-    
-        animateOut(desiredView: blureView)
-        animateOut(desiredView: popUpView)
-        
-        
-    }
+    animateOut(desiredView: popUpView)
+        }
     //MARK: - POP UP window end
     
     //MARK: UI setup
@@ -158,27 +158,33 @@ public class CameraViewController: UIViewController {
         image.layer.add(animation, forKey: "animate")
     }
     //MARK: - End of UI setUp
-}
-
-//MARK: DelegateMetods
-extension CameraViewController: AVCaptureMetadataOutputObjectsDelegate{
     
-    //returns Metadata as String
-    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        if metadataObjects.first != nil{
-            
-            guard let readableObject = metadataObjects[0] as? AVMetadataMachineReadableCodeObject else {return}
-            guard let outputString = readableObject.stringValue else{return}
-            DispatchQueue.main.async {
-                print(outputString)
-                self.animatedIn(desiredView: self.popUpView)
+    
+    //MARK: - QR Scanner
+//returns Metadata as String
+        public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+            if metadataObjects.first != nil{
+                
+                guard let metadataObj = metadataObjects[0] as? AVMetadataMachineReadableCodeObject else {return}
+                guard let outputString = metadataObj.stringValue  else {return}
+                DispatchQueue.main.async {
+                    AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+                    print(outputString)
+                    self.animatedIn(desiredView: self.popUpView)
+                    
+                    }
+                }
+            session.stopRunning()
             }
+    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destVC = segue.destination as? MenuViewController{
+            destVC.qrString = outputString
         }
-        session.stopRunning()
-        
     }
 }
 
+
+    //MARK: - QRScanner end
 
 //Alert shown when qr scan fails
 extension CameraViewController{
@@ -192,13 +198,14 @@ extension CameraViewController{
         
     }
     
+    
+    
     //MARK: - Pop UP window config
     func animatedIn(desiredView: UIView){
         
         let background = self.view!
         
         //Pievienot view pie ekrāna
-        
         background.addSubview(desiredView)
         
         //Uzliek view scaling uz 120%
@@ -213,7 +220,6 @@ extension CameraViewController{
             desiredView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             
             desiredView.alpha = 1
-            
         }
     }
     func animateOut(desiredView: UIView){
@@ -233,9 +239,5 @@ extension CameraViewController{
         let newVC = storyboard?.instantiateViewController(identifier: "MenuStoryboard")
         view.window?.rootViewController = newVC
         view.window?.makeKeyAndVisible()
-        
     }
-    
-    
-    
 }

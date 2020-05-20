@@ -226,11 +226,23 @@
                                 <rect key="frame" x="87" y="339" width="250" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scann QR code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8L-mk-no7">
+                                <rect key="frame" x="76.5" y="166" width="261" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="o60-rq-jdv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6QN-iW-PLU" firstAttribute="top" secondItem="ZUV-t0-bph" secondAttribute="top" constant="295" id="4dS-Jf-rTA"/>
+                            <constraint firstItem="J8L-mk-no7" firstAttribute="top" secondItem="ZUV-t0-bph" secondAttribute="top" constant="122" id="E1G-Ca-kCE"/>
                             <constraint firstItem="6QN-iW-PLU" firstAttribute="leading" secondItem="ZUV-t0-bph" secondAttribute="leading" constant="87" id="Ijc-HU-NyY"/>
+                            <constraint firstItem="J8L-mk-no7" firstAttribute="leading" secondItem="ZUV-t0-bph" secondAttribute="leading" constant="76.5" id="VjU-77-isu"/>
+                            <constraint firstItem="J8L-mk-no7" firstAttribute="centerX" secondItem="gOH-mo-hMI" secondAttribute="centerX" id="ZEI-SM-duc"/>
                             <constraint firstItem="6QN-iW-PLU" firstAttribute="centerY" secondItem="gOH-mo-hMI" secondAttribute="centerY" constant="16" id="aZP-y4-y9o"/>
                             <constraint firstItem="6QN-iW-PLU" firstAttribute="centerX" secondItem="gOH-mo-hMI" secondAttribute="centerX" constant="5" id="ozO-YF-d91"/>
                         </constraints>
@@ -238,21 +250,12 @@
                     </view>
                     <connections>
                         <outlet property="QRView" destination="6QN-iW-PLU" id="meW-Il-9nh"/>
-                        <outlet property="blureView" destination="UIJ-97-lTK" id="S0n-Jo-7xL"/>
+                        <outlet property="QRlabel" destination="J8L-mk-no7" id="vgu-f5-Oet"/>
                         <outlet property="popUpView" destination="6Tk-zL-eaT" id="Uux-Lc-44b"/>
                         <outlet property="resturountText" destination="Irc-A2-KFd" id="Bxy-5d-v41"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ca-za-KME" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <visualEffectView opaque="NO" contentMode="scaleToFill" id="UIJ-97-lTK">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="280"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VHX-kS-TsK">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="280"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <blurEffect style="regular"/>
-                </visualEffectView>
                 <view contentMode="scaleToFill" id="6Tk-zL-eaT">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="280"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

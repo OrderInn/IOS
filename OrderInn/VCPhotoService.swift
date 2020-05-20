@@ -8,47 +8,15 @@
 
 import UIKit
 import Foundation
-import FirebaseDatabase
+import Firebase
 
-class PhotoService{
+class MenuModel{
     
-    static func getPhoto(completion: @escaping ([Photo]) -> Void) -> Void {
+    func getMenu(){
         
-        //Dabūt atsauci uz datuāzi
-        let dbref = Database.database().reference()
+        let dbRef = Firestore.firestore()
         
-        //Datubāzes izsaukšana
-        //TODO: Vajag izveidot db izaukšanu ar qr coda stringu
-        dbref.child("").observeSingleEvent(of: .value) { (snapshot) in
-            
-            var retrivedPhotos = [Photo]()
-            
-            //Dabut snapšotu sarakstu
-            let snapshots = snapshot.children.allObjects as? [DataSnapshot]
-            
-            if let snapshots = snapshots {
-                
-                //Izlūpot cauti snapshotiem un parsēt tos
-                for snap in snapshots{
-                    
-                    //Radīt bildi no snapshota
-                    let p = Photo(snapshot: snap)
-                    
-                    if p != nil{
-                        
-                        retrivedPhotos.insert(p!, at: 0)
-                        
-                    }
-                    
-                }
-                
-            }
-            
-            //Pec bilžu parsēšanas jaizsauc completion
-            completion(retrivedPhotos)
-            
-        }
+       // dbRef.collection("resturount").document("").collection("menu")
         
     }
-    
 }

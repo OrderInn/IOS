@@ -8,60 +8,28 @@
 
 import UIKit
 import Foundation
-import FirebaseStorage
-import FirebaseDatabase
+import Firebase
 
 class MenuViewController: UIViewController {
     
-
     @IBOutlet weak var mealTypeTable: UITableView!
     
-    var photos = [Photo]()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        //Atgūt un parādīt bildes
-        PhotoService.getPhoto { (photo) in
-            
-            self.photos = photo
-            self.mealTypeTable.reloadData()
-            
-        }
-        
-    }
+    var qrString: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //Konfigurēt tableView
-        mealTypeTable.dataSource = self
-        mealTypeTable.delegate = self
-    
+        
+        
+        
+        let fireRef = Firestore.firestore()
+        
+        fireRef.collection("restaurants").document("\(String(describing: qrString))").getDocument { (docSnap, error) in
+            if error == nil && docSnap != nil && docSnap!.data() != nil {
+                print(docSnap!.data()!)
+                print(self.qrString!)
+            }
+        }
     }
-
 }
 
-extension MenuViewController:UITableViewDelegate, UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return photos.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //Dabūt foto šūnu
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constance.Cells.mealTypeCell, for: indexPath) as! FoodTableViewCell
-        
-        //Dabūt bildi priekš tās linijas
-        let photo = photos[indexPath.row]
-        
-        //Uzlikt detaļas šūnai
-        cell.setPhoto(photo)
-        
-        return cell
-    }
-    
-    
-    
-    
-}
+
