@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSLog("OrderInn: ViewController instantiated")
         // Do any additional setup after loading the view.
     }
 

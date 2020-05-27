@@ -156,9 +156,9 @@ class SignUpViewController: UIViewController {
     
     @IBAction func cancelPogaNospiesta(_ sender: Any) {
         
-        let startWindow = storyboard?.instantiateViewController(identifier: "LoginStoryboard") as? ViewController
-        view.window?.rootViewController = startWindow
-        view.window?.makeKeyAndVisible()
+//        let startWindow = storyboard?.instantiateViewController(identifier: "LoginStoryboard") as? ViewController
+//        view.window?.rootViewController = startWindow
+//        view.window?.makeKeyAndVisible()
         
     }
     

@@ -19,13 +19,17 @@
 		588C56AA2432047B00B8F146 /* Pods_OrderInn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		58D1E2B4242D1F95009E93FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B3242D1F95009E93FE /* AppDelegate.swift */; };
 		58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */; };
-		58D1E2B8242D1F95009E93FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B7242D1F95009E93FE /* ViewController.swift */; };
 		58D1E2BB242D1F95009E93FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2B9242D1F95009E93FE /* Main.storyboard */; };
 		58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2BC242D1F95009E93FE /* Assets.xcassets */; };
 		58D1E2C0242D1F95009E93FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2BE242D1F95009E93FE /* LaunchScreen.storyboard */; };
 		58D1E2C8242D233E009E93FE /* LoginOpcijasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2C7242D233E009E93FE /* LoginOpcijasViewController.swift */; };
 		58D1E2CA242D234C009E93FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2C9242D234C009E93FE /* SignUpViewController.swift */; };
 		58D1E2CC242D2803009E93FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2CB242D2803009E93FE /* GoogleService-Info.plist */; };
+		690498BA247E9BC8002AA9D8 /* QRURI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498B9247E9BC8002AA9D8 /* QRURI.swift */; };
+		690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BB247E9DD9002AA9D8 /* Restaurant.swift */; };
+		690498BE247EA98D002AA9D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BD247EA98D002AA9D8 /* Utilities.swift */; };
+		690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690498BF247EB223002AA9D8 /* OrderFlow.storyboard */; };
+		699B2CAE247ECC0F00769CA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699B2CAD247ECC0F00769CA7 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,7 +59,6 @@
 		58D1E2B0242D1F95009E93FE /* OrderInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D1E2B3242D1F95009E93FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		58D1E2B7242D1F95009E93FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		58D1E2BA242D1F95009E93FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		58D1E2BC242D1F95009E93FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58D1E2BF242D1F95009E93FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +66,11 @@
 		58D1E2C7242D233E009E93FE /* LoginOpcijasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOpcijasViewController.swift; sourceTree = "<group>"; };
 		58D1E2C9242D234C009E93FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		58D1E2CB242D2803009E93FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		690498B9247E9BC8002AA9D8 /* QRURI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRURI.swift; sourceTree = "<group>"; };
+		690498BB247E9DD9002AA9D8 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		690498BD247EA98D002AA9D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		690498BF247EB223002AA9D8 /* OrderFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderFlow.storyboard; sourceTree = "<group>"; };
+		699B2CAD247ECC0F00769CA7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7DBD223E0083AE0B1578F752 /* Pods-OrderInn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderInn.debug.xcconfig"; path = "Target Support Files/Pods-OrderInn/Pods-OrderInn.debug.xcconfig"; sourceTree = "<group>"; };
 		A9149891F36C07C2F3FB084B /* Pods-OrderInn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OrderInn.release.xcconfig"; path = "Target Support Files/Pods-OrderInn/Pods-OrderInn.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,19 +118,23 @@
 		58D1E2B2242D1F95009E93FE /* OrderInn */ = {
 			isa = PBXGroup;
 			children = (
+				699B2CAD247ECC0F00769CA7 /* ViewController.swift */,
 				58D1E2B3242D1F95009E93FE /* AppDelegate.swift */,
 				58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */,
-				58D1E2B7242D1F95009E93FE /* ViewController.swift */,
 				58D1E2C7242D233E009E93FE /* LoginOpcijasViewController.swift */,
 				58D1E2C9242D234C009E93FE /* SignUpViewController.swift */,
 				588C56A22430A9C000B8F146 /* CameraViewController.swift */,
 				585AD4ED2434B9140093CE48 /* TabBarViewController.swift */,
 				585AD4EB2434A6560093CE48 /* MenuViewController.swift */,
+				690498BB247E9DD9002AA9D8 /* Restaurant.swift */,
+				690498B9247E9BC8002AA9D8 /* QRURI.swift */,
 				586F9EC5243F0F1700434184 /* FoodTableViewCell.swift */,
 				585AD4F92439C1CD0093CE48 /* VCPhotoService.swift */,
 				585AD4F2243770A00093CE48 /* Photo.swift */,
 				588C56A02430A90200B8F146 /* ConstanceFiles.swift */,
 				58D1E2B9242D1F95009E93FE /* Main.storyboard */,
+				690498BF247EB223002AA9D8 /* OrderFlow.storyboard */,
+				690498BD247EA98D002AA9D8 /* Utilities.swift */,
 				58D1E2BE242D1F95009E93FE /* LaunchScreen.storyboard */,
 				58D1E2BC242D1F95009E93FE /* Assets.xcassets */,
 				58D1E2C1242D1F95009E93FE /* Info.plist */,
@@ -205,6 +217,7 @@
 				58D1E2C0242D1F95009E93FE /* LaunchScreen.storyboard in Resources */,
 				58D1E2CC242D2803009E93FE /* GoogleService-Info.plist in Resources */,
 				58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */,
+				690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */,
 				58D1E2BB242D1F95009E93FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,8 +288,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				699B2CAE247ECC0F00769CA7 /* ViewController.swift in Sources */,
 				58D1E2C8242D233E009E93FE /* LoginOpcijasViewController.swift in Sources */,
-				58D1E2B8242D1F95009E93FE /* ViewController.swift in Sources */,
+				690498BA247E9BC8002AA9D8 /* QRURI.swift in Sources */,
+				690498BE247EA98D002AA9D8 /* Utilities.swift in Sources */,
 				58D1E2B4242D1F95009E93FE /* AppDelegate.swift in Sources */,
 				588C56A12430A90200B8F146 /* ConstanceFiles.swift in Sources */,
 				585AD4EE2434B9140093CE48 /* TabBarViewController.swift in Sources */,
@@ -284,6 +299,7 @@
 				585AD4F3243770A00093CE48 /* Photo.swift in Sources */,
 				588C56A32430A9C000B8F146 /* CameraViewController.swift in Sources */,
 				58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */,
+				690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */,
 				58D1E2CA242D234C009E93FE /* SignUpViewController.swift in Sources */,
 				585AD4EC2434A6560093CE48 /* MenuViewController.swift in Sources */,
 				585AD4FA2439C1CD0093CE48 /* VCPhotoService.swift in Sources */,

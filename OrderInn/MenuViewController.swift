@@ -14,21 +14,20 @@ class MenuViewController: UIViewController {
     
     @IBOutlet weak var mealTypeTable: UITableView!
     
-    var qrString: String?
+    var qrResult: QRURI?
+    var restaurant: Restaurant?
+    
+    public func receivePreviousData(qrResult: QRURI, restaurant: Restaurant) {
+        self.qrResult = qrResult
+        self.restaurant = restaurant
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+    }
+    
+    func loadData() {
         let fireRef = Firestore.firestore()
-        
-        fireRef.collection("restaurants").document("\(String(describing: qrString))").getDocument { (docSnap, error) in
-            if error == nil && docSnap != nil && docSnap!.data() != nil {
-                print(docSnap!.data()!)
-                print(self.qrString!)
-            }
-        }
     }
 }
 

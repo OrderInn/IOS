@@ -9,13 +9,13 @@
 import UIKit
 import AVFoundation
 import FirebaseDatabase
-import SwiftUI
+import Firebase
+import SDWebImage
 
-open class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet weak var resturountText: UILabel!
     @IBOutlet weak var QRView: UIView!
-    @IBOutlet var popUpView: UIView!
     @IBOutlet weak var QRlabel: UILabel!
     
     //MARK: Variables
@@ -24,14 +24,15 @@ open class CameraViewController: UIViewController, AVCaptureMetadataOutputObject
     var succes: Bool = true
     var lable: UILabel!
     var image: UIImageView!
-    public var outputString: String?
+
+    var readResult: QRURI?
+    var restaurant: Restaurant?
     
     //MARK: VC lifecycle methods
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-        popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.9, height: self.view.bounds.height * 0.6)
     }
     
     
@@ -62,12 +63,18 @@ open class CameraViewController: UIViewController, AVCaptureMetadataOutputObject
     
     //MARK: Camera setup session
     public func sessionSetup(){
-        guard let device = AVCaptureDevice.default(for: .video) else { errorAlert("No Camera detected"); return }
+        guard let device = AVCaptureDevice.default(for: .video) else {
+            errorAlert("No Camera detected")
+            return
+        }
         
         session.sessionPreset = AVCaptureSession.Preset.high
         
-        do { try session.addInput(AVCaptureDeviceInput(device: device))}
-        catch { errorAlert(error.localizedDescription)}
+        do {
+            try session.addInput(AVCaptureDeviceInput(device: device))
+        } catch {
+            errorAlert(error.localizedDescription)
+        }
         
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.frame = self.view.layer.bounds
@@ -75,6 +82,7 @@ open class CameraViewController: UIViewController, AVCaptureMetadataOutputObject
         
         session.startRunning()
     }
+
     //MARK: Check if camera video can be displayd
     func outputCheck(){
         if session.canAddOutput(metadataOutput){
@@ -83,7 +91,12 @@ open class CameraViewController: UIViewController, AVCaptureMetadataOutputObject
             if metadataOutput.availableMetadataObjectTypes.contains(.qr) {
                 metadataOutput.metadataObjectTypes = [.qr]
             } else {
-                errorAlert("Cannot scan QR codes?")
+                // cannot scan QR codes even though camera is present?
+                // TODO: this is for testing please remove later
+                let second = DispatchTime.now().advanced(by: .seconds(1))
+                DispatchQueue.main.asyncAfter(deadline: second) {
+                    self.handleQrRead(result: "orderinn://qr1/abcdef/ghi/1")
+                }
             }
         } else {
             errorAlert("Cannot display Camera")
@@ -95,12 +108,6 @@ open class CameraViewController: UIViewController, AVCaptureMetadataOutputObject
             session.startRunning()
         }
     }
-    
-    //MARK: - POP window start
-    @IBAction func Continue(_ sender: Any) {
-    animateOut(desiredView: popUpView)
-        }
-    //MARK: - POP UP window end
     
     //MARK: UI setup
     func addBlure(){
@@ -166,82 +173,76 @@ open class CameraViewController: UIViewController, AVCaptureMetadataOutputObject
     
     //MARK: - QR Scanner
 //returns Metadata as String
-        public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-            if metadataObjects.first != nil{
-                
-                guard let metadataObj = metadataObjects[0] as? AVMetadataMachineReadableCodeObject else {return}
-                guard let outputString = metadataObj.stringValue  else {return}
-                DispatchQueue.main.async {
-                    AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-                    print(outputString)
-                    self.animatedIn(desiredView: self.popUpView)
-                    
-                    }
-                }
-            session.stopRunning()
+    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
+        guard metadataObjects.count > 0 else { return }
+        guard let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject else { return }
+        guard let result = object.stringValue else { return }
+        session.stopRunning()
+        handleQrRead(result: result)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let confirmationVC = segue.destination as? CameraConfirmationViewController {
+//            confirmationVC.renderFor(restaurant: restaurant!)
+            confirmationVC.restaurant = restaurant!
+        }
+        super.prepare(for: segue, sender: sender)
+    }
+    
+    func errorAlert(_ message: String) {
+        errorAlert(message, completion: noop)
+    }
+    func errorAlert(_ message: String, completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { _ in
+            completion()
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true)
+        
+    }
+    
+    // MARK: Handling of QR result
+    func handleQrRead(result: String) {
+        guard let uri = QRURI.parse(from: result) else {
+            errorAlert("Sorry, that does not seem to be a valid OrderInn QR code.") {
+                self.session.startRunning()
             }
-    open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destVC = segue.destination as? MenuViewController{
-            destVC.qrString = outputString
+            return
+        }
+        
+        // TODO: show loading spinner
+        
+        Restaurant.tryLoad(withId: uri.restaurant, from: Firestore.firestore()) { maybeRestaurant in
+            if let restaurant = maybeRestaurant {
+                self.restaurant = restaurant
+                self.performSegue(withIdentifier: "presentConfirmationView", sender: nil)
+            } else {
+                self.errorAlert("Sorry, that code doesn't seem to be valid.") {
+                    self.session.startRunning()
+                }
+            }
         }
     }
 }
 
+class CameraConfirmationViewController: UIViewController {
+    @IBOutlet var restaurantBannerImage: UIImageView!
+    @IBOutlet var restaurantTitleLabel: UILabel!
+    
+    var restaurant: Restaurant?
 
-    //MARK: - QRScanner end
-
-//Alert shown when qr scan fails
-extension CameraViewController{
-    
-    public func errorAlert(_ message: String){
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        restaurantTitleLabel.text = restaurant!.name
         
-        let aLert = UIAlertController(title: "Try Again", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        aLert.addAction(action)
-        self.present(aLert,animated: true)
-        
-    }
-    
-    
-    
-    //MARK: - Pop UP window config
-    func animatedIn(desiredView: UIView){
-        
-        let background = self.view!
-        
-        //Pievienot view pie ekrāna
-        background.addSubview(desiredView)
-        
-        //Uzliek view scaling uz 120%
-        desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        
-        desiredView.alpha = 0
-        
-        desiredView.center = background.center
-        
-        //Anemate effekta funkcija
-        UIView.animate(withDuration: 0.3) {
-            desiredView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            
-            desiredView.alpha = 1
+        restaurantBannerImage.alpha = 0.0
+        restaurantBannerImage.sd_setImage(with: restaurant!.bannerImageUrl!) { _, _, _, _ in
+            AnimationUtils.fadeIn(self.restaurantBannerImage)
         }
     }
-    func animateOut(desiredView: UIView){
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            
-            desiredView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-            
-            desiredView.alpha = 0
-            
-        }, completion: { _ in
-            
-            desiredView.removeFromSuperview()
-           
-        })
-        
-        let newVC = storyboard?.instantiateViewController(identifier: "MenuStoryboard")
-        view.window?.rootViewController = newVC
-        view.window?.makeKeyAndVisible()
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
     }
 }
