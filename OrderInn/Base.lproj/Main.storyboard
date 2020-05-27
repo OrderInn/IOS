@@ -252,6 +252,7 @@
                         <outlet property="QRView" destination="6QN-iW-PLU" id="meW-Il-9nh"/>
                         <outlet property="QRlabel" destination="J8L-mk-no7" id="vgu-f5-Oet"/>
                         <segue destination="Plh-AB-i6v" kind="presentation" identifier="presentConfirmationView" id="I1s-1A-YLc"/>
+                        <segue destination="Iav-Bg-QBk" kind="showDetail" identifier="switchToOrderFlow" id="aS7-32-nSx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ca-za-KME" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -283,7 +284,7 @@
                                         </constraints>
                                         <state key="normal" title="Order"/>
                                         <connections>
-                                            <segue destination="3aB-sN-4Jk" kind="custom" id="nPT-Ah-fo9"/>
+                                            <segue destination="DE1-la-xiC" kind="unwind" unwindAction="confirmationUnwindWithUnwindSegue:" id="Ekj-zs-Grm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZi-dE-nxB">
@@ -313,7 +314,6 @@
                     <connections>
                         <outlet property="restaurantBannerImage" destination="2jb-0a-oOW" id="ezT-LL-dOC"/>
                         <outlet property="restaurantTitleLabel" destination="fZi-dE-nxB" id="Bey-TQ-0nK"/>
-                        <segue destination="DE1-la-xiC" kind="unwind" identifier="exitSegue" unwindAction="exitWithUnwindSegue:" id="jUe-Dj-O9n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fzV-Vl-wZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -321,13 +321,13 @@
             </objects>
             <point key="canvasLocation" x="3301.449275362319" y="137.27678571428569"/>
         </scene>
-        <!--MenuCollectionView-->
-        <scene sceneID="YgH-9z-21P">
+        <!--OrderFlow-->
+        <scene sceneID="VK2-ui-Iwc">
             <objects>
-                <viewControllerPlaceholder storyboardName="OrderFlow" referencedIdentifier="MenuCollectionView" id="3aB-sN-4Jk" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zzx-hP-RlD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="OrderFlow" id="Iav-Bg-QBk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0LK-kc-mx8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3926" y="-224"/>
+            <point key="canvasLocation" x="3069" y="-227"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sv9-6I-gbi">

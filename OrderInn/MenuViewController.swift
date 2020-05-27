@@ -10,24 +10,13 @@ import UIKit
 import Foundation
 import Firebase
 
-class MenuViewController: UIViewController {
-    
-    @IBOutlet weak var mealTypeTable: UITableView!
-    
-    var qrResult: QRURI?
+class MenuViewController: UICollectionViewController {
     var restaurant: Restaurant?
-    
-    public func receivePreviousData(qrResult: QRURI, restaurant: Restaurant) {
-        self.qrResult = qrResult
-        self.restaurant = restaurant
-    }
+    var tableId, seatId: String?
+    // TODO: fetch menu, do something useful...
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    func loadData() {
-        let fireRef = Firestore.firestore()
     }
 }
 

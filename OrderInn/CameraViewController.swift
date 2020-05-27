@@ -13,8 +13,6 @@ import Firebase
 import SDWebImage
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    
-    @IBOutlet weak var resturountText: UILabel!
     @IBOutlet weak var QRView: UIView!
     @IBOutlet weak var QRlabel: UILabel!
     
@@ -183,8 +181,12 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let confirmationVC = segue.destination as? CameraConfirmationViewController {
-//            confirmationVC.renderFor(restaurant: restaurant!)
             confirmationVC.restaurant = restaurant!
+        } else if let navVC = segue.destination as? UINavigationController,
+                let menuVC = navVC.topViewController as? MenuViewController {
+            menuVC.restaurant = restaurant!
+            menuVC.tableId = readResult!.table
+            menuVC.seatId = readResult!.seat
         }
         super.prepare(for: segue, sender: sender)
     }
@@ -212,7 +214,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
         
         // TODO: show loading spinner
-        
+        self.readResult = uri
         Restaurant.tryLoad(withId: uri.restaurant, from: Firestore.firestore()) { maybeRestaurant in
             if let restaurant = maybeRestaurant {
                 self.restaurant = restaurant
@@ -223,6 +225,22 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 }
             }
         }
+    }
+    
+    // MARK: Handle restaurant confirmation
+    @IBAction func confirmationUnwind(unwindSegue: UIStoryboardSegue) {
+        // TODO[pn] this is really crude and should be refactored but I don't currently see a cleaner way of replacing the navigation VC
+        if let window = UIApplication.shared.keyWindow {
+            NSLog("OrderInn: CameraVC: Unwind received and root window found")
+            let storyboard = UIStoryboard(name: "OrderFlow", bundle: nil)
+            guard let root = storyboard.instantiateInitialViewController() as? UINavigationController else { return }
+            guard let menuVC = root.topViewController as? MenuViewController else { return }
+            menuVC.restaurant = restaurant
+            menuVC.tableId = readResult!.table
+            menuVC.seatId = readResult!.seat
+            window.rootViewController = root
+        }
+//        performSegue(withIdentifier: "switchToOrderFlow", sender: nil)
     }
 }
 
