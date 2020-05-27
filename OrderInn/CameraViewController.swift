@@ -75,12 +75,16 @@ open class CameraViewController: UIViewController, AVCaptureMetadataOutputObject
         
         session.startRunning()
     }
-        //MARK: Check if camera video can be displayd
-        func outputCheck(){
+    //MARK: Check if camera video can be displayd
+    func outputCheck(){
         if session.canAddOutput(metadataOutput){
             session.addOutput(metadataOutput)
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.qr]
+            if metadataOutput.availableMetadataObjectTypes.contains(.qr) {
+                metadataOutput.metadataObjectTypes = [.qr]
+            } else {
+                errorAlert("Cannot scan QR codes?")
+            }
         } else {
             errorAlert("Cannot display Camera")
         }
