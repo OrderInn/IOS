@@ -30,13 +30,36 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ifg-2Z-xDq">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodSectionCell" id="Ifg-2Z-xDq" customClass="FoodSectionCell" customModule="OrderInn" customModuleProvider="target">
+                                <rect key="frame" x="32" y="0.0" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jsM-46-6ME">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOc-u6-X7y">
+                                            <rect key="frame" x="8" y="0.0" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YyB-fJ-1Lj">
+                                            <rect key="frame" x="0.0" y="19" width="350" height="131"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="YyB-fJ-1Lj" secondAttribute="trailing" id="8yB-WW-NGP"/>
+                                        <constraint firstAttribute="bottom" secondItem="YyB-fJ-1Lj" secondAttribute="bottom" id="GMw-Yv-RlF"/>
+                                        <constraint firstItem="YyB-fJ-1Lj" firstAttribute="top" secondItem="jsM-46-6ME" secondAttribute="top" constant="19" id="H5F-Hr-Bf2"/>
+                                        <constraint firstItem="YyB-fJ-1Lj" firstAttribute="leading" secondItem="jsM-46-6ME" secondAttribute="leading" id="jUS-cl-kYy"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <size key="customSize" width="350" height="150"/>
+                                <connections>
+                                    <outlet property="foodSectionName" destination="UOc-u6-X7y" id="GgI-9H-gFM"/>
+                                    <outlet property="foodSectionPhoto" destination="YyB-fJ-1Lj" id="z4i-N3-Zcz"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -45,10 +68,13 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="lQr-dx-SAM"/>
+                    <connections>
+                        <outlet property="foodSectionCollection" destination="p75-El-LUd" id="sL3-wS-gBA"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MNa-30-RKT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3077" y="-362"/>
+            <point key="canvasLocation" x="3076.811594202899" y="-362.27678571428572"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="YtQ-qL-l8e">

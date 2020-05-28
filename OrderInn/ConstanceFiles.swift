@@ -20,7 +20,7 @@ struct Constance {
     }
     
     struct Cells {
-        static let mealTypeCell = "MealPhoto"
+        static let foodSection = "FoodSectionCell"
         
     }
     
