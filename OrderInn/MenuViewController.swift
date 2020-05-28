@@ -10,6 +10,39 @@ import UIKit
 import Foundation
 import Firebase
 
+struct MenuItem {
+    var id, name, category, imageUrl: String
+    var order: Int
+    
+    init?(_ doc: QueryDocumentSnapshot) {
+        let data = doc.data()
+        // TODO validate schema
+        
+        id = doc.documentID
+        name = data["name"] as! String
+        category = data["category"] as! String
+        imageUrl = data["image"] as! String
+        order = data["order"] as! Int
+    }
+}
+
+struct MenuCategory {
+    var id, name, imageUrl: String
+    var order: Int
+    var items: [MenuItem]
+    
+    init?(_ doc: QueryDocumentSnapshot) {
+        let data = doc.data()
+        // TODO validate schema
+    
+        id = doc.documentID
+        name = data["name"] as! String
+        imageUrl = data["image"] as! String
+        order = data["order"] as! Int
+        items = [MenuItem]()
+    }
+}
+
 class MenuViewController: UICollectionViewController {
     
     @IBOutlet var foodSectionCollection: UICollectionView!
@@ -19,24 +52,54 @@ class MenuViewController: UICollectionViewController {
     var tableId, seatId: String?
     // TODO: fetch menu, do something useful...
     
+    var categories = [String: MenuCategory]()
+    
+    let fireRef = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        PhotoService.retrivePhotos { (retrivedPhotos) in
-            self.photos = retrivedPhotos
-            self.foodSectionCollection.reloadData()
-        }
         
         foodSectionCollection.delegate = self
         foodSectionCollection.dataSource = self
         
+        loadCategories() {
+            self.loadMenuItems() {
+                self.showData()
+            }
+        }
+    }
+    
+    func loadCategories(_ completion: @escaping () -> Void) {
+        fireRef.collection("restaurants").document(restaurant!.id).collection("menu_categories").getDocuments { (snapshot, error) in
+            guard let docs = snapshot?.documents, error == nil else { return }
+            for doc in docs {
+                guard let category = MenuCategory(doc) else { continue }
+                self.categories[category.id] = category
+            }
+            completion()
+        }
+    }
+    
+    func loadMenuItems(_ completion: @escaping () -> Void) {
+        fireRef.collection("restaurants").document(restaurant!.id).collection("menu").getDocuments { (snapshot, error) in
+            guard let docs = snapshot?.documents, error == nil else { return }
+            for doc in docs {
+                guard let item = MenuItem(doc) else { continue }
+                self.categories[item.category]!.items.append(item)
+            }
+            completion()
+        }
+    }
+    
+    func showData() {
+        // todo...
     }
     
     class PhotoService{
         
-        static func retrivePhotos(completion: @escaping([PhotoParameters]) -> Void){
+        static func retrivePhotos(restaurant id: String, completion: @escaping ([PhotoParameters]) -> Void){
             let fireRef = Firestore.firestore()
-            fireRef.collection("menu_categories").getDocuments { (snapshot, error) in
+            fireRef.collection("restaurants").document(id).collection("menu_categories").getDocuments { (snapshot, error) in
                 if error != nil{
                     return
                 }
