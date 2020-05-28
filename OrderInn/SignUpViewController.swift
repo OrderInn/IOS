@@ -145,12 +145,7 @@ class SignUpViewController: UIViewController {
     }
     
     func moveToCamera() {
-        
-        let cameraViewController = storyboard?.instantiateViewController(identifier: Constance.Storyboards.cameraViewController) as? CameraViewController
-        
-        view.window?.rootViewController = cameraViewController
-        view.window?.makeKeyAndVisible()
-        
+        performSegue(withIdentifier: "unwindToOrderFlow", sender: nil)
     }
     
     

@@ -62,7 +62,9 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     //MARK: Camera setup session
     public func sessionSetup(){
         guard let device = AVCaptureDevice.default(for: .video) else {
-            errorAlert("No Camera detected")
+            errorAlert("No Camera detected") {
+                self.handleQrRead(result: "orderinn://qr1/abcdef/ghi/1")
+            }
             return
         }
         
@@ -90,11 +92,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 metadataOutput.metadataObjectTypes = [.qr]
             } else {
                 // cannot scan QR codes even though camera is present?
-                // TODO: this is for testing please remove later
-                let second = DispatchTime.now().advanced(by: .seconds(1))
-                DispatchQueue.main.asyncAfter(deadline: second) {
-                    self.handleQrRead(result: "orderinn://qr1/abcdef/ghi/1")
-                }
+                errorAlert("Sorry, something went wrong.")
             }
         } else {
             errorAlert("Cannot display Camera")
@@ -181,9 +179,9 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let confirmationVC = segue.destination as? CameraConfirmationViewController {
+            confirmationVC.cameraVC = self
             confirmationVC.restaurant = restaurant!
-        } else if let navVC = segue.destination as? UINavigationController,
-                let menuVC = navVC.topViewController as? MenuViewController {
+        } else if let menuVC = segue.destination as? MenuViewController {
             menuVC.restaurant = restaurant!
             menuVC.tableId = readResult!.table
             menuVC.seatId = readResult!.seat
@@ -227,20 +225,8 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
     
-    // MARK: Handle restaurant confirmation
-    @IBAction func confirmationUnwind(unwindSegue: UIStoryboardSegue) {
-        // TODO[pn] this is really crude and should be refactored but I don't currently see a cleaner way of replacing the navigation VC
-        if let window = UIApplication.shared.keyWindow {
-            NSLog("OrderInn: CameraVC: Unwind received and root window found")
-            let storyboard = UIStoryboard(name: "OrderFlow", bundle: nil)
-            guard let root = storyboard.instantiateInitialViewController() as? UINavigationController else { return }
-            guard let menuVC = root.topViewController as? MenuViewController else { return }
-            menuVC.restaurant = restaurant
-            menuVC.tableId = readResult!.table
-            menuVC.seatId = readResult!.seat
-            window.rootViewController = root
-        }
-//        performSegue(withIdentifier: "switchToOrderFlow", sender: nil)
+    func handleOrderRequested() {
+        performSegue(withIdentifier: "showOrderMenu", sender: nil)
     }
 }
 
@@ -248,6 +234,7 @@ class CameraConfirmationViewController: UIViewController {
     @IBOutlet var restaurantBannerImage: UIImageView!
     @IBOutlet var restaurantTitleLabel: UILabel!
     
+    var cameraVC: CameraViewController?
     var restaurant: Restaurant?
 
     override func viewDidLoad() {
@@ -262,5 +249,10 @@ class CameraConfirmationViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+    }
+
+    @IBAction func handleOrderTapped(_ sender: Any) {
+        navigationController?.popToViewController(cameraVC!, animated: true)
+        cameraVC?.handleOrderRequested()
     }
 }

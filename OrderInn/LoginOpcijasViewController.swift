@@ -36,14 +36,15 @@ class LoginOpcijasViewController: UIViewController {
         //TODO: Apstiprināt teksta laukus
         func validateLoginFiealds() -> String?{
         
-        if emailAdress.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            paswordTextFieald.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            
-            return"Please fill out all fields"
-            
+            if emailAdress.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+                paswordTextFieald.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+                
+                return "Please fill out all fields"
+                
+            }
+            return nil
         }
-        return nil
-    }
+
         //Radīt tīro versiju no teksta laukiem
         let email = emailAdress.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = paswordTextFieald.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -60,9 +61,7 @@ class LoginOpcijasViewController: UIViewController {
             }
             else{
                 
-                let cameraView = self.storyboard?.instantiateViewController(identifier: Constance.Storyboards.cameraViewController) as? CameraViewController
-                self.view.window?.rootViewController = cameraView
-                self.view.window?.makeKeyAndVisible()
+                self.performSegue(withIdentifier: "unwindToOrderFlow", sender: nil)
                 
             }
             
