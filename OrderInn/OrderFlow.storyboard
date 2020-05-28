@@ -23,35 +23,36 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCell" id="Ifg-2Z-xDq" customClass="CategoryCell" customModule="OrderInn" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="MenuCategoryCell" id="Ifg-2Z-xDq" customClass="MenuCategoryCell" customModule="OrderInn" customModuleProvider="target">
                                 <rect key="frame" x="32" y="0.0" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jsM-46-6ME">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOc-u6-X7y">
-                                            <rect key="frame" x="8" y="0.0" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YyB-fJ-1Lj">
+                                            <rect key="frame" x="0.0" y="20.5" width="350" height="129.5"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOc-u6-X7y">
+                                            <rect key="frame" x="8" y="0.0" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YyB-fJ-1Lj">
-                                            <rect key="frame" x="0.0" y="19" width="350" height="131"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="UOc-u6-X7y" firstAttribute="leading" secondItem="jsM-46-6ME" secondAttribute="leading" constant="8" id="0et-rS-pMC"/>
                                         <constraint firstAttribute="trailing" secondItem="YyB-fJ-1Lj" secondAttribute="trailing" id="8yB-WW-NGP"/>
                                         <constraint firstAttribute="bottom" secondItem="YyB-fJ-1Lj" secondAttribute="bottom" id="GMw-Yv-RlF"/>
-                                        <constraint firstItem="YyB-fJ-1Lj" firstAttribute="top" secondItem="jsM-46-6ME" secondAttribute="top" constant="19" id="H5F-Hr-Bf2"/>
+                                        <constraint firstItem="UOc-u6-X7y" firstAttribute="top" secondItem="jsM-46-6ME" secondAttribute="top" id="fWa-Zl-jmS"/>
                                         <constraint firstItem="YyB-fJ-1Lj" firstAttribute="leading" secondItem="jsM-46-6ME" secondAttribute="leading" id="jUS-cl-kYy"/>
+                                        <constraint firstItem="YyB-fJ-1Lj" firstAttribute="top" secondItem="UOc-u6-X7y" secondAttribute="bottom" id="vd0-yF-mJ1"/>
                                     </constraints>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="350" height="150"/>
                                 <connections>
-                                    <outlet property="categoryName" destination="UOc-u6-X7y" id="cuf-1m-D1R"/>
-                                    <outlet property="categoryPhoto" destination="YyB-fJ-1Lj" id="0TL-Qp-mFE"/>
+                                    <outlet property="categoryName" destination="UOc-u6-X7y" id="LTP-4Z-KOl"/>
+                                    <outlet property="categoryPhoto" destination="YyB-fJ-1Lj" id="46V-hH-hMo"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -124,7 +125,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Vz4-gm-VlL">
-                                <rect key="frame" x="0.0" y="17" width="414" height="806"/>
+                                <rect key="frame" x="0.0" y="17" width="414" height="805"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ah7-5G-pW9">
