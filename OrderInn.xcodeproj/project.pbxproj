@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		585AD4EC2434A6560093CE48 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AD4EB2434A6560093CE48 /* MenuViewController.swift */; };
+		5883549324801F05000FBDEB /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5883549224801F05000FBDEB /* CategoryCell.swift */; };
 		588C56A12430A90200B8F146 /* ConstanceFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588C56A02430A90200B8F146 /* ConstanceFiles.swift */; };
 		588C56A32430A9C000B8F146 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588C56A22430A9C000B8F146 /* CameraViewController.swift */; };
 		588C56A62431FE4A00B8F146 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588C56A42431FD3B00B8F146 /* HealthKit.framework */; };
 		588C56A92432047B00B8F146 /* Pods_OrderInn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */; };
 		588C56AA2432047B00B8F146 /* Pods_OrderInn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		58B24DB0247FD7D6009D86E4 /* FoodSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B24DAF247FD7D6009D86E4 /* FoodSectionCell.swift */; };
 		58D1E2B4242D1F95009E93FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B3242D1F95009E93FE /* AppDelegate.swift */; };
 		58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */; };
 		58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2BC242D1F95009E93FE /* Assets.xcassets */; };
@@ -48,10 +48,10 @@
 /* Begin PBXFileReference section */
 		14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		585AD4EB2434A6560093CE48 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		5883549224801F05000FBDEB /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		588C56A02430A90200B8F146 /* ConstanceFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstanceFiles.swift; sourceTree = "<group>"; };
 		588C56A22430A9C000B8F146 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		588C56A42431FD3B00B8F146 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		58B24DAF247FD7D6009D86E4 /* FoodSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSectionCell.swift; sourceTree = "<group>"; };
 		58D1E2B0242D1F95009E93FE /* OrderInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D1E2B3242D1F95009E93FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				58D1E2C9242D234C009E93FE /* SignUpViewController.swift */,
 				588C56A22430A9C000B8F146 /* CameraViewController.swift */,
 				585AD4EB2434A6560093CE48 /* MenuViewController.swift */,
-				58B24DAF247FD7D6009D86E4 /* FoodSectionCell.swift */,
+				5883549224801F05000FBDEB /* CategoryCell.swift */,
 				690498BB247E9DD9002AA9D8 /* Restaurant.swift */,
 				690498B9247E9BC8002AA9D8 /* QRURI.swift */,
 				588C56A02430A90200B8F146 /* ConstanceFiles.swift */,
@@ -286,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5883549324801F05000FBDEB /* CategoryCell.swift in Sources */,
 				58D1E2C8242D233E009E93FE /* LoginOpcijasViewController.swift in Sources */,
 				690498BA247E9BC8002AA9D8 /* QRURI.swift in Sources */,
 				690498BE247EA98D002AA9D8 /* Utilities.swift in Sources */,
@@ -297,7 +298,6 @@
 				690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */,
 				58D1E2CA242D234C009E93FE /* SignUpViewController.swift in Sources */,
 				585AD4EC2434A6560093CE48 /* MenuViewController.swift in Sources */,
-				58B24DB0247FD7D6009D86E4 /* FoodSectionCell.swift in Sources */,
 				6997B9E2247FA6CB00AD806A /* InitialDispatchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,36 +10,25 @@ import UIKit
 import Foundation
 import Firebase
 
-struct MenuItem {
-    var id, name, category, imageUrl: String
-    var order: Int
-    
-    init?(_ doc: QueryDocumentSnapshot) {
-        let data = doc.data()
-        // TODO validate schema
-        
-        id = doc.documentID
-        name = data["name"] as! String
-        category = data["category"] as! String
-        imageUrl = data["image"] as! String
-        order = data["order"] as! Int
-    }
-}
-
 struct MenuCategory {
-    var id, name, imageUrl: String
-    var order: Int
-    var items: [MenuItem]
+    var id, name, imageUrl: String?
+    var order: Int?
     
     init?(_ doc: QueryDocumentSnapshot) {
         let data = doc.data()
         // TODO validate schema
     
         id = doc.documentID
-        name = data["name"] as! String
-        imageUrl = data["image"] as! String
-        order = data["order"] as! Int
-        items = [MenuItem]()
+        let byName = data["name"] as? String
+        let byImageUrl = data["image"] as? String
+        let byOrder = data["order"] as? Int
+        
+        
+        if name == nil || imageUrl == nil || order == nil{
+            self.imageUrl = byImageUrl
+            self.order = byOrder
+            self.name = byName
+        }
     }
 }
 
@@ -47,12 +36,11 @@ class MenuViewController: UICollectionViewController {
     
     @IBOutlet var foodSectionCollection: UICollectionView!
     
-    var photos = [PhotoParameters]()
     var restaurant: Restaurant?
     var tableId, seatId: String?
     // TODO: fetch menu, do something useful...
     
-    var categories = [String: MenuCategory]()
+    var categories = [MenuCategory]()
     
     let fireRef = Firestore.firestore()
     
@@ -62,91 +50,38 @@ class MenuViewController: UICollectionViewController {
         foodSectionCollection.delegate = self
         foodSectionCollection.dataSource = self
         
-        loadCategories() {
-            self.loadMenuItems() {
-                self.showData()
-            }
+        loadCategories { (retrivedCategory) in
+            self.categories = retrivedCategory
+            self.foodSectionCollection.reloadData()
         }
     }
     
-    func loadCategories(_ completion: @escaping () -> Void) {
+    func loadCategories(_ completion: @escaping ([MenuCategory]) -> Void) {
         fireRef.collection("restaurants").document(restaurant!.id).collection("menu_categories").getDocuments { (snapshot, error) in
-            guard let docs = snapshot?.documents, error == nil else { return }
-            for doc in docs {
-                guard let category = MenuCategory(doc) else { continue }
-                self.categories[category.id] = category
+            if error != nil{
+                return
             }
-            completion()
-        }
-    }
-    
-    func loadMenuItems(_ completion: @escaping () -> Void) {
-        fireRef.collection("restaurants").document(restaurant!.id).collection("menu").getDocuments { (snapshot, error) in
-            guard let docs = snapshot?.documents, error == nil else { return }
-            for doc in docs {
-                guard let item = MenuItem(doc) else { continue }
-                self.categories[item.category]!.items.append(item)
-            }
-            completion()
-        }
-    }
-    
-    func showData() {
-        // todo...
-    }
-    
-    class PhotoService{
-        
-        static func retrivePhotos(restaurant id: String, completion: @escaping ([PhotoParameters]) -> Void){
-            let fireRef = Firestore.firestore()
-            fireRef.collection("restaurants").document(id).collection("menu_categories").getDocuments { (snapshot, error) in
-                if error != nil{
-                    return
+            let documents = snapshot?.documents
+            if let documents = documents{
+                var categoriesArray = [MenuCategory]()
+                for doc in documents{
+                    let p = MenuCategory(doc)
+                    categoriesArray.insert(p!, at: 0)
                 }
-                let documents = snapshot?.documents
-                if let documents = documents{
-                    var photoArray = [PhotoParameters]()
-                    for doc in documents{
-                        let p = PhotoParameters(snapshot: doc)
-                        if p != nil {
-                            photoArray.insert(p!, at: 0)
-                        }
-                    }
-                    completion(photoArray)
-                }
+                completion(categoriesArray)
             }
-        }
-        
-    }
-    
-    struct PhotoParameters{
-        var byImage:String?
-        var byName:String?
-        var byOrder:Int?
-        
-        init? (snapshot:QueryDocumentSnapshot){
-            let data = snapshot.data()
-            let image = data["image"] as? String
-            let name = data["name"] as? String
-            let order = data ["order"] as? Int
             
-            if image == nil || name == nil || order == nil {
-                return nil
-            }
-            self.byImage = image
-            self.byName = name
-            self.byOrder = order
         }
-        
     }
+    
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return photos.count
+        return categories.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = foodSectionCollection.dequeueReusableCell(withReuseIdentifier: Constance.Cells.foodSection, for: indexPath) as? FoodSectionCell
-        let photo = self.photos[indexPath.row]
-        cell?.displayPhoto(photo: photo)
+        let cell = foodSectionCollection.dequeueReusableCell(withReuseIdentifier: Constance.Cells.catagoryCell, for: indexPath) as? CategoryCell
+        let foodCategory = self.categories[indexPath.row]
+        cell?.diplayCategories(getFoodCategory: foodCategory)
         return cell!
     }
     
