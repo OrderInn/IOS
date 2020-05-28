@@ -29,7 +29,7 @@ class MenuCategory {
     }
 }
 
-class MenuViewController: UICollectionViewController {
+class MenuCategoryViewController: UICollectionViewController {
     
     @IBOutlet var foodSectionCollection: UICollectionView!
     

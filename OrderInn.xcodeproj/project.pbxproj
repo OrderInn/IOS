@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		585AD4EC2434A6560093CE48 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AD4EB2434A6560093CE48 /* MenuViewController.swift */; };
+		585AD4EC2434A6560093CE48 /* MenuCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585AD4EB2434A6560093CE48 /* MenuCategoryViewController.swift */; };
 		588C56A12430A90200B8F146 /* ConstanceFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588C56A02430A90200B8F146 /* ConstanceFiles.swift */; };
 		588C56A32430A9C000B8F146 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588C56A22430A9C000B8F146 /* CameraViewController.swift */; };
 		588C56A62431FE4A00B8F146 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 588C56A42431FD3B00B8F146 /* HealthKit.framework */; };
@@ -46,7 +46,7 @@
 
 /* Begin PBXFileReference section */
 		14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		585AD4EB2434A6560093CE48 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		585AD4EB2434A6560093CE48 /* MenuCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryViewController.swift; sourceTree = "<group>"; };
 		588C56A02430A90200B8F146 /* ConstanceFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstanceFiles.swift; sourceTree = "<group>"; };
 		588C56A22430A9C000B8F146 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		588C56A42431FD3B00B8F146 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -119,7 +119,7 @@
 				58D1E2C7242D233E009E93FE /* LoginOpcijasViewController.swift */,
 				58D1E2C9242D234C009E93FE /* SignUpViewController.swift */,
 				588C56A22430A9C000B8F146 /* CameraViewController.swift */,
-				585AD4EB2434A6560093CE48 /* MenuViewController.swift */,
+				585AD4EB2434A6560093CE48 /* MenuCategoryViewController.swift */,
 				690498BB247E9DD9002AA9D8 /* Restaurant.swift */,
 				690498B9247E9BC8002AA9D8 /* QRURI.swift */,
 				588C56A02430A90200B8F146 /* ConstanceFiles.swift */,
@@ -293,7 +293,7 @@
 				58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */,
 				690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */,
 				58D1E2CA242D234C009E93FE /* SignUpViewController.swift in Sources */,
-				585AD4EC2434A6560093CE48 /* MenuViewController.swift in Sources */,
+				585AD4EC2434A6560093CE48 /* MenuCategoryViewController.swift in Sources */,
 				6997B9E2247FA6CB00AD806A /* InitialDispatchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

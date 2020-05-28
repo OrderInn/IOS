@@ -181,7 +181,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         if let confirmationVC = segue.destination as? CameraConfirmationViewController {
             confirmationVC.cameraVC = self
             confirmationVC.restaurant = restaurant!
-        } else if let menuVC = segue.destination as? MenuViewController {
+        } else if let menuVC = segue.destination as? MenuCategoryViewController {
             menuVC.restaurant = restaurant!
             menuVC.tableId = readResult!.table
             menuVC.seatId = readResult!.seat
