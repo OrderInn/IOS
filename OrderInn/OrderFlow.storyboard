@@ -15,9 +15,10 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="p75-El-LUd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VeN-sP-VbB">
                             <size key="itemSize" width="128" height="128"/>
+                            <size key="estimatedItemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -26,9 +27,9 @@
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="MenuCategoryCell" id="Ifg-2Z-xDq" customClass="MenuCategoryCell" customModule="OrderInn" customModuleProvider="target">
                                 <rect key="frame" x="32" y="0.0" width="350" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="jsM-46-6ME">
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZrA-Ju-46h">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="150"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YyB-fJ-1Lj">
                                             <rect key="frame" x="0.0" y="20.5" width="350" height="129.5"/>
@@ -41,11 +42,11 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="UOc-u6-X7y" firstAttribute="leading" secondItem="jsM-46-6ME" secondAttribute="leading" constant="8" id="0et-rS-pMC"/>
+                                        <constraint firstItem="UOc-u6-X7y" firstAttribute="leading" secondItem="ZrA-Ju-46h" secondAttribute="leading" constant="8" id="0et-rS-pMC"/>
                                         <constraint firstAttribute="trailing" secondItem="YyB-fJ-1Lj" secondAttribute="trailing" id="8yB-WW-NGP"/>
                                         <constraint firstAttribute="bottom" secondItem="YyB-fJ-1Lj" secondAttribute="bottom" id="GMw-Yv-RlF"/>
-                                        <constraint firstItem="UOc-u6-X7y" firstAttribute="top" secondItem="jsM-46-6ME" secondAttribute="top" id="fWa-Zl-jmS"/>
-                                        <constraint firstItem="YyB-fJ-1Lj" firstAttribute="leading" secondItem="jsM-46-6ME" secondAttribute="leading" id="jUS-cl-kYy"/>
+                                        <constraint firstItem="UOc-u6-X7y" firstAttribute="top" secondItem="ZrA-Ju-46h" secondAttribute="top" id="fWa-Zl-jmS"/>
+                                        <constraint firstItem="YyB-fJ-1Lj" firstAttribute="leading" secondItem="ZrA-Ju-46h" secondAttribute="leading" id="jUS-cl-kYy"/>
                                         <constraint firstItem="YyB-fJ-1Lj" firstAttribute="top" secondItem="UOc-u6-X7y" secondAttribute="bottom" id="vd0-yF-mJ1"/>
                                     </constraints>
                                 </collectionViewCellContentView>
@@ -122,7 +123,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZO-82-qYU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3920.289855072464" y="-367.63392857142856"/>
+            <point key="canvasLocation" x="3919" y="-362"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="YtQ-qL-l8e">

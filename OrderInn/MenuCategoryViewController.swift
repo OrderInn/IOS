@@ -88,7 +88,7 @@ class MenuCategoryViewController: UICollectionViewController {
         // The second item is the actual index we're interested in.
         let category = categories[indexPath[1]]
         let cell = foodSectionCollection.dequeueReusableCell(
-            withReuseIdentifier: MenuCategoryCell.reuseIdentifier, for: indexPath) as! MenuCategoryCell
+        withReuseIdentifier: MenuCategoryCell.reuseIdentifier, for: indexPath) as! MenuCategoryCell
         cell.display(category: category)
         return cell
     }
@@ -113,6 +113,9 @@ class MenuCategoryCell: UICollectionViewCell {
     var category: MenuCategory?
     
     func display(category: MenuCategory) {
+        categoryPhoto.layer.cornerRadius = 100
+        
+        
         self.category = category
 
         categoryName.text = category.name
@@ -121,7 +124,6 @@ class MenuCategoryCell: UICollectionViewCell {
         categoryPhoto.sd_setImage(with: url)
     }
 }
-
 class MenuItem {
     var id, name, imageUrl, category: String
     var order: Int
