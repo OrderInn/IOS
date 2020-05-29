@@ -170,7 +170,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
     
+    func resumeMediaSession() {
+        session.startRunning()
+    }
+    
     func handleOrderRequested() {
+        if session.isRunning {
+            session.stopRunning()
+        }
         performSegue(withIdentifier: "showOrderMenu", sender: nil)
     }
 }
@@ -191,6 +198,11 @@ class CameraConfirmationViewController: UIViewController {
         restaurantBannerImage.sd_setImage(with: restaurant!.bannerImageUrl!) { _, _, _, _ in
             AnimationUtils.fadeIn(self.restaurantBannerImage)
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cameraVC!.resumeMediaSession()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
