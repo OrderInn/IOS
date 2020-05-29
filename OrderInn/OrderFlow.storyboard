@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mnq-r1-mbI">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -148,20 +148,19 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan QR code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-Mi-wiG">
-                                            <rect key="frame" x="0.0" y="282" width="414" height="25"/>
+                                            <rect key="frame" x="105" y="290" width="204.5" height="25"/>
                                             <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="tt0-ve-vcv" firstAttribute="top" secondItem="PlG-Mi-wiG" secondAttribute="bottom" constant="16" id="KyH-OR-VdM"/>
+                                        <constraint firstItem="PlG-Mi-wiG" firstAttribute="bottom" secondItem="tt0-ve-vcv" secondAttribute="top" constant="-8" id="KyH-OR-VdM"/>
+                                        <constraint firstItem="PlG-Mi-wiG" firstAttribute="centerX" secondItem="b4X-zm-NyX" secondAttribute="centerX" id="aQ3-1a-Dtp"/>
                                     </constraints>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="leading" secondItem="PlG-Mi-wiG" secondAttribute="leading" id="5ZN-kR-UGx"/>
                                     <constraint firstAttribute="centerY" secondItem="tt0-ve-vcv" secondAttribute="centerY" id="COt-Vo-JqO"/>
-                                    <constraint firstAttribute="trailing" secondItem="PlG-Mi-wiG" secondAttribute="trailing" id="gab-W9-9Ch"/>
                                     <constraint firstAttribute="centerX" secondItem="tt0-ve-vcv" secondAttribute="centerX" id="wHM-iq-Efl"/>
                                 </constraints>
                                 <blurEffect style="regular"/>
@@ -169,10 +168,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="top" secondItem="FKf-HX-8SL" secondAttribute="top" id="MQY-Zt-M8e"/>
-                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="bottom" secondItem="FKf-HX-8SL" secondAttribute="bottom" id="VKw-18-Mcq"/>
-                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="leading" secondItem="FKf-HX-8SL" secondAttribute="leading" id="aVP-9r-OIB"/>
-                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="trailing" secondItem="FKf-HX-8SL" secondAttribute="trailing" id="mZb-YA-T8d"/>
+                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="top" secondItem="FKf-HX-8SL" secondAttribute="top" id="61X-JA-qQP"/>
+                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="leading" secondItem="FKf-HX-8SL" secondAttribute="leading" id="7XX-X2-veG"/>
+                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="bottom" secondItem="FKf-HX-8SL" secondAttribute="bottom" id="VDn-19-RyR"/>
+                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="trailing" secondItem="FKf-HX-8SL" secondAttribute="trailing" id="z3O-me-dxd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oin-bc-mCW"/>
                     </view>
@@ -186,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbV-P0-g2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2185.507246376812" y="43.526785714285715"/>
+            <point key="canvasLocation" x="2184.375" y="42.5"/>
         </scene>
         <!--Camera Confirmation View Controller-->
         <scene sceneID="wWl-gf-Lh0">

@@ -28,10 +28,17 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         initialSetup()
     }
     
-    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewDidAppearSetup()
+        
+        // Oddly enough, we need to do the graphics (blur mask) setup exactly here,
+        // because apparently AutoLayout just runs at some weird time, and viewDidLayoutSubviews
+        // gets called _before the whole tree_ has been laid out which just makes the frames all
+        // weird like.
+        //
+        // But whatever.
+        setupGraphics()
     }
     
     fileprivate func initialSetup(){
@@ -63,15 +70,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             errorAlert(error.localizedDescription)
         }
         
-        setupGraphics()
+        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer.frame = self.view.layer.bounds
+        view.layer.insertSublayer(previewLayer, at: 0)
+
         session.startRunning()
     }
     
     func setupGraphics() {
-        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
-        previewLayer.frame = self.view.layer.bounds
-        view.layer.insertSublayer(previewLayer, at: 0)
-        
         // https://stackoverflow.com/a/46253916
         let outerPath = UIBezierPath(rect: vfxView.bounds)
         let cutout = UIBezierPath(roundedRect: cutoutView.frame, cornerRadius: 25)
