@@ -13,16 +13,11 @@ import Firebase
 import SDWebImage
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
-    @IBOutlet weak var QRView: UIView!
-    @IBOutlet weak var QRlabel: UILabel!
+    let session = AVCaptureSession()
+    let metadataOutput = AVCaptureMetadataOutput()
+    @IBOutlet var vfxView: UIVisualEffectView!
+    @IBOutlet var cutoutView: UIView!
     
-    //MARK: Variables
-    let session: AVCaptureSession = AVCaptureSession()
-    let metadataOutput:AVCaptureMetadataOutput = AVCaptureMetadataOutput()
-    var succes: Bool = true
-    var lable: UILabel!
-    var image: UIImageView!
-
     var readResult: QRURI?
     var restaurant: Restaurant?
     
@@ -39,22 +34,14 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         viewDidAppearSetup()
     }
     
-    public override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        image.layer.removeAllAnimations()
-    }
-    
     fileprivate func initialSetup(){
         self.navigationController?.navigationBar.isHidden = true
         sessionSetup()
-        addBlure()
-        addCorners()
     }
     
     fileprivate func viewDidAppearSetup(){
         outputCheck()
         runSession()
-        animateCorners()
         self.navigationController?.navigationBar.isHidden = true
         
     }
@@ -76,11 +63,24 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             errorAlert(error.localizedDescription)
         }
         
+        setupGraphics()
+        session.startRunning()
+    }
+    
+    func setupGraphics() {
         let previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.frame = self.view.layer.bounds
-        view.layer.addSublayer(previewLayer)
+        view.layer.insertSublayer(previewLayer, at: 0)
         
-        session.startRunning()
+        // https://stackoverflow.com/a/46253916
+        let outerPath = UIBezierPath(rect: vfxView.bounds)
+        let cutout = UIBezierPath(roundedRect: cutoutView.frame, cornerRadius: 25)
+        outerPath.append(cutout)
+        outerPath.usesEvenOddFillRule = true
+        let mask = CAShapeLayer()
+        mask.path = outerPath.cgPath
+        mask.fillRule = .evenOdd
+        vfxView.layer.mask = mask
     }
 
     //MARK: Check if camera video can be displayd
@@ -104,67 +104,6 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             session.startRunning()
         }
     }
-    
-    //MARK: UI setup
-    func addBlure(){
-        //BlureView
-        let blur = UIBlurEffect(style: .regular)
-        let blureView = UIVisualEffectView(effect: blur)
-        blureView.frame = self.view.bounds
-        blureView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        let scanerLayer = CAShapeLayer()
-        let maskSize = getMaskSize()
-        let outherPath = UIBezierPath(roundedRect: maskSize, cornerRadius: 30)
-        
-        //MARK: Add Mask
-        let superLayerPath = UIBezierPath(rect: blureView.frame)
-        outherPath.append(superLayerPath)
-        scanerLayer.path = outherPath.cgPath
-        scanerLayer.fillRule = .evenOdd
-        
-        //Final blure layer
-        view.addSubview(blureView)
-        blureView.layer.mask = scanerLayer
-    }
-    
-    //Masc size to screen size
-    private func getMaskSize() -> CGRect{
-        let viewWidth = view.frame.width
-        let rectWidth = viewWidth - 114
-        let halfWidth = rectWidth/2
-        let x = view.center.x - halfWidth
-        let y = view.center.y - halfWidth
-        return CGRect(x: x, y: y, width: rectWidth, height: rectWidth)
-    }
-    
-    //MARK: Add white corners
-    func addCorners(){
-        let maskSize = getMaskSize().height
-        let imageWidth = maskSize * 1.0866666667
-        let halfWidth = (imageWidth) / 2
-        let x = view.center.x - halfWidth
-        let y = view.center.y - halfWidth
-        let imageFrame = CGRect(x: x, y: y, width: imageWidth, height: imageWidth)
-        
-        image = UIImageView()
-        image.frame = imageFrame
-        image.image = UIImage(named: "Corners")
-        print(imageFrame)
-        view.addSubview(image)
-    }
-    
-    //MARK: Add animation to Corners
-    func animateCorners(){
-        let animation = CABasicAnimation(keyPath: "transform.scale")
-        animation.toValue = 1.1
-        animation.duration = 1
-        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        animation.autoreverses = true
-        animation.repeatCount = .infinity
-        image.layer.add(animation, forKey: "animate")
-    }
-    //MARK: - End of UI setUp
     
     
     //MARK: - QR Scanner

@@ -133,43 +133,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tt0-ve-vcv">
-                                <rect key="frame" x="87" y="339" width="250" height="250"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan QR code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-Mi-wiG">
-                                <rect key="frame" x="76.5" y="166" width="261" height="21"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ykc-dY-uYQ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b4X-zm-NyX">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tt0-ve-vcv">
+                                            <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="250" id="G1i-wo-yih"/>
+                                                <constraint firstAttribute="width" constant="250" id="ccx-s3-YlT"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please scan QR code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-Mi-wiG">
+                                            <rect key="frame" x="0.0" y="282" width="414" height="25"/>
+                                            <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="tt0-ve-vcv" firstAttribute="top" secondItem="PlG-Mi-wiG" secondAttribute="bottom" constant="16" id="KyH-OR-VdM"/>
+                                    </constraints>
+                                </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="JTg-qc-gLQ"/>
+                                    <constraint firstAttribute="leading" secondItem="PlG-Mi-wiG" secondAttribute="leading" id="5ZN-kR-UGx"/>
+                                    <constraint firstAttribute="centerY" secondItem="tt0-ve-vcv" secondAttribute="centerY" id="COt-Vo-JqO"/>
+                                    <constraint firstAttribute="trailing" secondItem="PlG-Mi-wiG" secondAttribute="trailing" id="gab-W9-9Ch"/>
+                                    <constraint firstAttribute="centerX" secondItem="tt0-ve-vcv" secondAttribute="centerX" id="wHM-iq-Efl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <blurEffect style="regular"/>
+                            </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tt0-ve-vcv" firstAttribute="centerX" secondItem="FKf-HX-8SL" secondAttribute="centerX" constant="5" id="1Fk-H1-wnp"/>
-                            <constraint firstItem="tt0-ve-vcv" firstAttribute="centerY" secondItem="FKf-HX-8SL" secondAttribute="centerY" constant="16" id="2IM-rY-FTH"/>
-                            <constraint firstItem="tt0-ve-vcv" firstAttribute="leading" secondItem="oin-bc-mCW" secondAttribute="leading" constant="87" id="3DS-gW-bzw"/>
-                            <constraint firstItem="PlG-Mi-wiG" firstAttribute="top" secondItem="oin-bc-mCW" secondAttribute="top" constant="122" id="9R1-Yi-f51"/>
-                            <constraint firstItem="tt0-ve-vcv" firstAttribute="top" secondItem="oin-bc-mCW" secondAttribute="top" constant="295" id="VG3-37-tGs"/>
-                            <constraint firstItem="PlG-Mi-wiG" firstAttribute="leading" secondItem="oin-bc-mCW" secondAttribute="leading" constant="76.5" id="m5F-fY-OFf"/>
-                            <constraint firstItem="PlG-Mi-wiG" firstAttribute="centerX" secondItem="FKf-HX-8SL" secondAttribute="centerX" id="unS-7b-uHl"/>
+                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="top" secondItem="FKf-HX-8SL" secondAttribute="top" id="MQY-Zt-M8e"/>
+                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="bottom" secondItem="FKf-HX-8SL" secondAttribute="bottom" id="VKw-18-Mcq"/>
+                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="leading" secondItem="FKf-HX-8SL" secondAttribute="leading" id="aVP-9r-OIB"/>
+                            <constraint firstItem="Ykc-dY-uYQ" firstAttribute="trailing" secondItem="FKf-HX-8SL" secondAttribute="trailing" id="mZb-YA-T8d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oin-bc-mCW"/>
                     </view>
                     <navigationItem key="navigationItem" id="3NP-VK-VjA"/>
                     <connections>
-                        <outlet property="QRView" destination="tt0-ve-vcv" id="aAJ-dY-NSb"/>
-                        <outlet property="QRlabel" destination="PlG-Mi-wiG" id="oP5-dL-wM8"/>
+                        <outlet property="cutoutView" destination="tt0-ve-vcv" id="LxL-Dt-MzI"/>
+                        <outlet property="vfxView" destination="Ykc-dY-uYQ" id="ky3-ay-WDa"/>
                         <segue destination="Fhb-j3-YxZ" kind="presentation" identifier="presentConfirmationView" id="pnS-Yu-jHR"/>
                         <segue destination="JOf-eu-4bT" kind="showDetail" identifier="showOrderMenu" id="l4a-py-UAF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BbV-P0-g2Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2186" y="44"/>
+            <point key="canvasLocation" x="2185.507246376812" y="43.526785714285715"/>
         </scene>
         <!--Camera Confirmation View Controller-->
         <scene sceneID="wWl-gf-Lh0">
@@ -180,7 +197,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="Vz4-gm-VlL">
-                                <rect key="frame" x="0.0" y="17" width="414" height="805"/>
+                                <rect key="frame" x="0.0" y="17" width="414" height="804"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ah7-5G-pW9">
