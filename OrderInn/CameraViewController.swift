@@ -206,7 +206,7 @@ class CameraConfirmationViewController: UIViewController {
 
     @IBAction func handleOrderTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: {
-            self.cameraVC?.handleOrderRequested()
         })
+        self.cameraVC?.handleOrderRequested()
     }
 }
