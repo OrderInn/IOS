@@ -68,7 +68,7 @@
         <scene sceneID="ihP-YK-Y2p">
             <objects>
                 <tableViewController wantsFullScreenLayout="YES" modalPresentationStyle="fullScreen" id="8pg-iu-suo" customClass="MenuViewController" customModule="OrderInn" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QVf-LZ-TUR">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QVf-LZ-TUR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -81,7 +81,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BD5-9I-lFd">
-                                            <rect key="frame" x="10" y="0.0" width="42" height="20"/>
+                                            <rect key="frame" x="30" y="21" width="42" height="20"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="20" id="Q0C-R8-hVG"/>
                                             </constraints>
@@ -89,31 +89,29 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-lo-ONF">
+                                            <rect key="frame" x="184" y="40" width="220" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="220" id="4x4-N2-FBB"/>
+                                                <constraint firstAttribute="height" constant="100" id="o03-le-oJ8"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="76o-la-pF9">
-                                            <rect key="frame" x="10" y="135" width="42" height="20"/>
+                                            <rect key="frame" x="30" y="111" width="42" height="13"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-lo-ONF">
-                                            <rect key="frame" x="10" y="25" width="239" height="110"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="239" id="GWV-Df-mFR"/>
-                                                <constraint firstAttribute="height" constant="110" id="s5V-lv-XDh"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="76o-la-pF9" firstAttribute="top" secondItem="Eox-lo-ONF" secondAttribute="bottom" id="6yf-yq-d0g"/>
-                                        <constraint firstItem="Eox-lo-ONF" firstAttribute="top" secondItem="BD5-9I-lFd" secondAttribute="bottom" constant="5" id="OCb-Fu-j0X"/>
-                                        <constraint firstItem="Eox-lo-ONF" firstAttribute="top" secondItem="BD5-9I-lFd" secondAttribute="bottom" constant="5" id="T1c-FI-NeE"/>
-                                        <constraint firstItem="Eox-lo-ONF" firstAttribute="centerY" secondItem="eTk-He-FL5" secondAttribute="centerY" id="YdC-Ba-2iV"/>
-                                        <constraint firstItem="BD5-9I-lFd" firstAttribute="leading" secondItem="eTk-He-FL5" secondAttribute="leadingMargin" constant="-10" id="dQJ-7s-hQh"/>
-                                        <constraint firstItem="BD5-9I-lFd" firstAttribute="leading" secondItem="Eox-lo-ONF" secondAttribute="leading" id="e7s-7M-vXm"/>
-                                        <constraint firstItem="BD5-9I-lFd" firstAttribute="top" secondItem="eTk-He-FL5" secondAttribute="topMargin" constant="-11" id="n0b-04-UCK"/>
-                                        <constraint firstItem="Eox-lo-ONF" firstAttribute="leading" secondItem="76o-la-pF9" secondAttribute="leading" id="uNj-9L-m8J"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="76o-la-pF9" secondAttribute="bottom" constant="-6" id="uPh-YC-g5g"/>
-                                        <constraint firstItem="76o-la-pF9" firstAttribute="top" secondItem="Eox-lo-ONF" secondAttribute="bottom" id="yih-lw-mVo"/>
+                                        <constraint firstItem="BD5-9I-lFd" firstAttribute="top" secondItem="eTk-He-FL5" secondAttribute="topMargin" constant="10" id="5Bf-XS-MJR"/>
+                                        <constraint firstAttribute="trailing" secondItem="Eox-lo-ONF" secondAttribute="trailing" constant="10" id="7Qf-Ob-xWN"/>
+                                        <constraint firstItem="76o-la-pF9" firstAttribute="top" secondItem="BD5-9I-lFd" secondAttribute="bottom" constant="70" id="ONe-fy-5pa"/>
+                                        <constraint firstItem="BD5-9I-lFd" firstAttribute="leading" secondItem="eTk-He-FL5" secondAttribute="leadingMargin" constant="10" id="W27-9I-hXI"/>
+                                        <constraint firstAttribute="bottom" secondItem="Eox-lo-ONF" secondAttribute="bottom" constant="40" id="enV-Dr-B2V"/>
+                                        <constraint firstItem="76o-la-pF9" firstAttribute="leading" secondItem="eTk-He-FL5" secondAttribute="leadingMargin" constant="10" id="fOt-YE-2zY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="76o-la-pF9" secondAttribute="bottom" constant="25" id="j7j-ci-epi"/>
+                                        <constraint firstItem="Eox-lo-ONF" firstAttribute="top" secondItem="eTk-He-FL5" secondAttribute="top" constant="40" id="z9M-sy-0q8"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
