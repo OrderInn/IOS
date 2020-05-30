@@ -21,13 +21,13 @@
 		58D1E2C0242D1F95009E93FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2BE242D1F95009E93FE /* LaunchScreen.storyboard */; };
 		58D1E2C8242D233E009E93FE /* LoginOpcijasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2C7242D233E009E93FE /* LoginOpcijasViewController.swift */; };
 		58D1E2CA242D234C009E93FE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2C9242D234C009E93FE /* SignUpViewController.swift */; };
-		58D1E2CC242D2803009E93FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2CB242D2803009E93FE /* GoogleService-Info.plist */; };
 		58F70879248239A1005390DC /* MenuServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F70878248239A1005390DC /* MenuServices.swift */; };
 		58F7087B24823B9F005390DC /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F7087A24823B9F005390DC /* CategoryViewController.swift */; };
 		690498BA247E9BC8002AA9D8 /* QRURI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498B9247E9BC8002AA9D8 /* QRURI.swift */; };
 		690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BB247E9DD9002AA9D8 /* Restaurant.swift */; };
 		690498BE247EA98D002AA9D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BD247EA98D002AA9D8 /* Utilities.swift */; };
 		690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690498BF247EB223002AA9D8 /* OrderFlow.storyboard */; };
+		695368262482D77300CCE91F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 695368252482D77200CCE91F /* GoogleService-Info.plist */; };
 		6997B9DC247FA0A900AD806A /* AuthFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */; };
 		6997B9E0247FA66A00AD806A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997B9DF247FA66A00AD806A /* Main.storyboard */; };
 		6997B9E2247FA6CB00AD806A /* InitialDispatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */; };
@@ -64,13 +64,13 @@
 		58D1E2C1242D1F95009E93FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		58D1E2C7242D233E009E93FE /* LoginOpcijasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOpcijasViewController.swift; sourceTree = "<group>"; };
 		58D1E2C9242D234C009E93FE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		58D1E2CB242D2803009E93FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		58F70878248239A1005390DC /* MenuServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuServices.swift; sourceTree = "<group>"; };
 		58F7087A24823B9F005390DC /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		690498B9247E9BC8002AA9D8 /* QRURI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRURI.swift; sourceTree = "<group>"; };
 		690498BB247E9DD9002AA9D8 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		690498BD247EA98D002AA9D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		690498BF247EB223002AA9D8 /* OrderFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderFlow.storyboard; sourceTree = "<group>"; };
+		695368252482D77200CCE91F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthFlow.storyboard; sourceTree = "<group>"; };
 		6997B9DF247FA66A00AD806A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDispatchViewController.swift; sourceTree = "<group>"; };
@@ -143,8 +143,8 @@
 				58D1E2BE242D1F95009E93FE /* LaunchScreen.storyboard */,
 				6997B9DF247FA66A00AD806A /* Main.storyboard */,
 				58D1E2BC242D1F95009E93FE /* Assets.xcassets */,
-				58D1E2CB242D2803009E93FE /* GoogleService-Info.plist */,
 				58D1E2C1242D1F95009E93FE /* Info.plist */,
+				695368252482D77200CCE91F /* GoogleService-Info.plist */,
 			);
 			path = OrderInn;
 			sourceTree = "<group>";
@@ -222,10 +222,10 @@
 			files = (
 				6997B9E0247FA66A00AD806A /* Main.storyboard in Resources */,
 				58D1E2C0242D1F95009E93FE /* LaunchScreen.storyboard in Resources */,
-				58D1E2CC242D2803009E93FE /* GoogleService-Info.plist in Resources */,
 				58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */,
 				690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */,
 				6997B9DC247FA0A900AD806A /* AuthFlow.storyboard in Resources */,
+				695368262482D77300CCE91F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,7 +455,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.OrderInn.INC.OrderInn;
+				PRODUCT_BUNDLE_IDENTIFIER = app.orderinn.ios.order;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -475,7 +475,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.OrderInn.INC.OrderInn;
+				PRODUCT_BUNDLE_IDENTIFIER = app.orderinn.ios.order;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
