@@ -126,7 +126,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         if let confirmationVC = segue.destination as? CameraConfirmationViewController {
             confirmationVC.cameraVC = self
             confirmationVC.restaurant = restaurant!
-        } else if let menuVC = segue.destination as? MenuCategoryViewController {
+        } else if let menuVC = segue.destination as? CategoryViewController {
             menuVC.restaurant = restaurant!
             menuVC.tableId = readResult!.table
             menuVC.seatId = readResult!.seat
@@ -194,7 +194,6 @@ class CameraConfirmationViewController: UIViewController {
         restaurantTitleLabel.text = restaurant!.name
         
         restaurantBannerImage.alpha = 0.0
-        restaurantBannerImage.layer.cornerRadius = 200
         restaurantBannerImage.sd_setImage(with: restaurant!.bannerImageUrl!) { _, _, _, _ in
             AnimationUtils.fadeIn(self.restaurantBannerImage)
         }
