@@ -12,8 +12,6 @@ import Firebase
 
 class CategoryViewController: UITableViewController {
     
-    @IBOutlet weak var foodSectionTable: UITableView!
-    
     var restaurant: Restaurant?
     var tableId, seatId: String?
     
@@ -28,7 +26,7 @@ class CategoryViewController: UITableViewController {
         loadCategories { (categories) in
             self.categories = categories
             self.categories.sort(by: { (a, b) in a.order < b.order })
-            self.foodSectionTable.reloadData()
+            self.tableView.reloadData()
         }
     }
 
@@ -67,7 +65,7 @@ class CategoryViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let category = categories[indexPath[1]]
-        let cell = foodSectionTable.dequeueReusableCell(withIdentifier: MenuCategoryCell.reuseIdentifier, for: indexPath) as! MenuCategoryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuCategoryCell.reuseIdentifier, for: indexPath) as! MenuCategoryCell
         cell.display(category: category)
         return cell
     }
