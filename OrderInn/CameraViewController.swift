@@ -203,13 +203,10 @@ class CameraConfirmationViewController: UIViewController {
         super.viewWillDisappear(animated)
         cameraVC!.resumeMediaSession()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-    }
 
     @IBAction func handleOrderTapped(_ sender: Any) {
-        navigationController?.popToViewController(cameraVC!, animated: true)
-        cameraVC?.handleOrderRequested()
+        self.dismiss(animated: true, completion: {
+            self.cameraVC?.handleOrderRequested()
+        })
     }
 }
