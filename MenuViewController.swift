@@ -17,11 +17,14 @@ class MenuViewController: UITableViewController {
     var restaurant: Restaurant?
     var category: MenuCategory?
     var items = [MenuItem]()
+    var opened = Bool()
 
     let fireRef = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         tableView.dataSource = self
         
