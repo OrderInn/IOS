@@ -118,6 +118,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         guard metadataObjects.count > 0 else { return }
         guard let object = metadataObjects[0] as? AVMetadataMachineReadableCodeObject else { return }
         guard let result = object.stringValue else { return }
+        AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
         session.stopRunning()
         handleQrRead(result: result)
     }

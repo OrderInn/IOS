@@ -36,5 +36,7 @@ class MenuTableCell: UITableViewCell {
         guard let url = URL(string: item.imageUrl) else { return }
         itemPhoto.sd_setImage(with: url)
     }
-
 }
+
+
+

@@ -23,8 +23,6 @@ class MenuViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
         tableView.dataSource = self
         
@@ -73,16 +71,14 @@ class MenuViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
         return items.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let index = indexPath[1]
+        let index = indexPath[1]
         let item = items[index]
         let cell = menuTable.dequeueReusableCell(withIdentifier: MenuTableCell.reuseIdentifier, for: indexPath) as! MenuTableCell
         cell.display(item: item)
         return cell
     }
-
 }
 
