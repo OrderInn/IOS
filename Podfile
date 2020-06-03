@@ -29,4 +29,6 @@ pod 'GoogleSignIn'
 
 pod 'SDWebImage', '~>4.0'
 
+pod 'BonsaiController'
+
 end

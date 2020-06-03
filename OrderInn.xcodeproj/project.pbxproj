@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		583B9769248555F000672CAA /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583B9768248555F000672CAA /* OrderViewController.swift */; };
 		58619BB824824027009DE778 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58619BB724824027009DE778 /* MenuViewController.swift */; };
 		588C56A12430A90200B8F146 /* ConstanceFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588C56A02430A90200B8F146 /* ConstanceFiles.swift */; };
 		588C56A32430A9C000B8F146 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588C56A22430A9C000B8F146 /* CameraViewController.swift */; };
@@ -15,6 +16,7 @@
 		588C56AA2432047B00B8F146 /* Pods_OrderInn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		58A4F3152482494300B011E4 /* MenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A4F3142482494300B011E4 /* MenuTableCell.swift */; };
 		58A4F31724824AC100B011E4 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A4F31624824AC100B011E4 /* CategoryTableCell.swift */; };
+		58A7752824867CE60098C34E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58A7752724867CE60098C34E /* GoogleService-Info.plist */; };
 		58D1E2B4242D1F95009E93FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B3242D1F95009E93FE /* AppDelegate.swift */; };
 		58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */; };
 		58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2BC242D1F95009E93FE /* Assets.xcassets */; };
@@ -27,7 +29,6 @@
 		690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BB247E9DD9002AA9D8 /* Restaurant.swift */; };
 		690498BE247EA98D002AA9D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BD247EA98D002AA9D8 /* Utilities.swift */; };
 		690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690498BF247EB223002AA9D8 /* OrderFlow.storyboard */; };
-		695368262482D77300CCE91F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 695368252482D77200CCE91F /* GoogleService-Info.plist */; };
 		6997B9DC247FA0A900AD806A /* AuthFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */; };
 		6997B9E0247FA66A00AD806A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997B9DF247FA66A00AD806A /* Main.storyboard */; };
 		6997B9E2247FA6CB00AD806A /* InitialDispatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */; };
@@ -50,12 +51,14 @@
 
 /* Begin PBXFileReference section */
 		14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		583B9768248555F000672CAA /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		58619BB724824027009DE778 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../MenuViewController.swift; sourceTree = "<group>"; };
 		588C56A02430A90200B8F146 /* ConstanceFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstanceFiles.swift; sourceTree = "<group>"; };
 		588C56A22430A9C000B8F146 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		588C56A42431FD3B00B8F146 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		58A4F3142482494300B011E4 /* MenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableCell.swift; sourceTree = "<group>"; };
 		58A4F31624824AC100B011E4 /* CategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
+		58A7752724867CE60098C34E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		58D1E2B0242D1F95009E93FE /* OrderInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D1E2B3242D1F95009E93FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +73,6 @@
 		690498BB247E9DD9002AA9D8 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		690498BD247EA98D002AA9D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		690498BF247EB223002AA9D8 /* OrderFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderFlow.storyboard; sourceTree = "<group>"; };
-		695368252482D77200CCE91F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthFlow.storyboard; sourceTree = "<group>"; };
 		6997B9DF247FA66A00AD806A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDispatchViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		58D1E2A7242D1F95009E93FE = {
 			isa = PBXGroup;
 			children = (
+				583B9768248555F000672CAA /* OrderViewController.swift */,
 				58D1E2B2242D1F95009E93FE /* OrderInn */,
 				58D1E2B1242D1F95009E93FE /* Products */,
 				5112FA7E565C8113FBD12C1B /* Pods */,
@@ -144,7 +147,7 @@
 				6997B9DF247FA66A00AD806A /* Main.storyboard */,
 				58D1E2BC242D1F95009E93FE /* Assets.xcassets */,
 				58D1E2C1242D1F95009E93FE /* Info.plist */,
-				695368252482D77200CCE91F /* GoogleService-Info.plist */,
+				58A7752724867CE60098C34E /* GoogleService-Info.plist */,
 			);
 			path = OrderInn;
 			sourceTree = "<group>";
@@ -225,7 +228,7 @@
 				58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */,
 				690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */,
 				6997B9DC247FA0A900AD806A /* AuthFlow.storyboard in Resources */,
-				695368262482D77300CCE91F /* GoogleService-Info.plist in Resources */,
+				58A7752824867CE60098C34E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +306,7 @@
 				58D1E2B4242D1F95009E93FE /* AppDelegate.swift in Sources */,
 				588C56A12430A90200B8F146 /* ConstanceFiles.swift in Sources */,
 				6997B9E5247FB02700AD806A /* AuthFlowNavigationController.swift in Sources */,
+				583B9769248555F000672CAA /* OrderViewController.swift in Sources */,
 				58A4F31724824AC100B011E4 /* CategoryTableCell.swift in Sources */,
 				588C56A32430A9C000B8F146 /* CameraViewController.swift in Sources */,
 				58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */,
@@ -455,7 +459,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.OrderInn.INC.OrderInn;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.orderinn.ios.order2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -475,7 +480,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.OrderInn.INC.OrderInn;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.orderinn.ios.order2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

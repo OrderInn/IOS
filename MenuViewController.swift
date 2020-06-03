@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import Firebase
+import BonsaiController
 
 class MenuViewController: UITableViewController {
 
@@ -16,9 +17,10 @@ class MenuViewController: UITableViewController {
     
     var restaurant: Restaurant?
     var category: MenuCategory?
+    var properties: MenuItem?
     var items = [MenuItem]()
     var opened = Bool()
-
+    
     let fireRef = Firestore.firestore()
     
     override func viewDidLoad() {
@@ -62,14 +64,20 @@ class MenuViewController: UITableViewController {
             completion()
         }
     }
-
-
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.alpha = 1.0
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
      
         return 1
     }
 
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -79,6 +87,34 @@ class MenuViewController: UITableViewController {
         let cell = menuTable.dequeueReusableCell(withIdentifier: MenuTableCell.reuseIdentifier, for: indexPath) as! MenuTableCell
         cell.display(item: item)
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newVC = storyboard?.instantiateViewController(identifier: "ToOrder") as! OrderViewController
+        newVC.transitioningDelegate = self
+        newVC.modalPresentationStyle = .custom
+        present(newVC, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let menuTableCell = sender as? MenuTableCell else {return}
+        
+        
+
+        if segue.destination is MenuViewController {
+            segue.destination.transitioningDelegate = self
+            segue.destination.modalPresentationStyle = .custom
+        }
+    }
+}
+extension MenuViewController: BonsaiControllerDelegate {
+    
+    func frameOfPresentedView(in containerViewFrame: CGRect) -> CGRect {
+        return CGRect(origin: CGPoint(x: 0, y: containerViewFrame.height / 2.5), size: CGSize(width: containerViewFrame.width, height: containerViewFrame.height / (2/3)))
+    }
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return BonsaiController(fromDirection: .right, blurEffectStyle: .dark, presentedViewController: presented, delegate: self)
     }
 }
 

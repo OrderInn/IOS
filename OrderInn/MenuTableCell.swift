@@ -15,6 +15,7 @@ class MenuTableCell: UITableViewCell {
     @IBOutlet weak var foodPrice: UILabel!
     @IBOutlet weak var itemPhoto: UIImageView!
     
+    
     static let reuseIdentifier = "MenuItemCell"
     var item: MenuItem?
     
@@ -36,7 +37,11 @@ class MenuTableCell: UITableViewCell {
         guard let url = URL(string: item.imageUrl) else { return }
         itemPhoto.sd_setImage(with: url)
     }
+    
+
+    
 }
+
 
 
 

@@ -52,6 +52,12 @@ class CategoryViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.75) {
+            cell.alpha = 1.0
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
