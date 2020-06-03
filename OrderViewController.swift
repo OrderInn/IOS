@@ -16,14 +16,14 @@ class OrderViewController: UIViewController {
     @IBOutlet weak var itemDescr: UILabel!
     @IBOutlet weak var itemPrice: UILabel!
 
-    var menuItem: MenuTableCell?
-    var Img:UIImage!
+    var menuItem: MenuItem?
+    var img: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        menuImage.image = menuItem?.itemPhoto.image
-        menuName.text = menuItem?.foodName.text
+        menuImage.image = img
+        menuName.text = menuItem?.name
         
     }
     

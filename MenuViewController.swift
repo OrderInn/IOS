@@ -93,14 +93,14 @@ class MenuViewController: UITableViewController {
         let newVC = storyboard?.instantiateViewController(identifier: "ToOrder") as! OrderViewController
         newVC.transitioningDelegate = self
         newVC.modalPresentationStyle = .custom
+        let cell = tableView.cellForRow(at: indexPath) as! MenuTableCell
+        newVC.menuItem = cell.item
+        newVC.img = cell.itemPhoto.image
         present(newVC, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let menuTableCell = sender as? MenuTableCell else {return}
-        
-        
 
         if segue.destination is MenuViewController {
             segue.destination.transitioningDelegate = self
