@@ -10,8 +10,11 @@ import Foundation
 import Firebase
 
 class MenuItem {
-    var id, name, imageUrl, category: String
+    // TODO: move Price to a Currency type
+    var id, name, imageUrl, category, price: String
+    var description: String?
     var order: Int
+    var image: UIImage?
     
     init?(_ doc: QueryDocumentSnapshot) {
         let data = doc.data()
@@ -28,6 +31,13 @@ class MenuItem {
         
         guard let order = data["order"] as? Int else { return nil }
         self.order = order
+        
+        // TODO remove the else clause when it's ready
+        if let price = data["price"] as? String {
+            self.price = price
+        } else {
+            self.price = "- 0.00"
+        }
     }
 }
 

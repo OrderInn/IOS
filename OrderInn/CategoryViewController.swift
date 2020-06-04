@@ -80,7 +80,7 @@ class CategoryViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let cell = sender as? MenuCategoryCell else { return }
         let category = cell.category!
-        if let menuItemVC = segue.destination as? MenuViewController {
+        if let menuItemVC = segue.destination as? MenuItemViewController {
             menuItemVC.restaurant = restaurant!
             menuItemVC.category = category
         }
