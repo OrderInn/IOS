@@ -9,7 +9,6 @@
 import UIKit
 import Foundation
 import Firebase
-import BonsaiController
 
 class MenuViewController: UITableViewController {
 
@@ -67,7 +66,7 @@ class MenuViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.alpha = 0
-        UIView.animate(withDuration: 0.75) {
+        UIView.animate(withDuration: 0.2) {
             cell.alpha = 1.0
         }
     }
@@ -87,34 +86,14 @@ class MenuViewController: UITableViewController {
         let cell = menuTable.dequeueReusableCell(withIdentifier: MenuTableCell.reuseIdentifier, for: indexPath) as! MenuTableCell
         cell.display(item: item)
         return cell
+        
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let newVC = storyboard?.instantiateViewController(identifier: "ToOrder") as! OrderViewController
-        newVC.transitioningDelegate = self
-        newVC.modalPresentationStyle = .custom
-        let cell = tableView.cellForRow(at: indexPath) as! MenuTableCell
-        newVC.menuItem = cell.item
-        newVC.img = cell.itemPhoto.image
-        present(newVC, animated: true, completion: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let menuTableCell = sender as? MenuTableCell else {return}
-
-        if segue.destination is MenuViewController {
-            segue.destination.transitioningDelegate = self
-            segue.destination.modalPresentationStyle = .custom
+        if let destVC = segue.destination as? OrderViewController{
+            destVC.oneItem = items[(menuTable.indexPathForSelectedRow?.row)!]
+            menuTable.deselectRow(at: menuTable.indexPathForSelectedRow!, animated: true)
         }
     }
 }
-extension MenuViewController: BonsaiControllerDelegate {
-    
-    func frameOfPresentedView(in containerViewFrame: CGRect) -> CGRect {
-        return CGRect(origin: CGPoint(x: 0, y: containerViewFrame.height / 2.5), size: CGSize(width: containerViewFrame.width, height: containerViewFrame.height / (2/3)))
-    }
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return BonsaiController(fromDirection: .right, blurEffectStyle: .dark, presentedViewController: presented, delegate: self)
-    }
-}
+
 
