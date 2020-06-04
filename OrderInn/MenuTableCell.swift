@@ -35,11 +35,12 @@ class MenuTableCell: UITableViewCell {
 
         foodName.text = item.name
         
+        
         guard let url = URL(string: item.imageUrl) else { return }
         itemPhoto.sd_setImage(with: url)
         
-        background.layer.shadowColor = UIColor.gray.cgColor
-        background.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        background.layer.shadowColor = UIColor.white.cgColor
+        background.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
         background.layer.shadowOpacity = 3.0
         background.layer.masksToBounds = false
         background.layer.cornerRadius = 15.0

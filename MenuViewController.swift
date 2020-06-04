@@ -89,8 +89,12 @@ class MenuViewController: UITableViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? MenuTableCell else {return}
+        let isItem = cell.item!
+        let isPhoto = cell.itemPhoto
         if let destVC = segue.destination as? OrderViewController{
-            destVC.oneItem = items[(menuTable.indexPathForSelectedRow?.row)!]
+            destVC.oneItem = isItem
+            destVC.photo = isPhoto
             menuTable.deselectRow(at: menuTable.indexPathForSelectedRow!, animated: true)
         }
     }

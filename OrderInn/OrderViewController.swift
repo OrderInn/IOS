@@ -10,21 +10,24 @@ import UIKit
 
 class OrderViewController: UIViewController {
     
-    @IBOutlet weak var itemImage: UIImageView!
-    @IBOutlet weak var itemName: UILabel!
+    @IBOutlet weak var menuItemPhoto: UIImageView!
+    @IBOutlet weak var menuItemName: UILabel!
+    @IBOutlet weak var menuItemPrice: UILabel!
+    
     
     var oneItem: MenuItem?
+    var photo: UIImageView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        menuItemName.text = oneItem?.name
+        menuItemPhoto.image = photo?.image
     }
     
-    @IBAction func hidePopOver(_ sender: Any) {
+    @IBAction func dismissPopOver(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
 }
 
 @IBDesignable class ViewDesign:UIView{
