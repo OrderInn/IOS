@@ -29,6 +29,7 @@
 		690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BB247E9DD9002AA9D8 /* Restaurant.swift */; };
 		690498BE247EA98D002AA9D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BD247EA98D002AA9D8 /* Utilities.swift */; };
 		690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690498BF247EB223002AA9D8 /* OrderFlow.storyboard */; };
+		695622C3248A47F1006BFB64 /* OrderFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695622C2248A47F1006BFB64 /* OrderFlowNavigationController.swift */; };
 		6997B9DC247FA0A900AD806A /* AuthFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */; };
 		6997B9E0247FA66A00AD806A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997B9DF247FA66A00AD806A /* Main.storyboard */; };
 		6997B9E2247FA6CB00AD806A /* InitialDispatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */; };
@@ -73,6 +74,7 @@
 		690498BB247E9DD9002AA9D8 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		690498BD247EA98D002AA9D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		690498BF247EB223002AA9D8 /* OrderFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderFlow.storyboard; sourceTree = "<group>"; };
+		695622C2248A47F1006BFB64 /* OrderFlowNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFlowNavigationController.swift; sourceTree = "<group>"; };
 		6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthFlow.storyboard; sourceTree = "<group>"; };
 		6997B9DF247FA66A00AD806A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDispatchViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				583FBF892488426F00474468 /* OrderViewController.swift */,
 				58A4F31624824AC100B011E4 /* CategoryTableCell.swift */,
 				58A4F3142482494300B011E4 /* MenuTableCell.swift */,
+				695622C2248A47F1006BFB64 /* OrderFlowNavigationController.swift */,
 				58F70878248239A1005390DC /* MenuServices.swift */,
 				690498BB247E9DD9002AA9D8 /* Restaurant.swift */,
 				690498B9247E9BC8002AA9D8 /* QRURI.swift */,
@@ -300,6 +303,7 @@
 			files = (
 				58D1E2C8242D233E009E93FE /* LoginOpcijasViewController.swift in Sources */,
 				58619BB824824027009DE778 /* MenuViewController.swift in Sources */,
+				695622C3248A47F1006BFB64 /* OrderFlowNavigationController.swift in Sources */,
 				690498BA247E9BC8002AA9D8 /* QRURI.swift in Sources */,
 				58F7087B24823B9F005390DC /* CategoryViewController.swift in Sources */,
 				690498BE247EA98D002AA9D8 /* Utilities.swift in Sources */,

@@ -190,10 +190,10 @@
             </objects>
             <point key="canvasLocation" x="3078" y="332"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Order Flow Navigation Controller-->
         <scene sceneID="RrF-lj-Hh1">
             <objects>
-                <navigationController storyboardIdentifier="MainFlowRootScene" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" hidesBarsOnSwipe="YES" id="mnq-r1-mbI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainFlowRootScene" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" hidesBarsOnSwipe="YES" id="mnq-r1-mbI" customClass="OrderFlowNavigationController" customModule="OrderInn" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2lH-3y-DSl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -204,10 +204,45 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
+                        <outlet property="statusPopover" destination="5DF-MP-6Sc" id="KPB-jt-Mcj"/>
                         <segue destination="wfZ-y6-v8e" kind="relationship" relationship="rootViewController" id="3kg-fl-MY0"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKE-Qh-Exu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DF-MP-6Sc" userLabel="Order Status Popover View">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgk-w8-gGy" userLabel="Order Sum Label">
+                            <rect key="frame" x="16" y="16" width="45" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="18" id="sSb-VN-xHx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-2w-0Uc" userLabel="Checkout Button">
+                            <rect key="frame" x="238" y="10" width="66" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="4KJ-xM-AF8"/>
+                            </constraints>
+                            <state key="normal" title="Checkout"/>
+                            <connections>
+                                <action selector="handleCheckoutTapped:" destination="mnq-r1-mbI" eventType="primaryActionTriggered" id="1Ga-37-4za"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="cgk-w8-gGy" secondAttribute="bottom" constant="16" id="5HR-8R-1ul"/>
+                        <constraint firstItem="cgk-w8-gGy" firstAttribute="top" secondItem="5DF-MP-6Sc" secondAttribute="top" constant="16" id="638-5M-RJi"/>
+                        <constraint firstAttribute="trailing" secondItem="pIz-2w-0Uc" secondAttribute="trailing" constant="16" id="G6U-gq-nGG"/>
+                        <constraint firstItem="cgk-w8-gGy" firstAttribute="leading" secondItem="5DF-MP-6Sc" secondAttribute="leading" constant="16" id="kTl-b9-Ltq"/>
+                        <constraint firstItem="pIz-2w-0Uc" firstAttribute="top" secondItem="5DF-MP-6Sc" secondAttribute="top" constant="10" id="sfR-Mb-Dm8"/>
+                        <constraint firstAttribute="bottom" secondItem="pIz-2w-0Uc" secondAttribute="bottom" constant="10" id="wAx-cf-wt1"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="9mV-Pc-DHg"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1319" y="44"/>
         </scene>
