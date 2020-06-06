@@ -11,8 +11,10 @@ import UIKit
 
 class OrderFlowNavigationController: UINavigationController {
     @IBOutlet var statusPopover: UIView!
+    @IBOutlet weak var orderSumm: UILabel!
+    
     var hasLayout = false, isAnimating = false, isStatusPopoverShown = false
-
+    
     func showStatusPopover(completion: (() -> Void)?) {
         if isAnimating || isStatusPopoverShown {
             return
@@ -63,7 +65,8 @@ class OrderFlowNavigationController: UINavigationController {
         })
     }
     
-    @IBAction func handleCheckoutTapped(_ sender: UIButton!) {
+    @IBAction func handleCheckoutTapped(_ sender: Any) {
         hideStatusPopover(completion: nil)
     }
+    
 }

@@ -11,6 +11,9 @@ import Foundation
 import Firebase
 
 class MenuItemViewController: UITableViewController {
+    
+    @IBOutlet weak var checkoutview: UIView!
+    
     var restaurant: Restaurant?
     var category: MenuCategory?
     var properties: MenuItem?
@@ -27,6 +30,9 @@ class MenuItemViewController: UITableViewController {
         loadItems {
             self.tableView.reloadData()
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     // MARK: Data stuff
@@ -103,5 +109,7 @@ class MenuItemViewController: UITableViewController {
         tableView.endUpdates()
     }
 }
+
+
 
 

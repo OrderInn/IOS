@@ -39,7 +39,20 @@ class MenuItem {
             self.price = "- 0.00"
         }
     }
+    open var toPrice : Float{
+        if let price = Float(price){
+            return price
+        }
+        return self.toPrice
+    }
 }
+
+extension MenuItem{
+    static func ==(lhs: MenuItem, rhs: MenuItem) -> Bool{
+        return lhs.price == rhs.price && lhs.name == lhs.name
+    }
+}
+
 
 class MenuCategory {
     var id, name, imageUrl: String

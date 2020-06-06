@@ -42,15 +42,21 @@ class MenuCollapsedTableCell: UITableViewCell, MenuTableCellProtocol {
         }
     }
 }
+protocol CartDelegate {
+    func updateCount(cell: MenuExpandedTableCell, quantity: Int)
+}
 
 class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
     static let reuseIdentifier = "MenuExpandedTableCell"
     
+    @IBOutlet weak var itemCount: UILabel!
     @IBOutlet var itemTitle: UILabel!
     @IBOutlet var itemDescription: UILabel!
     @IBOutlet var itemPrice: UILabel!
     @IBOutlet var itemImage: UIImageView!
     
+    var delagate : CartDelegate?
+    var quantity : Int = 1
     var item: MenuItem?
     
     func getShownItem() -> MenuItem? {
@@ -72,6 +78,24 @@ class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
                 item.image = self.itemImage.image
             }
         }
+    }
+    
+    
+    @IBAction func itemCountUpdate(_ sender: Any) {
+        if (sender as! UIButton).tag == 0 {
+            quantity = quantity + 1
+        } else if quantity > 0 {
+            quantity = quantity - 1
+        }
+        
+        itemDescription.isEnabled = quantity > 0
+        self.itemCount.text = String(describing: quantity)
+        self.delagate?.updateCount(cell: self, quantity: quantity)
+    }
+    
+    
+    @IBAction func addToOrder(_ sender: Any) {
+        self.delagate?.u
     }
 }
 
