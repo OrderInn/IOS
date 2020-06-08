@@ -19,6 +19,7 @@ class MenuItemViewController: UITableViewController {
     var properties: MenuItem?
     var items = [MenuItem]()
     var isRowExpanded = [Int: Bool]()
+    var cart = Cart()
     
     let fireRef = Firestore.firestore()
     
@@ -30,9 +31,6 @@ class MenuItemViewController: UITableViewController {
         loadItems {
             self.tableView.reloadData()
         }
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     // MARK: Data stuff
@@ -107,6 +105,25 @@ class MenuItemViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         tableView.endUpdates()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showOrderList"{
+            if let destVC = segue.destination as? OrderConformation{
+                destVC.cart = self.cart
+            }
+        }
+    }
+}
+extension MenuItemViewController: CartDelegate {
+    func updateCount(cell: MenuExpandedTableCell, quantity: Int) {
+    }
+    
+ 
+    func updateCart(cell: MenuExpandedTableCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {return}
+        let item = items[indexPath.row]
+        cart.UpdateCart(with: item)
     }
 }
 

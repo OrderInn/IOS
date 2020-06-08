@@ -15,6 +15,8 @@ class MenuItem {
     var description: String?
     var order: Int
     var image: UIImage?
+    var currency: String = "EUR"
+    var theCurrency: Currency?
     
     init?(_ doc: QueryDocumentSnapshot) {
         let data = doc.data()
@@ -45,11 +47,11 @@ class MenuItem {
         }
         return self.toPrice
     }
-}
-
-extension MenuItem{
     static func ==(lhs: MenuItem, rhs: MenuItem) -> Bool{
         return lhs.price == rhs.price && lhs.name == lhs.name
+    }
+    func displayPrice() -> String{
+        return String.init(format: "$ %.02f per %@", price)
     }
 }
 

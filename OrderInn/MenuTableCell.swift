@@ -44,6 +44,7 @@ class MenuCollapsedTableCell: UITableViewCell, MenuTableCellProtocol {
 }
 protocol CartDelegate {
     func updateCount(cell: MenuExpandedTableCell, quantity: Int)
+    func updateCart(cell: MenuExpandedTableCell)
 }
 
 class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
@@ -54,6 +55,7 @@ class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
     @IBOutlet var itemDescription: UILabel!
     @IBOutlet var itemPrice: UILabel!
     @IBOutlet var itemImage: UIImageView!
+    @IBOutlet weak var addToCartButton: UIButton!
     
     var delagate : CartDelegate?
     var quantity : Int = 1
@@ -95,7 +97,7 @@ class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
     
     
     @IBAction func addToOrder(_ sender: Any) {
-        self.delagate?.u
+        self.delagate?.updateCart(cell: self)
     }
 }
 
