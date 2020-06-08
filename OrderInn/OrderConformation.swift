@@ -13,8 +13,8 @@ class OrderConformation: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var orderListTable: UITableView!
     @IBOutlet weak var totalOrderAmount: UILabel!
     
-    var currency: CurrencyHelper?
-    var cart : Cart? = nil
+    var currency = CurrencyHelper()
+    var cart : Cart?
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemName: UILabel!
     var quotes : [(key: String, value: Float)] = []
@@ -28,8 +28,8 @@ class OrderConformation: UIViewController, UITableViewDataSource, UITableViewDel
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async(execute:  {
-            self.totalOrderAmount.text = (self.cart?.total.description)!
+        DispatchQueue.main.async(execute: {
+            self.totalOrderAmount.text = (self.cart?.total.description)! + "" + self.currency.selectedCurrency
         })
     }
     
@@ -63,7 +63,7 @@ extension OrderConformation:CartItemDelegate{
         cartItem.quantity = quantity
         
         guard let total = cart?.total else{return}
-        totalOrderAmount.text = currency?.display(total: total)
+        totalOrderAmount.text = currency.display(total: total)
     }
     
     
