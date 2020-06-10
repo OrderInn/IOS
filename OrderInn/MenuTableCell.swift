@@ -97,7 +97,7 @@ class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
     
     
     @IBAction func addToOrder(_ sender: Any) {
-        self.delagate?.updateCart(cell: self)
+        Cart.shared.update(menuItem: item!, quantity: quantity)
     }
 }
 

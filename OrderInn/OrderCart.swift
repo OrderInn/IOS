@@ -9,6 +9,7 @@
 import Foundation
 
 class Cart {
+    static let shared = Cart()
     
     private(set) var items : [CartItem] = []
     
@@ -52,6 +53,23 @@ class Cart {
     func remove(menuItem:MenuItem){
         guard let index = items.firstIndex(where: {$0.items == menuItem}) else {return}
         items.remove(at: index)
+    }
+    
+    func update(menuItem: MenuItem, quantity: Int) {
+        // TODO[pn]: omg this is a huge hack do not use in production
+        if quantity == 0 {
+            remove(menuItem: menuItem)
+        } else {
+            var item = items.firstIndex { $0.items == menuItem }
+            if item == nil {
+                add(menuItem: menuItem)
+                item = items.firstIndex(where: { $0.items == menuItem })
+            }
+            let orderItem = items[item!]
+            while orderItem.quantity < quantity {
+                add(menuItem: menuItem)
+            }
+        }
     }
     
     func contains(menuItem : MenuItem) -> Bool{

@@ -14,7 +14,7 @@ class OrderConformation: UIViewController, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var totalOrderAmount: UILabel!
     
     var currency = CurrencyHelper()
-    var cart : Cart?
+    var cart = Cart.shared
     @IBOutlet weak var itemPrice: UILabel!
     @IBOutlet weak var itemName: UILabel!
     var quotes : [(key: String, value: Float)] = []
@@ -29,7 +29,7 @@ class OrderConformation: UIViewController, UITableViewDataSource, UITableViewDel
     }
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async(execute: {
-            self.totalOrderAmount.text = (self.cart?.total.description)! + "" + self.currency.selectedCurrency
+            self.totalOrderAmount.text = self.cart.total.description + "" + self.currency.selectedCurrency
         })
     }
     
@@ -37,16 +37,15 @@ class OrderConformation: UIViewController, UITableViewDataSource, UITableViewDel
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (cart?.items.count)!
+        return cart.items.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartItemCell", for: indexPath) as! MenuExpandedTableCell
-        if let cartItem = cart?.items[indexPath.item]{
-            cell.delagate = self as? CartDelegate
-            cell.itemTitle.text = cartItem.items.name
-            cell.itemPrice.text = cartItem.items.displayPrice()
-            cell.quantity = cartItem.quantity
-        }
+        let cartItem = cart.items[indexPath.item]
+        cell.delagate = self as? CartDelegate
+        cell.itemTitle.text = cartItem.items.name
+        cell.itemPrice.text = cartItem.items.displayPrice()
+        cell.quantity = cartItem.quantity
         return cell
     }
 
@@ -58,11 +57,11 @@ class OrderConformation: UIViewController, UITableViewDataSource, UITableViewDel
 extension OrderConformation:CartItemDelegate{
     func updateCartItem(cell: OrderConformationCell, quantity: Int) {
         guard let indexPath = orderListTable.indexPath(for: cell) else {return}
-        guard let cartItem = cart?.items[indexPath.row] else {return}
+        let cartItem = cart.items[indexPath.row]
         
         cartItem.quantity = quantity
         
-        guard let total = cart?.total else{return}
+        let total = cart.total
         totalOrderAmount.text = currency.display(total: total)
     }
     
