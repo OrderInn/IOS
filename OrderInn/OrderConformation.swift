@@ -8,62 +8,44 @@
 
 import UIKit
 
-class OrderConformation: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class OrderConformation: UIViewController {
     
     @IBOutlet weak var orderListTable: UITableView!
     @IBOutlet weak var totalOrderAmount: UILabel!
     
-    var currency = CurrencyHelper()
-    var cart = Cart.shared
-    @IBOutlet weak var itemPrice: UILabel!
-    @IBOutlet weak var itemName: UILabel!
-    var quotes : [(key: String, value: Float)] = []
+    let cart = OrderCart.shared
     
+    class OrderTableViewDataSource: NSObject, UITableViewDataSource {
+        let cart = OrderCart.shared
+
+        func numberOfSections(in tableView: UITableView) -> Int {
+            return 1
+        }
+        
+        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            guard section == 0 else { fatalError("OrderConfirmation: Unknown section: \(section)") }
+            return cart.entries.count
+        }
+        
+        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let index = indexPath[1]
+            let cell = tableView.dequeueReusableCell(withIdentifier: OrderConformationCell.reuseIdentifier, for: indexPath) as! OrderConformationCell
+            cell.cartEntry = cart.entries[index]
+            return cell
+        }
+    }
+    
+    let dataSource = OrderTableViewDataSource()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        orderListTable.dataSource = self
-        orderListTable.delegate = self
-        
-        // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async(execute: {
-            self.totalOrderAmount.text = self.cart.total.description + "" + self.currency.selectedCurrency
-        })
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cart.items.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CartItemCell", for: indexPath) as! MenuExpandedTableCell
-        let cartItem = cart.items[indexPath.item]
-        cell.delagate = self as? CartDelegate
-        cell.itemTitle.text = cartItem.items.name
-        cell.itemPrice.text = cartItem.items.displayPrice()
-        cell.quantity = cartItem.quantity
-        return cell
+        orderListTable.dataSource = dataSource
+        if let total = cart.total {
+            totalOrderAmount.text = total.asString()
+        }
     }
 
-    
     @IBAction func sentOrderButton(_ sender: Any) {
     }
-    
-}
-extension OrderConformation:CartItemDelegate{
-    func updateCartItem(cell: OrderConformationCell, quantity: Int) {
-        guard let indexPath = orderListTable.indexPath(for: cell) else {return}
-        let cartItem = cart.items[indexPath.row]
-        
-        cartItem.quantity = quantity
-        
-        let total = cart.total
-        totalOrderAmount.text = currency.display(total: total)
-    }
-    
     
 }

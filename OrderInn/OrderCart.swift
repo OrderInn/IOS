@@ -6,79 +6,86 @@
 //  Copyright © 2020 Ivars Ruģelis. All rights reserved.
 //
 
+import Combine
 import Foundation
 
-class Cart {
-    static let shared = Cart()
+class OrderCart {
+    static let shared = OrderCart()
     
-    private(set) var items : [CartItem] = []
+    class Entry {
+        let item: MenuItem
+        let amount = CurrentValueSubject<Int, Never>(0)
+
+        init(item: MenuItem) {
+            self.item = item
+        }
+        
+        var subtotal: Currency {
+            get { item.price * amount.value }
+        }
+    }
     
-    var total : Float{
-        get{
-            return items.reduce(0.0) { value, item in
-                value + item.subTotal
+    private var _internalEntries = [String: Entry]()
+    private var _subs = [AnyCancellable]()
+    
+    func entry(for item: MenuItem) -> Entry {
+        if let entry = _internalEntries[item.id] {
+            return entry
+        }
+
+        let entry = Entry(item: item)
+        _internalEntries[item.id] = entry
+        
+        let sub = entry.amount.sink { _ in
+            self.updateState()
+        }
+        _subs.append(sub)
+
+        return entry
+    }
+    
+    private func updateState() {
+        var quantity = 0
+        var total = Currency(symbol: state.total.symbol)
+        
+        for entry in entries {
+            quantity += entry.amount.value
+            guard total.symbol == entry.subtotal.symbol else { fatalError("Currency symbol mismatch") }
+            total.value += entry.subtotal.value
+        }
+
+        state = CartState(quantity: quantity, total: total)
+    }
+    
+    var entries: [Entry] {
+        get {
+            _internalEntries.values.filter({ $0.amount.value > 0 })
+        }
+    }
+
+    var total: Currency? {
+        get {
+            var symbol: Currency.Symbol
+            var value = 0
+            guard let firstEntry = _internalEntries.first?.value else { return nil }
+            symbol = firstEntry.item.price.symbol
+            for (_, entry) in _internalEntries {
+                let subtotal = entry.subtotal
+                // TODO[pn] this should be logged because it should never occur
+                guard subtotal.symbol == symbol else { return nil }
+                value += subtotal.value
             }
-        }
-    }
-    var totalQuantity : Int {
-        get{
-            return items.reduce(0) { value, item in
-                value + item.quantity
-            }
-        }
-    }
-    func UpdateCart(with item: MenuItem){
-        if !self.contains(menuItem: item){
-            self.add(menuItem: item)
-        }else{
-            self.remove(menuItem: item)
-        }
-    }
-    func updateCart(){
-        for item in self.items{
-            if item.quantity == 0 {
-                UpdateCart(with: item.items)
-            }
+            return Currency(symbol: symbol, value: value)
         }
     }
     
-    func add(menuItem: MenuItem){
-        let item = items.filter{ $0.items == menuItem}
-        if item.first != nil{
-            item.first?.quantity += 1
-        }else{
-            items.append(CartItem(item: menuItem))
-        }
-    }
-    func remove(menuItem:MenuItem){
-        guard let index = items.firstIndex(where: {$0.items == menuItem}) else {return}
-        items.remove(at: index)
+    // MARK: Combine
+    
+    struct CartState {
+        let quantity: Int
+        let total: Currency
     }
     
-    func update(menuItem: MenuItem, quantity: Int) {
-        // TODO[pn]: omg this is a huge hack do not use in production
-        if quantity == 0 {
-            remove(menuItem: menuItem)
-        } else {
-            var item = items.firstIndex { $0.items == menuItem }
-            if item == nil {
-                add(menuItem: menuItem)
-                item = items.firstIndex(where: { $0.items == menuItem })
-            }
-            let orderItem = items[item!]
-            while orderItem.quantity < quantity {
-                add(menuItem: menuItem)
-            }
-        }
-    }
-    
-    func contains(menuItem : MenuItem) -> Bool{
-        let item = items.filter{$0.items == menuItem}
-        return item.first != nil
-    }
-    
+    @Published var state = CartState(quantity: 0, total: Currency(symbol: Currency.Symbol.Eur))
 }
-    
-
-
 

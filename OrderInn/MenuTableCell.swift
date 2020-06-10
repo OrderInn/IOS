@@ -6,12 +6,12 @@
 //  Copyright © 2020 Ivars Ruģelis. All rights reserved.
 //
 
+import Combine
 import UIKit
 import SDWebImage
 
 protocol MenuTableCellProtocol {
-    func getShownItem() -> MenuItem?
-    func display(menuItem: MenuItem)
+    var item: MenuItem! { get set }
 }
 
 class MenuCollapsedTableCell: UITableViewCell, MenuTableCellProtocol {
@@ -22,29 +22,19 @@ class MenuCollapsedTableCell: UITableViewCell, MenuTableCellProtocol {
     @IBOutlet var itemPrice: UILabel!
     @IBOutlet var itemImage: UIImageView!
 
-    var item: MenuItem!
-    
-    func getShownItem() -> MenuItem? {
-        item
-    }
-
-    func display(menuItem item: MenuItem) {
-        self.item = item
-
-        itemTitle.text = item.name
-        itemDescription.text = item.description
-        itemPrice.text = item.price
-        
-        guard let url = URL(string: item.imageUrl) else { return }
-        itemImage.layer.cornerRadius = 5.0
-        itemImage.sd_setImage(with: url) { _, _, _, _ in
-            item.image = self.itemImage.image
+    var item: MenuItem! {
+        didSet {
+            itemTitle.text = item.name
+            itemDescription.text = item.description
+            itemPrice.text = item.price.asString()
+            
+            guard let url = URL(string: item.imageUrl) else { return }
+            itemImage.layer.cornerRadius = 5.0
+            itemImage.sd_setImage(with: url) { _, _, _, _ in
+                self.item.image = self.itemImage.image
+            }
         }
     }
-}
-protocol CartDelegate {
-    func updateCount(cell: MenuExpandedTableCell, quantity: Int)
-    func updateCart(cell: MenuExpandedTableCell)
 }
 
 class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
@@ -55,49 +45,42 @@ class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
     @IBOutlet var itemDescription: UILabel!
     @IBOutlet var itemPrice: UILabel!
     @IBOutlet var itemImage: UIImageView!
-    @IBOutlet weak var addToCartButton: UIButton!
-    
-    var delagate : CartDelegate?
-    var quantity : Int = 1
-    var item: MenuItem?
-    
-    func getShownItem() -> MenuItem? {
-        item
-    }
-    
-    func display(menuItem item: MenuItem) {
-        self.item = item
 
-        itemTitle.text = item.name
-        itemDescription.text = item.description
-        itemPrice.text = item.price
-        
-        if let image = item.image {
-            itemImage.image = image
-        } else {
-            guard let url = URL(string: item.imageUrl) else { return }
-            itemImage.sd_setImage(with: url) { _, _, _, _ in
-                item.image = self.itemImage.image
+    var cartItem: OrderCart.Entry!
+    var item: MenuItem! {
+        didSet {
+            cartItem = OrderCart.shared.entry(for: item!)
+            
+            itemTitle.text = item.name
+            itemDescription.text = item.description
+            itemPrice.text = item.price.asString()
+            
+            if let image = item.image {
+                itemImage.image = image
+            } else {
+                guard let url = URL(string: item.imageUrl) else { return }
+                itemImage.sd_setImage(with: url) { _, _, _, _ in
+                    self.item.image = self.itemImage.image
+                }
             }
+            
+            quantitySubscription = cartItem.amount.sink(
+                receiveCompletion: { _ in },
+                receiveValue: { self.itemCount.text = String($0) })
         }
     }
+    var quantitySubscription: AnyCancellable?
     
-    
+    func dispose() {
+        quantitySubscription?.cancel()
+    }
+
     @IBAction func itemCountUpdate(_ sender: Any) {
         if (sender as! UIButton).tag == 0 {
-            quantity = quantity + 1
-        } else if quantity > 0 {
-            quantity = quantity - 1
+            cartItem.amount.value += 1
+        } else {
+            cartItem.amount.value -= 1
         }
-        
-        itemDescription.isEnabled = quantity > 0
-        self.itemCount.text = String(describing: quantity)
-        self.delagate?.updateCount(cell: self, quantity: quantity)
-    }
-    
-    
-    @IBAction func addToOrder(_ sender: Any) {
-        Cart.shared.update(menuItem: item!, quantity: quantity)
     }
 }
 

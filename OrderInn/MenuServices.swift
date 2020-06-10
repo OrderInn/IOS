@@ -10,13 +10,11 @@ import Foundation
 import Firebase
 
 class MenuItem {
-    // TODO: move Price to a Currency type
-    var id, name, imageUrl, category, price: String
+    var id, name, imageUrl, category: String
     var description: String?
     var order: Int
     var image: UIImage?
-    var currency: String = "EUR"
-    var theCurrency: Currency?
+    var price: Currency
     
     init?(_ doc: QueryDocumentSnapshot) {
         let data = doc.data()
@@ -34,24 +32,8 @@ class MenuItem {
         guard let order = data["order"] as? Int else { return nil }
         self.order = order
         
-        // TODO remove the else clause when it's ready
-        if let price = data["price"] as? String {
-            self.price = price
-        } else {
-            self.price = "- 0.00"
-        }
-    }
-    open var toPrice : Float{
-        if let price = Float(price){
-            return price
-        }
-        return self.toPrice
-    }
-    static func ==(lhs: MenuItem, rhs: MenuItem) -> Bool{
-        return lhs.price == rhs.price && lhs.name == lhs.name
-    }
-    func displayPrice() -> String{
-        return String.init(format: "$ %.02f per %@", price)
+        // TODO[pn] remove missing handling because it should not be missing
+        price = Currency(from: data["price", default: "EUR 0.00"] as! String)!
     }
 }
 

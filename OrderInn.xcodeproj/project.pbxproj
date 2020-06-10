@@ -10,7 +10,6 @@
 		584EC88E248E2A1000ECC0F8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EC88D248E2A1000ECC0F8 /* Currency.swift */; };
 		58619BB824824027009DE778 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58619BB724824027009DE778 /* MenuViewController.swift */; };
 		586B921A248AEB0900A0BB1E /* OrderCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B9219248AEB0900A0BB1E /* OrderCart.swift */; };
-		586B9221248BA26D00A0BB1E /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B9220248BA26D00A0BB1E /* CartItem.swift */; };
 		586B9223248CDF6400A0BB1E /* OrderConformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B9222248CDF6400A0BB1E /* OrderConformation.swift */; };
 		586B9225248CF91000A0BB1E /* OrderConformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B9224248CF91000A0BB1E /* OrderConformationCell.swift */; };
 		588C56A12430A90200B8F146 /* ConstanceFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 588C56A02430A90200B8F146 /* ConstanceFiles.swift */; };
@@ -59,7 +58,6 @@
 		584EC88D248E2A1000ECC0F8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		58619BB724824027009DE778 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		586B9219248AEB0900A0BB1E /* OrderCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCart.swift; sourceTree = "<group>"; };
-		586B9220248BA26D00A0BB1E /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		586B9222248CDF6400A0BB1E /* OrderConformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConformation.swift; sourceTree = "<group>"; };
 		586B9224248CF91000A0BB1E /* OrderConformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConformationCell.swift; sourceTree = "<group>"; };
 		588C56A02430A90200B8F146 /* ConstanceFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstanceFiles.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 				588C56A02430A90200B8F146 /* ConstanceFiles.swift */,
 				6997B9E4247FB02700AD806A /* AuthFlowNavigationController.swift */,
 				6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */,
-				586B9220248BA26D00A0BB1E /* CartItem.swift */,
 				586B9219248AEB0900A0BB1E /* OrderCart.swift */,
 				690498BD247EA98D002AA9D8 /* Utilities.swift */,
 				584EC88D248E2A1000ECC0F8 /* Currency.swift */,
@@ -334,7 +331,6 @@
 				586B9223248CDF6400A0BB1E /* OrderConformation.swift in Sources */,
 				58D1E2CA242D234C009E93FE /* SignUpViewController.swift in Sources */,
 				58F70879248239A1005390DC /* MenuServices.swift in Sources */,
-				586B9221248BA26D00A0BB1E /* CartItem.swift in Sources */,
 				6997B9E2247FA6CB00AD806A /* InitialDispatchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

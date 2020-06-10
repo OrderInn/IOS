@@ -19,7 +19,6 @@ class MenuItemViewController: UITableViewController {
     var properties: MenuItem?
     var items = [MenuItem]()
     var isRowExpanded = [Int: Bool]()
-    var cart = Cart()
     
     let fireRef = Firestore.firestore()
     
@@ -85,8 +84,8 @@ class MenuItemViewController: UITableViewController {
             reuseIdentifier = MenuCollapsedTableCell.reuseIdentifier
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
-        if let menuCell = cell as? MenuTableCellProtocol {
-            menuCell.display(menuItem: item)
+        if var menuCell = cell as? MenuTableCellProtocol {
+            menuCell.item = item
         }
         return cell
     }
@@ -101,29 +100,10 @@ class MenuItemViewController: UITableViewController {
         let row = indexPath[1]
         self.isRowExpanded[row] = !self.isRowExpanded[row, default: false]
         
-        // TODO this is bad but it actually works :woozy_face:
+        // TODO[pn] this is bad but it actually works :woozy_face:
         tableView.beginUpdates()
         tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         tableView.endUpdates()
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showOrderList"{
-            if let destVC = segue.destination as? OrderConformation{
-                destVC.cart = self.cart
-            }
-        }
-    }
-}
-extension MenuItemViewController: CartDelegate {
-    func updateCount(cell: MenuExpandedTableCell, quantity: Int) {
-    }
-    
- 
-    func updateCart(cell: MenuExpandedTableCell) {
-        guard let indexPath = tableView.indexPath(for: cell) else {return}
-        let item = items[indexPath.row]
-        cart.UpdateCart(with: item)
     }
 }
 

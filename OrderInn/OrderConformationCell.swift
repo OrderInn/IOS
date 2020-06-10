@@ -8,29 +8,17 @@
 
 import UIKit
 
-protocol CartItemDelegate {
-    func updateCartItem(cell: OrderConformationCell, quantity: Int)
-}
-
 class OrderConformationCell: UITableViewCell {
+    static let reuseIdentifier = "OrderConfirmationCell"
     
-    @IBOutlet weak var itemName: UILabel!
-    @IBOutlet weak var itemPrice: UILabel!
-    
-    
-    var delegate: CartItemDelegate?
-    var quantity: Int = 1
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    @IBOutlet var itemName: UILabel!
+    @IBOutlet var itemPrice: UILabel!
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var cartEntry: OrderCart.Entry! {
+        didSet {
+            itemName.text = "\(cartEntry.item.name) x\(cartEntry.amount.value)"
+            itemPrice.text = cartEntry.subtotal.asString()
+        }
     }
 
 }

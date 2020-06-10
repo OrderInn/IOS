@@ -28,13 +28,6 @@ class CategoryViewController: UITableViewController {
             self.categories.sort(by: { (a, b) in a.order < b.order })
             self.tableView.reloadData()
         }
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now().advanced(by: .seconds(1))) {
-            NSLog("OrderInn: MenuCategoryVC: Navigation Controller: %s",
-                  String(describing: self.navigationController))
-            guard let nc = self.navigationController as? OrderFlowNavigationController else { return }
-            nc.showStatusPopover(completion: nil)
-        }
     }
 
     func loadCategories(_ completion: @escaping ([MenuCategory]) -> Void) {
