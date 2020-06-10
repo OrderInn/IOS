@@ -56,7 +56,7 @@
 /* Begin PBXFileReference section */
 		14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		584EC88D248E2A1000ECC0F8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
-		58619BB724824027009DE778 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
+		58619BB724824027009DE778 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		586B9219248AEB0900A0BB1E /* OrderCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCart.swift; sourceTree = "<group>"; };
 		586B9222248CDF6400A0BB1E /* OrderConformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConformation.swift; sourceTree = "<group>"; };
 		586B9224248CF91000A0BB1E /* OrderConformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConformationCell.swift; sourceTree = "<group>"; };
@@ -132,28 +132,15 @@
 		58D1E2B2242D1F95009E93FE /* OrderInn */ = {
 			isa = PBXGroup;
 			children = (
+				694BD6DC2491523400EFFE4C /* Data */,
+				694BD6DB2491522200EFFE4C /* Order Flow */,
 				58D1E2B3242D1F95009E93FE /* AppDelegate.swift */,
 				58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */,
-				695622C2248A47F1006BFB64 /* OrderFlowNavigationController.swift */,
 				58D1E2C7242D233E009E93FE /* LoginOpcijasViewController.swift */,
 				58D1E2C9242D234C009E93FE /* SignUpViewController.swift */,
-				588C56A22430A9C000B8F146 /* CameraViewController.swift */,
-				58F7087A24823B9F005390DC /* CategoryViewController.swift */,
-				58619BB724824027009DE778 /* MenuViewController.swift */,
-				586B9222248CDF6400A0BB1E /* OrderConformation.swift */,
-				586B9224248CF91000A0BB1E /* OrderConformationCell.swift */,
-				58A4F31624824AC100B011E4 /* CategoryTableCell.swift */,
-				58A4F3142482494300B011E4 /* MenuTableCell.swift */,
-				58F70878248239A1005390DC /* MenuServices.swift */,
-				690498BB247E9DD9002AA9D8 /* Restaurant.swift */,
-				690498B9247E9BC8002AA9D8 /* QRURI.swift */,
-				588C56A02430A90200B8F146 /* ConstanceFiles.swift */,
 				6997B9E4247FB02700AD806A /* AuthFlowNavigationController.swift */,
 				6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */,
-				586B9219248AEB0900A0BB1E /* OrderCart.swift */,
 				690498BD247EA98D002AA9D8 /* Utilities.swift */,
-				584EC88D248E2A1000ECC0F8 /* Currency.swift */,
-				690498BF247EB223002AA9D8 /* OrderFlow.storyboard */,
 				6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */,
 				58D1E2BE242D1F95009E93FE /* LaunchScreen.storyboard */,
 				6997B9DF247FA66A00AD806A /* Main.storyboard */,
@@ -162,6 +149,35 @@
 				58A7752724867CE60098C34E /* GoogleService-Info.plist */,
 			);
 			path = OrderInn;
+			sourceTree = "<group>";
+		};
+		694BD6DB2491522200EFFE4C /* Order Flow */ = {
+			isa = PBXGroup;
+			children = (
+				690498BF247EB223002AA9D8 /* OrderFlow.storyboard */,
+				695622C2248A47F1006BFB64 /* OrderFlowNavigationController.swift */,
+				588C56A22430A9C000B8F146 /* CameraViewController.swift */,
+				58F7087A24823B9F005390DC /* CategoryViewController.swift */,
+				58619BB724824027009DE778 /* MenuViewController.swift */,
+				586B9222248CDF6400A0BB1E /* OrderConformation.swift */,
+				586B9224248CF91000A0BB1E /* OrderConformationCell.swift */,
+				58A4F31624824AC100B011E4 /* CategoryTableCell.swift */,
+				58A4F3142482494300B011E4 /* MenuTableCell.swift */,
+			);
+			path = "Order Flow";
+			sourceTree = "<group>";
+		};
+		694BD6DC2491523400EFFE4C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				58F70878248239A1005390DC /* MenuServices.swift */,
+				690498BB247E9DD9002AA9D8 /* Restaurant.swift */,
+				588C56A02430A90200B8F146 /* ConstanceFiles.swift */,
+				586B9219248AEB0900A0BB1E /* OrderCart.swift */,
+				584EC88D248E2A1000ECC0F8 /* Currency.swift */,
+				690498B9247E9BC8002AA9D8 /* QRURI.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		9AB2E9B6D19882F61AD62C63 /* Frameworks */ = {
