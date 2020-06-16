@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5814761D249787510066B901 /* AuthView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5814761C249787510066B901 /* AuthView.storyboard */; };
+		5814761D249787510066B901 /* Onbording.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5814761C249787510066B901 /* Onbording.storyboard */; };
 		584EC88E248E2A1000ECC0F8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EC88D248E2A1000ECC0F8 /* Currency.swift */; };
+		585C060F2498F6D600F54E16 /* findPartner.json in Resources */ = {isa = PBXBuildFile; fileRef = 585C060E2498F6D600F54E16 /* findPartner.json */; };
 		586070A92498A1AB00946D75 /* OnBordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586070A82498A1AB00946D75 /* OnBordingViewController.swift */; };
 		586070AC2498BD7A00946D75 /* lottieQrAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = 586070AB2498BD7A00946D75 /* lottieQrAnim.json */; };
 		58619BB824824027009DE778 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58619BB724824027009DE778 /* MenuViewController.swift */; };
@@ -23,6 +24,10 @@
 		58A4F3152482494300B011E4 /* MenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A4F3142482494300B011E4 /* MenuTableCell.swift */; };
 		58A4F31724824AC100B011E4 /* CategoryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A4F31624824AC100B011E4 /* CategoryTableCell.swift */; };
 		58A7752824867CE60098C34E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58A7752724867CE60098C34E /* GoogleService-Info.plist */; };
+		58AB26A82498FE06000006A2 /* menuList.json in Resources */ = {isa = PBXBuildFile; fileRef = 58AB26A72498FE06000006A2 /* menuList.json */; };
+		58AB26AA2499006B000006A2 /* relaxAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = 58AB26A92499006B000006A2 /* relaxAnim.json */; };
+		58AB26AC24990071000006A2 /* orderSent.json in Resources */ = {isa = PBXBuildFile; fileRef = 58AB26AB24990071000006A2 /* orderSent.json */; };
+		58AB26B024991FBF000006A2 /* foodServed.json in Resources */ = {isa = PBXBuildFile; fileRef = 58AB26AF24991FBF000006A2 /* foodServed.json */; };
 		58D1E2B4242D1F95009E93FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B3242D1F95009E93FE /* AppDelegate.swift */; };
 		58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */; };
 		58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58D1E2BC242D1F95009E93FE /* Assets.xcassets */; };
@@ -57,8 +62,9 @@
 
 /* Begin PBXFileReference section */
 		14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5814761C249787510066B901 /* AuthView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthView.storyboard; sourceTree = "<group>"; };
+		5814761C249787510066B901 /* Onbording.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onbording.storyboard; sourceTree = "<group>"; };
 		584EC88D248E2A1000ECC0F8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		585C060E2498F6D600F54E16 /* findPartner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = findPartner.json; sourceTree = "<group>"; };
 		586070A82498A1AB00946D75 /* OnBordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBordingViewController.swift; sourceTree = "<group>"; };
 		586070AB2498BD7A00946D75 /* lottieQrAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieQrAnim.json; sourceTree = "<group>"; };
 		58619BB724824027009DE778 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,10 @@
 		58A4F3142482494300B011E4 /* MenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableCell.swift; sourceTree = "<group>"; };
 		58A4F31624824AC100B011E4 /* CategoryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableCell.swift; sourceTree = "<group>"; };
 		58A7752724867CE60098C34E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		58AB26A72498FE06000006A2 /* menuList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = menuList.json; sourceTree = "<group>"; };
+		58AB26A92499006B000006A2 /* relaxAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = relaxAnim.json; sourceTree = "<group>"; };
+		58AB26AB24990071000006A2 /* orderSent.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = orderSent.json; sourceTree = "<group>"; };
+		58AB26AF24991FBF000006A2 /* foodServed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = foodServed.json; sourceTree = "<group>"; };
 		58D1E2B0242D1F95009E93FE /* OrderInn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OrderInn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58D1E2B3242D1F95009E93FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		58D1E2B5242D1F95009E93FE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +128,11 @@
 		586070AA2498BD6800946D75 /* animations */ = {
 			isa = PBXGroup;
 			children = (
+				585C060E2498F6D600F54E16 /* findPartner.json */,
+				58AB26AF24991FBF000006A2 /* foodServed.json */,
+				58AB26A92499006B000006A2 /* relaxAnim.json */,
+				58AB26AB24990071000006A2 /* orderSent.json */,
+				58AB26A72498FE06000006A2 /* menuList.json */,
 				586070AB2498BD7A00946D75 /* lottieQrAnim.json */,
 			);
 			path = animations;
@@ -155,7 +170,7 @@
 				6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */,
 				690498BD247EA98D002AA9D8 /* Utilities.swift */,
 				586070A82498A1AB00946D75 /* OnBordingViewController.swift */,
-				5814761C249787510066B901 /* AuthView.storyboard */,
+				5814761C249787510066B901 /* Onbording.storyboard */,
 				58D1E2BE242D1F95009E93FE /* LaunchScreen.storyboard */,
 				6997B9DF247FA66A00AD806A /* Main.storyboard */,
 				58D1E2BC242D1F95009E93FE /* Assets.xcassets */,
@@ -266,13 +281,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58AB26A82498FE06000006A2 /* menuList.json in Resources */,
+				58AB26B024991FBF000006A2 /* foodServed.json in Resources */,
 				586070AC2498BD7A00946D75 /* lottieQrAnim.json in Resources */,
+				58AB26AC24990071000006A2 /* orderSent.json in Resources */,
 				6997B9E0247FA66A00AD806A /* Main.storyboard in Resources */,
-				5814761D249787510066B901 /* AuthView.storyboard in Resources */,
+				5814761D249787510066B901 /* Onbording.storyboard in Resources */,
 				58D1E2C0242D1F95009E93FE /* LaunchScreen.storyboard in Resources */,
 				58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */,
+				585C060F2498F6D600F54E16 /* findPartner.json in Resources */,
 				690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */,
 				58A7752824867CE60098C34E /* GoogleService-Info.plist in Resources */,
+				58AB26AA2499006B000006A2 /* relaxAnim.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
