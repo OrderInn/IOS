@@ -30,3 +30,4 @@ class InitialDispatchViewController: UIViewController {
         segue.perform()
     }
 }
+

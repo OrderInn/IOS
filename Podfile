@@ -29,4 +29,7 @@ pod 'GoogleSignIn'
 
 pod 'SDWebImage', '~>4.0'
 
+pod 'lottie-ios'
+
+
 end

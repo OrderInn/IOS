@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5814761D249787510066B901 /* AuthView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5814761C249787510066B901 /* AuthView.storyboard */; };
 		584EC88E248E2A1000ECC0F8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EC88D248E2A1000ECC0F8 /* Currency.swift */; };
+		586070A92498A1AB00946D75 /* OnBordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586070A82498A1AB00946D75 /* OnBordingViewController.swift */; };
+		586070AC2498BD7A00946D75 /* lottieQrAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = 586070AB2498BD7A00946D75 /* lottieQrAnim.json */; };
 		58619BB824824027009DE778 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58619BB724824027009DE778 /* MenuViewController.swift */; };
 		586B921A248AEB0900A0BB1E /* OrderCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B9219248AEB0900A0BB1E /* OrderCart.swift */; };
 		586B9223248CDF6400A0BB1E /* OrderConformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586B9222248CDF6400A0BB1E /* OrderConformation.swift */; };
@@ -33,7 +36,6 @@
 		690498BE247EA98D002AA9D8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690498BD247EA98D002AA9D8 /* Utilities.swift */; };
 		690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690498BF247EB223002AA9D8 /* OrderFlow.storyboard */; };
 		695622C3248A47F1006BFB64 /* OrderFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 695622C2248A47F1006BFB64 /* OrderFlowNavigationController.swift */; };
-		6997B9DC247FA0A900AD806A /* AuthFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */; };
 		6997B9E0247FA66A00AD806A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6997B9DF247FA66A00AD806A /* Main.storyboard */; };
 		6997B9E2247FA6CB00AD806A /* InitialDispatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */; };
 		6997B9E5247FB02700AD806A /* AuthFlowNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6997B9E4247FB02700AD806A /* AuthFlowNavigationController.swift */; };
@@ -55,7 +57,10 @@
 
 /* Begin PBXFileReference section */
 		14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5814761C249787510066B901 /* AuthView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthView.storyboard; sourceTree = "<group>"; };
 		584EC88D248E2A1000ECC0F8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		586070A82498A1AB00946D75 /* OnBordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBordingViewController.swift; sourceTree = "<group>"; };
+		586070AB2498BD7A00946D75 /* lottieQrAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieQrAnim.json; sourceTree = "<group>"; };
 		58619BB724824027009DE778 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		586B9219248AEB0900A0BB1E /* OrderCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCart.swift; sourceTree = "<group>"; };
 		586B9222248CDF6400A0BB1E /* OrderConformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConformation.swift; sourceTree = "<group>"; };
@@ -81,7 +86,6 @@
 		690498BD247EA98D002AA9D8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		690498BF247EB223002AA9D8 /* OrderFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderFlow.storyboard; sourceTree = "<group>"; };
 		695622C2248A47F1006BFB64 /* OrderFlowNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderFlowNavigationController.swift; sourceTree = "<group>"; };
-		6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthFlow.storyboard; sourceTree = "<group>"; };
 		6997B9DF247FA66A00AD806A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDispatchViewController.swift; sourceTree = "<group>"; };
 		6997B9E4247FB02700AD806A /* AuthFlowNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlowNavigationController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		586070AA2498BD6800946D75 /* animations */ = {
+			isa = PBXGroup;
+			children = (
+				586070AB2498BD7A00946D75 /* lottieQrAnim.json */,
+			);
+			path = animations;
+			sourceTree = "<group>";
+		};
 		58D1E2A7242D1F95009E93FE = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +144,7 @@
 		58D1E2B2242D1F95009E93FE /* OrderInn */ = {
 			isa = PBXGroup;
 			children = (
+				586070AA2498BD6800946D75 /* animations */,
 				694BD6DC2491523400EFFE4C /* Data */,
 				694BD6DB2491522200EFFE4C /* Order Flow */,
 				58D1E2B3242D1F95009E93FE /* AppDelegate.swift */,
@@ -141,7 +154,8 @@
 				6997B9E4247FB02700AD806A /* AuthFlowNavigationController.swift */,
 				6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */,
 				690498BD247EA98D002AA9D8 /* Utilities.swift */,
-				6997B9DB247FA0A900AD806A /* AuthFlow.storyboard */,
+				586070A82498A1AB00946D75 /* OnBordingViewController.swift */,
+				5814761C249787510066B901 /* AuthView.storyboard */,
 				58D1E2BE242D1F95009E93FE /* LaunchScreen.storyboard */,
 				6997B9DF247FA66A00AD806A /* Main.storyboard */,
 				58D1E2BC242D1F95009E93FE /* Assets.xcassets */,
@@ -252,11 +266,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				586070AC2498BD7A00946D75 /* lottieQrAnim.json in Resources */,
 				6997B9E0247FA66A00AD806A /* Main.storyboard in Resources */,
+				5814761D249787510066B901 /* AuthView.storyboard in Resources */,
 				58D1E2C0242D1F95009E93FE /* LaunchScreen.storyboard in Resources */,
 				58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */,
 				690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */,
-				6997B9DC247FA0A900AD806A /* AuthFlow.storyboard in Resources */,
 				58A7752824867CE60098C34E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +363,7 @@
 				58D1E2CA242D234C009E93FE /* SignUpViewController.swift in Sources */,
 				58F70879248239A1005390DC /* MenuServices.swift in Sources */,
 				6997B9E2247FA6CB00AD806A /* InitialDispatchViewController.swift in Sources */,
+				586070A92498A1AB00946D75 /* OnBordingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
