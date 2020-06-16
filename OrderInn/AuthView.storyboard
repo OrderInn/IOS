@@ -78,7 +78,7 @@
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                                     <state key="normal" title="Get Started"/>
                                                                     <connections>
-                                                                        <action selector="sratrButtonTappedWithSender:" destination="Tlh-oU-d7u" eventType="touchUpInside" id="3ra-ho-bYA"/>
+                                                                        <action selector="sratrButtonTapped:" destination="Tlh-oU-d7u" eventType="primaryActionTriggered" id="cLg-Me-IIz"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
