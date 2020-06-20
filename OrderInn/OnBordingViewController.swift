@@ -60,7 +60,7 @@ class OnBordingViewController: UIViewController {
     }
     
     private func goToMainApp(){
-        let mainAppVC = UIStoryboard(name: "OrderFlow", bundle: nil).instantiateViewController(identifier: "CameraView")
+        let mainAppVC = UIStoryboard(name: "AuthFlow", bundle: nil).instantiateViewController(identifier: "AuthOptions")
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
         let sceneDelegate = windowScene.delegate as? SceneDelegate,
             let window = sceneDelegate.window{
@@ -118,6 +118,7 @@ class OnBordingCell: UICollectionViewCell{
         if !animatinView.isAnimationPlaying{
             animatinView.play()
         }
+        startButton.layer.cornerRadius = 7
     }
     
     @IBAction func sratrButtonTapped(_ sender: Any?){

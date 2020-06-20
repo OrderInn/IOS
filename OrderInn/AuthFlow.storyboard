@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="OQv-Zh-n4W">
+            <objects>
+                <viewController storyboardIdentifier="AuthOptions" id="YB3-Gd-2Ci" customClass="AuthViewController" customModule="OrderInn" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IFd-1b-ISa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUk-YR-BSe">
+                                <rect key="frame" x="20" y="552" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="acg-ah-Ays"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                <state key="normal" title="Log In with Apple" backgroundImage="Apple">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="logInWithAppleTapped:" destination="YB3-Gd-2Ci" eventType="touchUpInside" id="eEi-bS-TLg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUe-bp-O8P">
+                                <rect key="frame" x="20" y="642" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="QAy-iN-oPI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
+                                <state key="normal" title="Log In with Facebook" backgroundImage="Facebook">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logInWithFacebookTapped:" destination="YB3-Gd-2Ci" eventType="touchUpInside" id="ibl-Yf-fIh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfr-wy-gIQ">
+                                <rect key="frame" x="20" y="732" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Fw7-MU-djv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                <state key="normal" title="Log In with E-mail" backgroundImage="Email">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                </state>
+                                <connections>
+                                    <action selector="logInWithEmailTapped:" destination="YB3-Gd-2Ci" eventType="touchUpInside" id="aQC-Fz-nVK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="eUk-YR-BSe" firstAttribute="leading" secondItem="bXd-Rf-zHu" secondAttribute="leading" constant="20" id="0Hz-pT-JmV"/>
+                            <constraint firstItem="dfr-wy-gIQ" firstAttribute="leading" secondItem="bXd-Rf-zHu" secondAttribute="leading" constant="20" id="Bb6-ss-xVp"/>
+                            <constraint firstItem="OUe-bp-O8P" firstAttribute="leading" secondItem="bXd-Rf-zHu" secondAttribute="leading" constant="20" id="EZo-dd-wZS"/>
+                            <constraint firstItem="bXd-Rf-zHu" firstAttribute="trailing" secondItem="eUk-YR-BSe" secondAttribute="trailing" constant="20" id="SHN-RH-jPe"/>
+                            <constraint firstItem="OUe-bp-O8P" firstAttribute="top" secondItem="eUk-YR-BSe" secondAttribute="bottom" constant="30" id="VKy-aH-A8v"/>
+                            <constraint firstItem="dfr-wy-gIQ" firstAttribute="top" secondItem="OUe-bp-O8P" secondAttribute="bottom" constant="30" id="VUV-vK-P9t"/>
+                            <constraint firstItem="bXd-Rf-zHu" firstAttribute="trailing" secondItem="OUe-bp-O8P" secondAttribute="trailing" constant="20" id="Wju-NV-Ngl"/>
+                            <constraint firstItem="bXd-Rf-zHu" firstAttribute="trailing" secondItem="dfr-wy-gIQ" secondAttribute="trailing" constant="20" id="l9y-Cd-03P"/>
+                            <constraint firstItem="bXd-Rf-zHu" firstAttribute="bottom" secondItem="dfr-wy-gIQ" secondAttribute="bottom" constant="70" id="nqj-n0-iCp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bXd-Rf-zHu"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jXU-9K-XBn"/>
+                    <connections>
+                        <outlet property="logInWithApple" destination="eUk-YR-BSe" id="gda-tv-fDc"/>
+                        <outlet property="logInWithEmail" destination="dfr-wy-gIQ" id="VYX-VG-u9z"/>
+                        <outlet property="logInWithFacebook" destination="OUe-bp-O8P" id="Xzb-Ma-CRX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FWt-Dm-O2M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1821.7391304347827" y="120.53571428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3zN-ae-PQX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="vc7-91-dkT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qpB-L1-rMM">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YB3-Gd-2Ci" kind="relationship" relationship="rootViewController" id="AW8-AI-JYM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q03-cJ-NGM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="911.59420289855075" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Apple" width="124.5" height="20"/>
+        <image name="Email" width="124.5" height="20"/>
+        <image name="Facebook" width="124.5" height="20"/>
+    </resources>
+</document>

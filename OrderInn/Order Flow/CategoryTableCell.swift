@@ -40,11 +40,6 @@ class MenuCategoryCell: UITableViewCell {
         guard let url = URL(string: category.imageUrl) else { return }
         categoryPhoto.sd_setImage(with: url)
         
-        background.layer.shadowColor = UIColor.white.cgColor
-        background.layer.shadowOffset = CGSize(width: 3.0, height: 3.0)
-        background.layer.shadowOpacity = 3.0
-        background.layer.masksToBounds = false
-        background.layer.cornerRadius = 15.0
         categoryPhoto.layer.cornerRadius = 15.0
         
     }

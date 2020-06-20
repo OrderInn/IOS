@@ -15,7 +15,7 @@ class InitialDispatchViewController: UIViewController {
         super.viewDidLoad()
 
         var storyboard: UIStoryboard
-        if Firebase.Auth.auth().currentUser != nil {
+        if Firebase.Auth.auth().currentUser == nil {
             storyboard = UIStoryboard(name: "Onbording", bundle: nil)
         } else {
             storyboard = UIStoryboard(name: "OrderFlow", bundle: nil)

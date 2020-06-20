@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5814761D249787510066B901 /* Onbording.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5814761C249787510066B901 /* Onbording.storyboard */; };
+		58356588249CBCE300939282 /* AuthFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58356587249CBCE300939282 /* AuthFlow.storyboard */; };
+		5835658C249E615500939282 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5835658B249E615500939282 /* AuthViewController.swift */; };
 		584EC88E248E2A1000ECC0F8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EC88D248E2A1000ECC0F8 /* Currency.swift */; };
 		585C060F2498F6D600F54E16 /* findPartner.json in Resources */ = {isa = PBXBuildFile; fileRef = 585C060E2498F6D600F54E16 /* findPartner.json */; };
 		586070A92498A1AB00946D75 /* OnBordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586070A82498A1AB00946D75 /* OnBordingViewController.swift */; };
@@ -63,6 +65,8 @@
 /* Begin PBXFileReference section */
 		14EE32EB56E668F987B304F9 /* Pods_OrderInn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OrderInn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5814761C249787510066B901 /* Onbording.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onbording.storyboard; sourceTree = "<group>"; };
+		58356587249CBCE300939282 /* AuthFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthFlow.storyboard; sourceTree = "<group>"; };
+		5835658B249E615500939282 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		584EC88D248E2A1000ECC0F8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		585C060E2498F6D600F54E16 /* findPartner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = findPartner.json; sourceTree = "<group>"; };
 		586070A82498A1AB00946D75 /* OnBordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBordingViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				6997B9E1247FA6CB00AD806A /* InitialDispatchViewController.swift */,
 				690498BD247EA98D002AA9D8 /* Utilities.swift */,
 				586070A82498A1AB00946D75 /* OnBordingViewController.swift */,
+				5835658B249E615500939282 /* AuthViewController.swift */,
+				58356587249CBCE300939282 /* AuthFlow.storyboard */,
 				5814761C249787510066B901 /* Onbording.storyboard */,
 				58D1E2BE242D1F95009E93FE /* LaunchScreen.storyboard */,
 				6997B9DF247FA66A00AD806A /* Main.storyboard */,
@@ -290,6 +296,7 @@
 				58D1E2C0242D1F95009E93FE /* LaunchScreen.storyboard in Resources */,
 				58D1E2BD242D1F95009E93FE /* Assets.xcassets in Resources */,
 				585C060F2498F6D600F54E16 /* findPartner.json in Resources */,
+				58356588249CBCE300939282 /* AuthFlow.storyboard in Resources */,
 				690498C0247EB223002AA9D8 /* OrderFlow.storyboard in Resources */,
 				58A7752824867CE60098C34E /* GoogleService-Info.plist in Resources */,
 				58AB26AA2499006B000006A2 /* relaxAnim.json in Resources */,
@@ -378,6 +385,7 @@
 				588C56A32430A9C000B8F146 /* CameraViewController.swift in Sources */,
 				58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */,
 				690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */,
+				5835658C249E615500939282 /* AuthViewController.swift in Sources */,
 				58A4F3152482494300B011E4 /* MenuTableCell.swift in Sources */,
 				586B9223248CDF6400A0BB1E /* OrderConformation.swift in Sources */,
 				58D1E2CA242D234C009E93FE /* SignUpViewController.swift in Sources */,
@@ -530,7 +538,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.orderinn.ios.order2;
+				PRODUCT_BUNDLE_IDENTIFIER = app.orderinn.ios.order;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -553,7 +561,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.orderinn.ios.order2;
+				PRODUCT_BUNDLE_IDENTIFIER = app.orderinn.ios.order;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

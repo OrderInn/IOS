@@ -11,9 +11,7 @@ pod 'Firebase/Analytics'
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
 
-pod 'FacebookLogin'
-pod 'FacebookShare'
-pod 'FacebookCore'
+ 
 
 pod 'Firebase/Database'
 pod 'Firebase/Core'
@@ -22,8 +20,7 @@ pod 'FirebaseUI/Auth'
 pod 'Firebase/Auth'
 pod 'FirebaseUI/Email'
 pod 'Firebase/Firestore'
-pod 'Firebase/MLVision'
-pod 'Firebase/MLVisionBarcodeModel'
+
 
 pod 'GoogleSignIn'
 
