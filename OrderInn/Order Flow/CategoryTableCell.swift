@@ -15,6 +15,10 @@ class MenuCategoryCell: UITableViewCell {
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var categoryPhoto: UIImageView!
     @IBOutlet weak var categoryName: UILabel!
+    @IBOutlet weak var parallexTopHeight: NSLayoutConstraint!
+    @IBOutlet weak var parallexTop: NSLayoutConstraint!
+    
+    
     
     static let reuseIdentifier = "MenuCategoryCell"
     var category: MenuCategory?
@@ -22,7 +26,7 @@ class MenuCategoryCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        categoryPhoto.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

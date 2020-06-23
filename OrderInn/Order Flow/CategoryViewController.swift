@@ -17,6 +17,9 @@ class CategoryViewController: UITableViewController {
     
     var categories = [MenuCategory]()
     let fireRef = Firestore.firestore()
+    let transition = SlideTransition()
+    var parallexOffsetSpeed: CGFloat = 60
+    var cellHeight: CGFloat = 150
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,12 @@ class CategoryViewController: UITableViewController {
             self.categories.sort(by: { (a, b) in a.order < b.order })
             self.tableView.reloadData()
         }
+    }
+    
+    var parallexImageHeight:CGFloat{
+        let maxOffset = sqrt(pow(cellHeight, 2) + 4 * parallexOffsetSpeed * self.tableView.frame.height)
+        - cellHeight / 2
+        return maxOffset + self.cellHeight
     }
 
     func loadCategories(_ completion: @escaping ([MenuCategory]) -> Void) {
@@ -73,6 +82,8 @@ class CategoryViewController: UITableViewController {
         let category = categories[indexPath[1]]
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuCategoryCell.reuseIdentifier, for: indexPath) as! MenuCategoryCell
         cell.display(category: category)
+        cell.parallexTopHeight.constant = parallexImageHeight
+        cell.parallexTop.constant = parallaxOffset(newOffsetY: tableView.contentOffset.y, cell: cell)
         return cell
     }
     
@@ -86,7 +97,38 @@ class CategoryViewController: UITableViewController {
         }
     }
 
+    
+    @IBAction func didTapSlideMenu(_ sender: UIBarButtonItem) {
+        
+        guard let slideMenuVC = storyboard?.instantiateViewController(identifier: "SlideMenu") else {return}
+        slideMenuVC.modalPresentationStyle = .overCurrentContext
+        slideMenuVC.transitioningDelegate = self
+        present(slideMenuVC, animated: true)
+        
+    }
+    
+    func parallaxOffset(newOffsetY: CGFloat, cell: UITableViewCell) -> CGFloat{
+           return(newOffsetY - cell.frame.origin.y) / parallexImageHeight * parallexOffsetSpeed
+       }
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        _ = tableView.contentOffset.y
+        for cell in tableView.visibleCells as! [MenuCategoryCell]{
+            cell.parallexTop.constant = parallaxOffset(newOffsetY: tableView.contentOffset.y, cell: cell)
+        }
+    }
+}
 
+extension CategoryViewController: UIViewControllerTransitioningDelegate{
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = true
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.isPresenting = false
+        return transition
+    }
 }
 
 
