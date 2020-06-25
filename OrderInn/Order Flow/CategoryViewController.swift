@@ -18,7 +18,7 @@ class CategoryViewController: UITableViewController {
     var categories = [MenuCategory]()
     let fireRef = Firestore.firestore()
     let transition = SlideTransition()
-    var parallexOffsetSpeed: CGFloat = 60
+    var parallexOffsetSpeed: CGFloat = 30
     var cellHeight: CGFloat = 150
     
     override func viewDidLoad() {

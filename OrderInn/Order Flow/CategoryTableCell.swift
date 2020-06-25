@@ -20,6 +20,7 @@ class MenuCategoryCell: UITableViewCell {
     
     
     
+    
     static let reuseIdentifier = "MenuCategoryCell"
     var category: MenuCategory?
     
@@ -44,7 +45,7 @@ class MenuCategoryCell: UITableViewCell {
         guard let url = URL(string: category.imageUrl) else { return }
         categoryPhoto.sd_setImage(with: url)
         
-        categoryPhoto.layer.cornerRadius = 15.0
+        //categoryPhoto.layer.cornerRadius = 15.0
         
     }
 
