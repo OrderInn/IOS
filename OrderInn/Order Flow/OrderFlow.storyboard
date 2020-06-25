@@ -231,28 +231,28 @@
         <scene sceneID="DGu-ra-CgJ">
             <objects>
                 <tableViewController id="Y0t-g8-dUC" customClass="CategoryViewController" customModule="OrderInn" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="20" sectionFooterHeight="28" id="ecn-ta-oU7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleAspectFit" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="300" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="20" sectionFooterHeight="28" id="ecn-ta-oU7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCategoryCell" rowHeight="120" id="6DP-tV-Q7J" customClass="MenuCategoryCell" customModule="OrderInn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCategoryCell" id="6DP-tV-Q7J" customClass="MenuCategoryCell" customModule="OrderInn" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6DP-tV-Q7J" id="KMf-Cj-qKQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d33-oC-JOo">
-                                            <rect key="frame" x="169" y="39.5" width="76" height="41"/>
+                                            <rect key="frame" x="169" y="129.5" width="76" height="41"/>
                                             <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="30"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u3d-3b-uUs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="120" id="fmu-6i-tn3"/>
+                                                <constraint firstAttribute="height" constant="300" id="fmu-6i-tn3"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -260,7 +260,6 @@
                                         <constraint firstItem="u3d-3b-uUs" firstAttribute="top" secondItem="KMf-Cj-qKQ" secondAttribute="top" id="8HI-rk-sfI"/>
                                         <constraint firstItem="u3d-3b-uUs" firstAttribute="leading" secondItem="KMf-Cj-qKQ" secondAttribute="leading" id="Epm-vz-M2M"/>
                                         <constraint firstAttribute="trailing" secondItem="u3d-3b-uUs" secondAttribute="trailing" id="GcX-qW-GcQ"/>
-                                        <constraint firstAttribute="bottom" secondItem="u3d-3b-uUs" secondAttribute="bottom" id="Gjs-XA-O7n"/>
                                         <constraint firstItem="d33-oC-JOo" firstAttribute="centerX" secondItem="KMf-Cj-qKQ" secondAttribute="centerX" id="Mp1-jf-S8S"/>
                                         <constraint firstItem="d33-oC-JOo" firstAttribute="centerY" secondItem="KMf-Cj-qKQ" secondAttribute="centerY" id="Usn-Xb-ojM"/>
                                     </constraints>
