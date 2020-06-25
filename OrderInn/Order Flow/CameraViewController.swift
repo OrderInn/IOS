@@ -13,8 +13,10 @@ import Firebase
 import SDWebImage
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
     let session = AVCaptureSession()
     let metadataOutput = AVCaptureMetadataOutput()
+    
     @IBOutlet var vfxView: UIVisualEffectView!
     @IBOutlet var cutoutView: UIView!
     
@@ -26,6 +28,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     public override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -186,12 +189,16 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 class CameraConfirmationViewController: UIViewController {
     @IBOutlet var restaurantBannerImage: UIImageView!
     @IBOutlet var restaurantTitleLabel: UILabel!
+    @IBOutlet weak var goToRestaurant: UIButton!
     
     var cameraVC: CameraViewController?
     var restaurant: Restaurant?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        goToRestaurant.layer.cornerRadius = goToRestaurant.frame.height / 2
+        
         restaurantTitleLabel.text = restaurant!.name
         
         restaurantBannerImage.alpha = 0.0

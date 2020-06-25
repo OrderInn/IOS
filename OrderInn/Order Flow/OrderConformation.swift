@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Foundation
 
 class OrderConformation: UIViewController {
     
     @IBOutlet weak var orderListTable: UITableView!
     @IBOutlet weak var totalOrderAmount: UILabel!
+    @IBOutlet weak var sendOrderButton: UIButton!
     
     let cart = OrderCart.shared
     
@@ -35,10 +37,13 @@ class OrderConformation: UIViewController {
         }
     }
     
+    
+    
     let dataSource = OrderTableViewDataSource()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sendOrderButton.layer.cornerRadius = sendOrderButton.frame.height / 2
         orderListTable.dataSource = dataSource
         if let total = cart.total {
             totalOrderAmount.text = total.asString()

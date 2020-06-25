@@ -18,11 +18,15 @@ class CategoryViewController: UITableViewController {
     var categories = [MenuCategory]()
     let fireRef = Firestore.firestore()
     let transition = SlideTransition()
-    var parallexOffsetSpeed: CGFloat = 30
-    var cellHeight: CGFloat = 150
+    var parallexOffsetSpeed: CGFloat = 50
+    var cellHeight: CGFloat = 120
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         tableView.dataSource = self
         
