@@ -14,6 +14,10 @@ class OrderConformation: UIViewController {
     @IBOutlet weak var orderListTable: UITableView!
     @IBOutlet weak var totalOrderAmount: UILabel!
     @IBOutlet weak var sendOrderButton: UIButton!
+    @IBOutlet weak var creditCardImage: UIImageView!
+    @IBOutlet var popUpView: UIView!
+    @IBOutlet weak var addPaymant: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     let cart = OrderCart.shared
     
@@ -42,6 +46,10 @@ class OrderConformation: UIViewController {
     let dataSource = OrderTableViewDataSource()
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        popUpView.clipsToBounds = true
+        popUpView.layer.cornerRadius = 10
+        popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width * 0.99, height: self.view.bounds.height * 0.4)
         
         sendOrderButton.layer.cornerRadius = sendOrderButton.frame.height / 2
         orderListTable.dataSource = dataSource
@@ -49,8 +57,34 @@ class OrderConformation: UIViewController {
             totalOrderAmount.text = total.asString()
         }
     }
+    
+    
+    
+    func animateIn(desireView: UIView){
+
+        let backgroundView = self.view!
+        backgroundView.addSubview(desireView)
+        desireView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+        desireView.alpha = 0
+        desireView.center = CGPoint(x: 207, y: 160)
+        UIView.animate(withDuration: 0.3, animations: {
+            desireView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+            desireView.alpha = 1
+        })
+    }
+    
 
     @IBAction func sentOrderButton(_ sender: Any) {
     }
+    
+    @IBAction func selectPaymantTapped(_ sender: Any) {
+        animateIn(desireView: popUpView)
+    }
+    @IBAction func cancelTapped(_ sender: Any) {
+    }
+    @IBAction func addPaymantTapped(_ sender: Any) {
+    }
+    
+    
     
 }

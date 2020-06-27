@@ -12,8 +12,6 @@
 		5835658C249E615500939282 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5835658B249E615500939282 /* AuthViewController.swift */; };
 		584EC88E248E2A1000ECC0F8 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 584EC88D248E2A1000ECC0F8 /* Currency.swift */; };
 		585C060F2498F6D600F54E16 /* findPartner.json in Resources */ = {isa = PBXBuildFile; fileRef = 585C060E2498F6D600F54E16 /* findPartner.json */; };
-		585F9AEE24A20F6A00584EB3 /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585F9AED24A20F6A00584EB3 /* SlideMenuViewController.swift */; };
-		585F9AF024A2177200584EB3 /* SlideTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585F9AEF24A2177200584EB3 /* SlideTransition.swift */; };
 		586070A92498A1AB00946D75 /* OnBordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586070A82498A1AB00946D75 /* OnBordingViewController.swift */; };
 		586070AC2498BD7A00946D75 /* lottieQrAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = 586070AB2498BD7A00946D75 /* lottieQrAnim.json */; };
 		58619BB824824027009DE778 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58619BB724824027009DE778 /* MenuViewController.swift */; };
@@ -71,8 +69,6 @@
 		5835658B249E615500939282 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		584EC88D248E2A1000ECC0F8 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		585C060E2498F6D600F54E16 /* findPartner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = findPartner.json; sourceTree = "<group>"; };
-		585F9AED24A20F6A00584EB3 /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
-		585F9AEF24A2177200584EB3 /* SlideTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideTransition.swift; sourceTree = "<group>"; };
 		586070A82498A1AB00946D75 /* OnBordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBordingViewController.swift; sourceTree = "<group>"; };
 		586070AB2498BD7A00946D75 /* lottieQrAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lottieQrAnim.json; sourceTree = "<group>"; };
 		58619BB724824027009DE778 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -197,13 +193,11 @@
 				695622C2248A47F1006BFB64 /* OrderFlowNavigationController.swift */,
 				588C56A22430A9C000B8F146 /* CameraViewController.swift */,
 				58F7087A24823B9F005390DC /* CategoryViewController.swift */,
-				58619BB724824027009DE778 /* MenuViewController.swift */,
 				586B9222248CDF6400A0BB1E /* OrderConformation.swift */,
+				58619BB724824027009DE778 /* MenuViewController.swift */,
 				586B9224248CF91000A0BB1E /* OrderConformationCell.swift */,
 				58A4F31624824AC100B011E4 /* CategoryTableCell.swift */,
 				58A4F3142482494300B011E4 /* MenuTableCell.swift */,
-				585F9AEF24A2177200584EB3 /* SlideTransition.swift */,
-				585F9AED24A20F6A00584EB3 /* SlideMenuViewController.swift */,
 			);
 			path = "Order Flow";
 			sourceTree = "<group>";
@@ -379,7 +373,6 @@
 				58619BB824824027009DE778 /* MenuViewController.swift in Sources */,
 				586B921A248AEB0900A0BB1E /* OrderCart.swift in Sources */,
 				695622C3248A47F1006BFB64 /* OrderFlowNavigationController.swift in Sources */,
-				585F9AF024A2177200584EB3 /* SlideTransition.swift in Sources */,
 				690498BA247E9BC8002AA9D8 /* QRURI.swift in Sources */,
 				58F7087B24823B9F005390DC /* CategoryViewController.swift in Sources */,
 				584EC88E248E2A1000ECC0F8 /* Currency.swift in Sources */,
@@ -389,7 +382,6 @@
 				6997B9E5247FB02700AD806A /* AuthFlowNavigationController.swift in Sources */,
 				586B9225248CF91000A0BB1E /* OrderConformationCell.swift in Sources */,
 				58A4F31724824AC100B011E4 /* CategoryTableCell.swift in Sources */,
-				585F9AEE24A20F6A00584EB3 /* SlideMenuViewController.swift in Sources */,
 				588C56A32430A9C000B8F146 /* CameraViewController.swift in Sources */,
 				58D1E2B6242D1F95009E93FE /* SceneDelegate.swift in Sources */,
 				690498BC247E9DD9002AA9D8 /* Restaurant.swift in Sources */,

@@ -17,7 +17,6 @@ class CategoryViewController: UITableViewController {
     
     var categories = [MenuCategory]()
     let fireRef = Firestore.firestore()
-    let transition = SlideTransition()
     var parallexOffsetSpeed: CGFloat = 80
     var cellHeight: CGFloat = 300
     
@@ -97,10 +96,7 @@ class CategoryViewController: UITableViewController {
     
     @IBAction func didTapSlideMenu(_ sender: UIBarButtonItem) {
         
-        guard let slideMenuVC = storyboard?.instantiateViewController(identifier: "SlideMenu") else {return}
-        slideMenuVC.modalPresentationStyle = .overCurrentContext
-        slideMenuVC.transitioningDelegate = self
-        present(slideMenuVC, animated: true)
+        
         
     }
     
@@ -115,17 +111,5 @@ class CategoryViewController: UITableViewController {
     }
 }
 
-extension CategoryViewController: UIViewControllerTransitioningDelegate{
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = true
-        return transition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.isPresenting = false
-        return transition
-    }
-}
 
 
