@@ -6,6 +6,7 @@
 //  Copyright © 2020 Ivars Ruģelis. All rights reserved.
 //
 
+import Firebase
 import UIKit
 
 class AuthViewController: UIViewController {
@@ -29,6 +30,17 @@ class AuthViewController: UIViewController {
     @IBAction func logInWithFacebookTapped(_ sender: Any) {
     }
     @IBAction func logInWithEmailTapped(_ sender: Any) {
+        let auth = Firebase.Auth.auth()
+        auth.signIn(withEmail: "abcdef@orderinn.app", password: "abcdef") { data, error in
+            guard let data = data else {
+                let error = String(describing: error)
+                NSLog("OrderInn: Auth: Something went wrong? \(error)")
+                return
+            }
+            auth.updateCurrentUser(data.user, completion: { error in
+                self.view.window?.rootViewController = UIStoryboard(name: "OrderFlow", bundle: nil).instantiateInitialViewController()!
+            })
+        }
     }
     
 
