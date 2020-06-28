@@ -61,37 +61,26 @@ class OrderConformation: UIViewController {
     
     private func setUpLayout(view: UIView){
         NSLayoutConstraint.activate([
-        
-        self.popUpView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-        self.popUpView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-        self.popUpView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
-            
+            view.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 8.0),
+            view.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -8.0),
+            view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -8.0),
         ])
     }
-    
-    func animateIn(desireView: UIView){
-
-        setUpLayout(view: desireView)
-        
-        let backgroundView = self.view!
-        backgroundView.addSubview(desireView)
-        desireView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-        desireView.alpha = 0
-        //desireView.center = CGPoint(x: 207, y: 160)
-        UIView.animate(withDuration: 0.3, animations: {
-            desireView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-            desireView.alpha = 1
-        })
-    }
-    
 
     @IBAction func sentOrderButton(_ sender: Any) {
     }
     
+    private var popUpLayoutInitialized = false
     @IBAction func selectPaymantTapped(_ sender: Any) {
-        animateIn(desireView: popUpView)
+        if !popUpLayoutInitialized {
+            view.addSubview(popUpView)
+            setUpLayout(view: popUpView)
+            popUpLayoutInitialized = true
+        }
+        AnimationUtils.animateIn(view: popUpView, style: .FadeAndSlideUp)
     }
     @IBAction func cancelTapped(_ sender: Any) {
+        AnimationUtils.animateOut(view: popUpView, style: .FadeAndSlideUp)
     }
     @IBAction func addPaymantTapped(_ sender: Any) {
     }

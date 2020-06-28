@@ -746,9 +746,8 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ivd-jX-BvV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="v9g-qe-wUi">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9g-qe-wUi">
                     <rect key="frame" x="0.0" y="0.0" width="374" height="256"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="L2U-L5-UY0">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="211"/>
@@ -802,6 +801,7 @@
                         <constraint firstItem="L2U-L5-UY0" firstAttribute="top" secondItem="v9g-qe-wUi" secondAttribute="top" id="A1x-jq-RV2"/>
                         <constraint firstItem="vrV-KT-osh" firstAttribute="trailing" secondItem="dpH-JC-3wm" secondAttribute="trailing" constant="7" id="HNL-4Q-oBi"/>
                         <constraint firstItem="vrV-KT-osh" firstAttribute="bottom" secondItem="dpH-JC-3wm" secondAttribute="bottom" constant="7" id="Pzy-8t-JCB"/>
+                        <constraint firstAttribute="height" constant="256" id="cUq-fS-GHS"/>
                         <constraint firstItem="UIt-bo-NEa" firstAttribute="top" secondItem="L2U-L5-UY0" secondAttribute="bottom" id="hTM-Lf-c8g"/>
                         <constraint firstItem="dpH-JC-3wm" firstAttribute="top" secondItem="L2U-L5-UY0" secondAttribute="bottom" id="lf2-d9-mk7"/>
                         <constraint firstItem="L2U-L5-UY0" firstAttribute="leading" secondItem="vrV-KT-osh" secondAttribute="leading" id="oAZ-il-iTp"/>
