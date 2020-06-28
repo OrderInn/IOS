@@ -40,11 +40,12 @@ class MenuCollapsedTableCell: UITableViewCell, MenuTableCellProtocol {
 class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
     static let reuseIdentifier = "MenuExpandedTableCell"
     
-    @IBOutlet weak var itemCount: UILabel!
+    @IBOutlet var itemCount: UILabel!
     @IBOutlet var itemTitle: UILabel!
     @IBOutlet var itemDescription: UILabel!
     @IBOutlet var itemPrice: UILabel!
     @IBOutlet var itemImage: UIImageView!
+    @IBOutlet var itemCountStepper: UIStepper!
 
     var cartItem: OrderCart.Entry!
     var item: MenuItem! {
@@ -64,9 +65,10 @@ class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
                 }
             }
             
-            quantitySubscription = cartItem.amount.sink(
-                receiveCompletion: { _ in },
-                receiveValue: { self.itemCount.text = String($0) })
+            quantitySubscription = cartItem.amount.sink(receiveValue: { value in
+                self.itemCount.text = String(value)
+                self.itemCountStepper.value = Double(value)
+            })
         }
     }
     var quantitySubscription: AnyCancellable?
@@ -75,12 +77,9 @@ class MenuExpandedTableCell: UITableViewCell, MenuTableCellProtocol {
         quantitySubscription?.cancel()
     }
 
-    @IBAction func itemCountUpdate(_ sender: Any) {
-        if (sender as! UIButton).tag == 0 {
-            cartItem.amount.value += 1
-        } else {
-            cartItem.amount.value -= 1
-        }
+    @IBAction func itemCountChanged(_ sender: UIStepper) {
+        let value = sender.value
+        cartItem.amount.send(Int(value))
     }
 }
 

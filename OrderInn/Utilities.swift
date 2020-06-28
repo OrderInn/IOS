@@ -84,6 +84,8 @@ extension UIViewController {
     }
 }
 
-func log(format: String, args: CVarArg...) {
-    NSLog("[OrderInn] \(format)", args)
+func log(_ format: String, _ args: CVarArg...) {
+    withVaList(args) { argPtr in
+        NSLogv("[OrderInn] \(format)", argPtr)
+    }
 }

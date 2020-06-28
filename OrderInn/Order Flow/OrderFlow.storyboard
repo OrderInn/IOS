@@ -364,7 +364,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ciB-X6-gcl" userLabel="Empty View to Remove Empty Cells">
-                            <rect key="frame" x="0.0" y="586" width="414" height="0.0"/>
+                            <rect key="frame" x="0.0" y="595" width="414" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
@@ -441,10 +441,10 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuExpandedTableCell" id="mTc-QA-qHU" userLabel="Expanded Cell" customClass="MenuExpandedTableCell" customModule="OrderInn" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="191" width="414" height="367"/>
+                                <rect key="frame" x="0.0" y="191" width="414" height="376"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mTc-QA-qHU" id="302-yJ-b7U" userLabel="Item Content View">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="367"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="376"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMP-8j-694">
@@ -471,16 +471,6 @@
                                                 <constraint firstAttribute="width" secondItem="3ex-W8-3mH" secondAttribute="height" multiplier="2:1" id="FOa-zG-cqI"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Po-wF-4kU" userLabel="Item Count in Cart">
-                                            <rect key="frame" x="347" y="335" width="11" height="21"/>
-                                            <accessibility key="accessibilityConfiguration" label="Selected Item Count"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="11" id="Xxi-Z6-nEt"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aht-BO-TOk" userLabel="Item Description">
                                             <rect key="frame" x="8" y="249" width="398" height="79"/>
                                             <gestureRecognizers/>
@@ -489,66 +479,45 @@
                                             <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DfV-Tb-iL4" userLabel="Add Item">
-                                            <rect key="frame" x="357" y="330" width="49" height="31"/>
-                                            <accessibility key="accessibilityConfiguration" label="Add One to Order"/>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="B79-jM-Q1L">
+                                            <rect key="frame" x="8" y="336" width="94" height="32"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="aSa-d6-8Uo"/>
-                                                <constraint firstAttribute="width" constant="49" id="ym2-fx-Wbl"/>
+                                                <constraint firstAttribute="height" constant="32" id="HEv-oM-Ih8"/>
                                             </constraints>
-                                            <state key="normal" image="plus.circle" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                </preferredSymbolConfiguration>
-                                            </state>
                                             <connections>
-                                                <action selector="itemCountUpdate:" destination="mTc-QA-qHU" eventType="touchUpInside" id="Vef-LG-rlV"/>
+                                                <action selector="itemCountChanged:" destination="mTc-QA-qHU" eventType="valueChanged" id="amv-xL-3vY"/>
                                             </connections>
-                                        </button>
-                                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjN-TF-Fqf" userLabel="Subtract Item">
-                                            <rect key="frame" x="302" y="331" width="37" height="29"/>
-                                            <accessibility key="accessibilityConfiguration" label="Subtract One from Order">
-                                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
-                                            </accessibility>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="37" id="cQj-5I-cGS"/>
-                                                <constraint firstAttribute="height" constant="29" id="p0d-q6-frH"/>
-                                            </constraints>
-                                            <color key="tintColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" image="minus.circle" catalog="system">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                </preferredSymbolConfiguration>
-                                            </state>
-                                            <state key="disabled" image="minus.circle" catalog="system"/>
-                                            <connections>
-                                                <action selector="itemCountUpdate:" destination="mTc-QA-qHU" eventType="touchUpInside" id="yl5-mr-Q0g"/>
-                                            </connections>
-                                        </button>
+                                        </stepper>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Po-wF-4kU" userLabel="Item Count in Cart">
+                                            <rect key="frame" x="110" y="342" width="11" height="20.5"/>
+                                            <accessibility key="accessibilityConfiguration" label="Selected Item Count"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="SJl-Hc-2nW" firstAttribute="leading" secondItem="hMP-8j-694" secondAttribute="trailing" id="1Xf-it-PgI"/>
                                         <constraint firstAttribute="trailing" secondItem="SJl-Hc-2nW" secondAttribute="trailing" constant="8" id="2vj-lx-MDA"/>
-                                        <constraint firstItem="QjN-TF-Fqf" firstAttribute="bottom" secondItem="302-yJ-b7U" secondAttribute="bottomMargin" constant="4" id="Av2-H7-zXv"/>
                                         <constraint firstItem="3ex-W8-3mH" firstAttribute="top" secondItem="302-yJ-b7U" secondAttribute="top" constant="5" id="B2H-uG-zDe"/>
                                         <constraint firstAttribute="trailing" secondItem="Aht-BO-TOk" secondAttribute="trailing" constant="8" id="DTh-vt-eAV"/>
-                                        <constraint firstItem="DfV-Tb-iL4" firstAttribute="leading" secondItem="3Po-wF-4kU" secondAttribute="trailing" constant="-1" id="Gmd-R9-Hmg"/>
-                                        <constraint firstAttribute="bottom" secondItem="3Po-wF-4kU" secondAttribute="bottom" constant="11" id="I0g-rB-uQ9"/>
-                                        <constraint firstItem="QjN-TF-Fqf" firstAttribute="leading" secondItem="302-yJ-b7U" secondAttribute="leadingMargin" constant="282" id="MtZ-GY-Uao"/>
+                                        <constraint firstAttribute="bottom" secondItem="B79-jM-Q1L" secondAttribute="bottom" constant="8" id="PLb-PQ-gJ5"/>
                                         <constraint firstAttribute="trailing" secondItem="3ex-W8-3mH" secondAttribute="trailing" id="RaN-BV-lzb"/>
-                                        <constraint firstItem="3Po-wF-4kU" firstAttribute="leading" secondItem="QjN-TF-Fqf" secondAttribute="trailing" constant="8" id="Ru4-KW-xkb"/>
                                         <constraint firstItem="3ex-W8-3mH" firstAttribute="leading" secondItem="302-yJ-b7U" secondAttribute="leading" id="SCr-Tp-Wh0"/>
                                         <constraint firstItem="hMP-8j-694" firstAttribute="top" secondItem="3ex-W8-3mH" secondAttribute="bottom" constant="8" id="Sjn-zn-dzw"/>
-                                        <constraint firstItem="DfV-Tb-iL4" firstAttribute="bottom" secondItem="302-yJ-b7U" secondAttribute="bottomMargin" constant="5" id="ZgZ-ob-Ydf"/>
+                                        <constraint firstItem="3Po-wF-4kU" firstAttribute="centerY" secondItem="B79-jM-Q1L" secondAttribute="centerY" id="W54-Lx-F8A"/>
                                         <constraint firstItem="Aht-BO-TOk" firstAttribute="leading" secondItem="302-yJ-b7U" secondAttribute="leading" constant="8" id="aW7-ml-iWS"/>
                                         <constraint firstItem="SJl-Hc-2nW" firstAttribute="firstBaseline" secondItem="hMP-8j-694" secondAttribute="firstBaseline" id="cFI-lO-Wi3"/>
-                                        <constraint firstItem="Aht-BO-TOk" firstAttribute="bottom" secondItem="QjN-TF-Fqf" secondAttribute="top" constant="-3" id="dMb-ZG-xcB"/>
+                                        <constraint firstItem="B79-jM-Q1L" firstAttribute="leading" secondItem="302-yJ-b7U" secondAttribute="leading" constant="8" id="jEj-OZ-GH6"/>
+                                        <constraint firstItem="B79-jM-Q1L" firstAttribute="top" secondItem="Aht-BO-TOk" secondAttribute="bottom" constant="8" id="m88-g6-tfv"/>
+                                        <constraint firstItem="3Po-wF-4kU" firstAttribute="leading" secondItem="B79-jM-Q1L" secondAttribute="trailing" constant="8" id="pHG-v0-PeP"/>
                                         <constraint firstItem="Aht-BO-TOk" firstAttribute="firstBaseline" secondItem="hMP-8j-694" secondAttribute="baseline" constant="20" id="uq8-t4-SIE"/>
                                         <constraint firstItem="hMP-8j-694" firstAttribute="leading" secondItem="302-yJ-b7U" secondAttribute="leadingMargin" constant="-8" id="vHQ-Iq-1rj"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="itemCount" destination="3Po-wF-4kU" id="99K-yi-jNm"/>
+                                    <outlet property="itemCountStepper" destination="B79-jM-Q1L" id="An6-Yu-DMe"/>
                                     <outlet property="itemDescription" destination="Aht-BO-TOk" id="a0Z-0i-Kyx"/>
                                     <outlet property="itemImage" destination="3ex-W8-3mH" id="7eV-8c-itb"/>
                                     <outlet property="itemPrice" destination="SJl-Hc-2nW" id="vFd-HB-8DJ"/>
@@ -818,8 +787,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="creditcard.fill" catalog="system" width="128" height="91"/>
-        <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="plus.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>
