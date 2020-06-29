@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import OrderInnAPIKit
 
 struct Currency {
     typealias Symbol = String
@@ -36,6 +37,11 @@ struct Currency {
     
     init(symbol: Symbol) {
         self.init(symbol: symbol, value: 0)
+    }
+
+    init(from source: OrderInnAPIKit.Currency) {
+        symbol = Symbol(String(source.symbol))
+        value = Int(source.value)
     }
     
     static func *(lhs: Currency, rhs: Int) -> Currency {

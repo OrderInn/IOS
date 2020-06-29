@@ -9,6 +9,7 @@ struct Restaurant {
     let logoImageUrl, bannerImageUrl: URL?
     var logoImage: UIImage? = nil
     var bannerImage: UIImage? = nil
+    var apiKit: OrderInnAPIKit.Restaurant?
 
     static func tryLoad(withId id: String, from source: Firebase.Firestore, callback: @escaping (Restaurant?) -> Void) {
         source.collection("restaurants").document(id).getDocument { (document, error) in
@@ -43,5 +44,6 @@ struct Restaurant {
         self.name = source.name
         self.bannerImageUrl = source.images.banner.url
         self.logoImageUrl = source.images.logo.url
+        self.apiKit = source
     }
 }

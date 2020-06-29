@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import Firebase
+import OrderInnAPIKit
 
 class MenuItemViewController: UITableViewController {
     
@@ -19,8 +19,6 @@ class MenuItemViewController: UITableViewController {
     var properties: MenuItem?
     var items = [MenuItem]()
     var isRowExpanded = [Int: Bool]()
-    
-    let fireRef = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,35 +33,8 @@ class MenuItemViewController: UITableViewController {
     // MARK: Data stuff
     
     func loadItems(_ completion: @escaping () -> Void) {
-        fireRef.collection("restaurants")
-        .document(restaurant!.id)
-        .collection("menu")
-        .whereField("category", isEqualTo: category!.id)
-        .getDocuments { (snapshot, error) in
-            if error != nil {
-                NSLog("OrderInn: MenuItemVC: Failed to fetch menu items: %s", error.debugDescription)
-                // TODO: show alert
-                self.navigationController?.popViewController(animated: true)
-                return
-            }
-        
-            guard let documents = snapshot?.documents else {
-                NSLog("OrderInn: MenuItemVC: Category %s is empty", self.category!.id)
-                // TODO: show notice or alert
-                self.navigationController?.popViewController(animated: true)
-                return
-            }
-
-            for doc in documents {
-                guard let menuItem = MenuItem(doc) else {
-                    NSLog("OrderInn: MenuItemVC: Malformed menu item with id %s", doc.documentID)
-                    continue
-                }
-                self.items.append(menuItem)
-            }
-            
-            completion()
-        }
+        self.items = category!.apiKit!.items.map { MenuItem(from: $0) }
+        completion()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

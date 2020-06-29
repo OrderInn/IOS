@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-import Firebase
+import OrderInnAPIKit
 
 class CategoryViewController: UITableViewController {
     
@@ -16,7 +16,6 @@ class CategoryViewController: UITableViewController {
     var tableId, seatId: String?
     
     var categories = [MenuCategory]()
-    let fireRef = Firestore.firestore()
     var parallexOffsetSpeed: CGFloat = 80
     var cellHeight: CGFloat = 300
     
@@ -29,10 +28,12 @@ class CategoryViewController: UITableViewController {
         
         tableView.dataSource = self
         
-        loadCategories { (categories) in
-            self.categories = categories
-            self.categories.sort(by: { (a, b) in a.order < b.order })
-            self.tableView.reloadData()
+        loadCategories { categories in
+            DispatchQueue.main.async {
+                self.categories = categories
+                self.categories.sort(by: { (a, b) in a.order < b.order })
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -43,24 +44,13 @@ class CategoryViewController: UITableViewController {
     }
 
     func loadCategories(_ completion: @escaping ([MenuCategory]) -> Void) {
-        fireRef.collection("restaurants").document(restaurant!.id).collection("menu_categories").getDocuments { (snapshot, error) in
-            if error != nil {
-                NSLog("OrderInn: MenuVC: Failed to load categories: %s", error.debugDescription)
+        Client.shared.getMenu(for: restaurant!.apiKit!) { categories, items, error in
+            guard error == nil else {
+                // TODO should actually do something here
+                log("Failed to load menu: %@", String(describing: error))
                 return
             }
-            let documents = snapshot?.documents
-            if let documents = documents{
-                var categoriesArray = [MenuCategory]()
-                for doc in documents {
-                    guard let category = MenuCategory(doc) else {
-                        NSLog("OrderInn: MenuVC: Malformed category with id %s", doc.documentID)
-                        continue
-                    }
-                    categoriesArray.append(category)
-                }
-                completion(categoriesArray)
-            }
-            
+            completion(categories!.map { MenuCategory(from: $0) })
         }
     }
 
