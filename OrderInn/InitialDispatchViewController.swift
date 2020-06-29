@@ -6,7 +6,6 @@
 //  Copyright © 2020 Ivars Ruģelis. All rights reserved.
 //
 
-import Firebase
 import Foundation
 import UIKit
 
@@ -14,19 +13,18 @@ class InitialDispatchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var storyboard: UIStoryboard
-        if Firebase.Auth.auth().currentUser == nil {
-            storyboard = UIStoryboard(name: "Onbording", bundle: nil)
-        } else {
+        let storyboard: UIStoryboard
+        if UserDefaults.standard.bool(forKey: "group.orderinn.ios.order.is-user-logged-in") {
             storyboard = UIStoryboard(name: "OrderFlow", bundle: nil)
+        } else {
+            storyboard = UIStoryboard(name: "Onbording", bundle: nil)
         }
-        
-        let destination = storyboard.instantiateInitialViewController()!
 
-        let segue = UIStoryboardSegue(identifier: nil, source: self, destination: destination, performHandler: {
-            // TODO this is still one huge hack
+        let destination = storyboard.instantiateInitialViewController()!
+        let segue = UIStoryboardSegue(identifier: nil, source: self, destination: destination) {
+            // TODO: this is still one huge hack
             UIApplication.shared.windows.first?.rootViewController = destination
-        })
+        }
         segue.perform()
     }
 }

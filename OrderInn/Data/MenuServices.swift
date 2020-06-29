@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import Firebase
 import OrderInnAPIKit
+import UIKit
 
 class MenuItem {
     var id, name, imageUrl, category: String
@@ -17,26 +17,6 @@ class MenuItem {
     var image: UIImage?
     var price: Currency
     var apiKit: OrderInnAPIKit.RestaurantMenuItem!
-    
-    init?(_ doc: QueryDocumentSnapshot) {
-        let data = doc.data()
-        id = doc.documentID
-        
-        guard let name = data["name"] as? String else { return nil }
-        self.name = name
-        
-        guard let imageUrl = data["image"] as? String else { return nil }
-        self.imageUrl = imageUrl
-        
-        guard let category = data["category"] as? String else { return nil }
-        self.category = category
-        
-        guard let order = data["order"] as? Int else { return nil }
-        self.order = order
-        
-        // TODO[pn] remove missing handling because it should not be missing
-        price = Currency(from: data["price", default: "EUR 0.00"] as! String)!
-    }
 
     init(from source: OrderInnAPIKit.RestaurantMenuItem) {
         self.id = String(source.id)
@@ -55,21 +35,6 @@ class MenuCategory {
     var id, name, imageUrl: String
     var order: Int
     var apiKit: OrderInnAPIKit.RestaurantMenuCategory!
-    
-    init?(_ doc: QueryDocumentSnapshot) {
-        let data = doc.data()
-        id = doc.documentID
-
-        guard let name = data["name"] as? String else { return nil }
-        self.name = name
-        
-        guard let imageUrl = data["image"] as? String else { return nil }
-        self.imageUrl = imageUrl
-        
-        guard let order = data["order"] as? Int else { return nil }
-        self.order = order
- 
-    }
 
     init(from source: OrderInnAPIKit.RestaurantMenuCategory) {
         id = String(source.id)

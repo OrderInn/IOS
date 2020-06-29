@@ -5,28 +5,9 @@ target 'OrderInn' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for OrderInn
-# add the Firebase pod for Google Analytics
-pod 'Firebase/Analytics'
-# add pods for any other desired Firebase products
-# https://firebase.google.com/docs/ios/setup#available-pods
+  pod 'SDWebImage', '~>4.0'
 
- 
-
-pod 'Firebase/Database'
-pod 'Firebase/Core'
-pod 'Firebase/Storage'
-pod 'FirebaseUI/Auth'
-pod 'Firebase/Auth'
-pod 'FirebaseUI/Email'
-pod 'Firebase/Firestore'
-
-
-pod 'GoogleSignIn'
-
-pod 'SDWebImage', '~>4.0'
-
-pod 'lottie-ios'
+  pod 'lottie-ios'
 
 
 end

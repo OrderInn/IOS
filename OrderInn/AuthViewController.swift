@@ -6,7 +6,7 @@
 //  Copyright © 2020 Ivars Ruģelis. All rights reserved.
 //
 
-import Firebase
+import OrderInnAPIKit
 import UIKit
 
 class AuthViewController: UIViewController {
@@ -30,19 +30,24 @@ class AuthViewController: UIViewController {
     @IBAction func logInWithFacebookTapped(_ sender: Any) {
     }
     @IBAction func logInWithEmailTapped(_ sender: Any) {
-        let auth = Firebase.Auth.auth()
-        auth.signIn(withEmail: "abcdef@orderinn.app", password: "abcdef") { data, error in
-            guard let data = data else {
-                let error = String(describing: error)
-                NSLog("OrderInn: Auth: Something went wrong? \(error)")
-                return
+        // TODO: implement proper email auth
+        Client.shared.legacyLoginWithEmailAndPassword(email: "abcdef@test.orderinn.app", password: "abcdef") {
+            user, error in
+            DispatchQueue.main.async {
+                if user != nil {
+                    UserDefaults.standard.set(true, forKey: "group.orderinn.ios.order.is-user-logged-in")
+                    self.view.window?.rootViewController = UIStoryboard(name: "OrderFlow", bundle: nil).instantiateInitialViewController()!
+                } else {
+                    log("Error while logging in: %@", String(describing: error))
+                    let message: String
+                    if error is APIError {
+                        message = (error as! APIError).message
+                    } else {
+                        message = "Sorry, something went wrong. Please try again later."
+                    }
+                    self.showConfirmAlert(title: "Could Not Log In", message: message, completion: noop)
+                }
             }
-            auth.updateCurrentUser(data.user, completion: { error in
-                self.view.window?.rootViewController = UIStoryboard(name: "OrderFlow", bundle: nil).instantiateInitialViewController()!
-            })
         }
     }
-    
-
-
 }
