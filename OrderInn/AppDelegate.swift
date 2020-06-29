@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import OrderInnAPIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+
+        var initFinished = false
+        let initCondition = NSCondition()
+
+        let bundle = Bundle(for: AppDelegate.self)
+        let version = bundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let build = bundle.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+        let configuration = ClientConfiguration(environment: .staging,
+                                                clientId: "yg6183qd99sim2rybcuqekqdwc1v3agf",
+                                                clientString: "OrderInn.iOS/v\(version)-\(build)",
+                                                tokenStorage: .keychain,
+                                                serverConnection: .http)
+        Client.configure(configuration: configuration, completion: { error in
+            log("Token minted or loaded with error: %@", String(describing: error))
+            initFinished = true
+            initCondition.signal()
+        })
+        if !initFinished {
+            initCondition.wait()
+        }
+
         return true
     }
 
