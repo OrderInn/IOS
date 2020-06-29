@@ -1,6 +1,7 @@
 import Firebase
 import Foundation
 import UIKit
+import OrderInnAPIKit
 
 struct Restaurant {
     let id: String
@@ -26,7 +27,21 @@ struct Restaurant {
         return Restaurant.init(
             id: document.documentID,
             name: data["name"] as! String,
-            logoImageUrl: URL.init(string: data["logo_image"] as! String),
-            bannerImageUrl: URL.init(string: data["banner_image"] as! String))
+            logoImageUrl: URL.init(string: data["logo_image"] as! String)!,
+            bannerImageUrl: URL.init(string: data["banner_image"] as! String)!)
+    }
+
+    init(id: String, name: String, logoImageUrl: URL, bannerImageUrl: URL) {
+        self.id = id
+        self.name = name
+        self.logoImageUrl = logoImageUrl
+        self.bannerImageUrl = bannerImageUrl
+    }
+
+    init(from source: OrderInnAPIKit.Restaurant) {
+        self.id = String(source.id)
+        self.name = source.name
+        self.bannerImageUrl = source.images.banner.url
+        self.logoImageUrl = source.images.logo.url
     }
 }

@@ -8,8 +8,7 @@
 
 import UIKit
 import AVFoundation
-import FirebaseDatabase
-import Firebase
+import OrderInnAPIKit
 import SDWebImage
 
 class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
@@ -60,7 +59,7 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
     public func sessionSetup(){
         guard let device = AVCaptureDevice.default(for: .video) else {
             errorAlert("No Camera detected") {
-                self.handleQrRead(result: "orderinn://qr1/abcdef/ghi/1")
+                self.handleQrRead(result: "orderinn://qr1/D6LPUa217IA/t1/s1")
             }
             return
         }
@@ -162,13 +161,17 @@ class CameraViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         
         // TODO: show loading spinner
         self.readResult = uri
-        Restaurant.tryLoad(withId: uri.restaurant, from: Firestore.firestore()) { maybeRestaurant in
-            if let restaurant = maybeRestaurant {
-                self.restaurant = restaurant
-                self.performSegue(withIdentifier: "presentConfirmationView", sender: nil)
-            } else {
-                self.errorAlert("Sorry, that code doesn't seem to be valid.") {
-                    self.session.startRunning()
+
+        Client.shared.getRestaurant(withId: OrderInnAPIKit.Restaurant.ID(uri.restaurant)) {
+            maybeRestaurant, categories, error in
+            DispatchQueue.main.async {
+                if let restaurant = maybeRestaurant {
+                    self.restaurant = Restaurant(from: restaurant)
+                    self.performSegue(withIdentifier: "presentConfirmationView", sender: nil)
+                } else {
+                    self.errorAlert("Sorry, that code doesn't seem to be valid.") {
+                        self.session.startRunning()
+                    }
                 }
             }
         }
